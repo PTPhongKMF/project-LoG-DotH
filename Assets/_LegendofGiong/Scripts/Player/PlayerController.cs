@@ -4,12 +4,12 @@ using UnityEngine;
 
 public class PlayerController : MonoBehaviour {
     private InputManager inputManager;
-    private CameraController cameraController;
+    //private CameraController cameraController;
     private PlayerLocomotion playerLocomotion;
 
     private void Awake() {
         inputManager = GetComponent<InputManager>();
-        cameraController = FindObjectOfType<CameraController>();
+        //cameraController = FindObjectOfType<CameraController>();
         playerLocomotion = GetComponent<PlayerLocomotion>();
     }
 
@@ -22,6 +22,6 @@ public class PlayerController : MonoBehaviour {
     }
 
     private void LateUpdate() {
-        cameraController.HandleAllCameraMovement();
+        //cameraController.HandleAllCameraMovement();
     }
 }
