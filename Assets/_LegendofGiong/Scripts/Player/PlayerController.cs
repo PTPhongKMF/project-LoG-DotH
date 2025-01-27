@@ -3,19 +3,25 @@ using System.Collections.Generic;
 using UnityEngine;
 
 public class PlayerController : MonoBehaviour {
-    InputManager inputManager;
-    PlayerLocomotion playerLocomotion;
+    private InputManager inputManager;
+    private CameraController cameraController;
+    private PlayerLocomotion playerLocomotion;
 
-    public void Awake() {
+    private void Awake() {
         inputManager = GetComponent<InputManager>();
+        cameraController = FindObjectOfType<CameraController>();
         playerLocomotion = GetComponent<PlayerLocomotion>();
     }
 
-    public void Update() { 
+    private void Update() { 
         inputManager.HandleAllInput();
     }
 
-    public void FixedUpdate() {
+    private void FixedUpdate() {
         playerLocomotion.HandleAllMovement();
+    }
+
+    private void LateUpdate() {
+        cameraController.HandleAllCameraMovement();
     }
 }

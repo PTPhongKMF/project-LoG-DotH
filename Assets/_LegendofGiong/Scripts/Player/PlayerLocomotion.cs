@@ -4,7 +4,7 @@ using Unity.Mathematics;
 using UnityEngine;
 
 public class PlayerLocomotion : MonoBehaviour {
-    InputManager inputManager;
+    private InputManager inputManager;
 
     private Vector3 moveDirection;
     private Transform cameraObject;

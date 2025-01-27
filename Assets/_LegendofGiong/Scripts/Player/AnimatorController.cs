@@ -2,8 +2,8 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class AnimatorManager : MonoBehaviour {
-    Animator animator;
+public class AnimatorController : MonoBehaviour {
+    private Animator animator;
 
     private int horizontal;
     private int vertical;
