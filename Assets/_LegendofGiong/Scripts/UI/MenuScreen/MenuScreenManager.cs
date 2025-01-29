@@ -2,10 +2,10 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class TitleScreenManager : MonoBehaviour {
+public class MenuScreenManager : MonoBehaviour {
     
 
     public void StartNewGame() {
-        StartCoroutine(WorldSaveGameManager.Instance.LoadNewGame());
+        StartCoroutine(WorldManager.Instance.LoadNewGame());
     }
 }

@@ -6,20 +6,20 @@ using UnityEngine.SceneManagement;
 public class PlayerInputController : MonoBehaviour {
     private static PlayerInputController instance;
     public static PlayerInputController Instance {
-        get {
-            return instance;
-        }
-        private set {
-            instance = value;
-        }
+        get => instance;
+        private set => instance = value;
     }
 
     PlayerControls playerControls;
 
-    [SerializeField] private Vector2 movementInput;
-    [SerializeField] private float horizontalInput;
-    [SerializeField] private float verticalInput;
+    [SerializeField] private Vector2 movementInput; // keyboard WASD input
+    public float HorizontalMovementInput() => movementInput.x;
+    public float VerticalMovementInput() => movementInput.y;
     public float moveAmount;
+
+    [SerializeField] private Vector2 lookInput; // mouse input
+    public float HorizontalLookInput() => lookInput.x;
+    public float VerticalLookInput() => lookInput.y;
 
 
     private void Awake() {
@@ -39,22 +39,15 @@ public class PlayerInputController : MonoBehaviour {
         instance.enabled = false;
     }
 
-    private void OnSceneChange(Scene previousScene, Scene currentScene) {
-        SceneMetadata metadata = FindObjectOfType<SceneMetadata>();
-
-        if (metadata.isPlayerMovable) {
-            instance.enabled = true; 
-        } else {
-            instance.enabled = false; 
-        }
-    }
-
     private void OnEnable() {
         if (playerControls == null) {
             playerControls = new PlayerControls();
 
             playerControls.Player.Move.performed += i => movementInput = i.ReadValue<Vector2>();
             playerControls.Player.Move.canceled += i => movementInput = i.ReadValue<Vector2>();
+
+            playerControls.Camera.Look.performed += i => lookInput = i.ReadValue<Vector2>();
+            playerControls.Camera.Look.canceled += i => lookInput = i.ReadValue<Vector2>();
         }
 
         playerControls.Enable();
@@ -64,22 +57,40 @@ public class PlayerInputController : MonoBehaviour {
         SceneManager.activeSceneChanged -= OnSceneChange;
     }
 
-    private void Update() {
-        HandleMovementInput();
-    }
-
-    private void HandleMovementInput() {
-        horizontalInput = movementInput.x;
-        verticalInput = movementInput.y;
-
-        if (horizontalInput != 0 || verticalInput != 0) {
-            moveAmount = 1f; // moving
-        } else {
-            moveAmount = 0f; // idle
+    private void OnApplicationFocus(bool focus) {
+        if (enabled) {
+            if (focus) {
+                playerControls.Enable();
+            } else {
+                playerControls.Disable();
+            }
         }
     }
 
-    public (float, float) GetHorizontalAndVerticalInputs() {
-        return (horizontalInput, verticalInput);
+    private void Update() {
+        HandlePlayerMovementInput();
+        HandleCameraLookInput();
+    }
+
+    private void HandlePlayerMovementInput() {
+        if (movementInput.x != 0 || movementInput.y != 0) {
+            moveAmount = 1f; // is moving
+        } else {
+            moveAmount = 0f; // is idle
+        }
+    }
+
+    private void HandleCameraLookInput() {
+
+    }
+
+    private void OnSceneChange(Scene previousScene, Scene currentScene) {
+        SceneMetadata metadata = FindObjectOfType<SceneMetadata>();
+
+        if (metadata.isPlayerMovable) {
+            instance.enabled = true;
+        } else {
+            instance.enabled = false;
+        }
     }
 }

@@ -3,15 +3,11 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
-public class WorldSaveGameManager : MonoBehaviour {
-    private static WorldSaveGameManager instance;
-    public static WorldSaveGameManager Instance {
-        get {
-            return instance;
-        }
-        private set {
-            instance = value;
-        }
+public class WorldManager : MonoBehaviour {
+    private static WorldManager instance;
+    public static WorldManager Instance {
+        get => instance;
+        private set => instance = value;
     }
 
     [SerializeField] private int worldSceneIndex;

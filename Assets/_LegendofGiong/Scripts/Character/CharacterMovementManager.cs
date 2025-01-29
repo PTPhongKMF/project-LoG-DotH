@@ -14,4 +14,8 @@ public class CharacterMovementManager : MonoBehaviour {
     protected virtual void Update() {
         
     }
+
+    protected virtual void LateUpdate() {
+
+    }
 }

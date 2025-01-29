@@ -5,7 +5,7 @@ using UnityEngine;
 public class PlayerLocomotionController : CharacterLocomotionManager {
     private PlayerMovementController playerMovementController;
 
-    public float horizontalMovement; 
+    public float horizontalMovement;
     public float verticalMovement;
 
     private Vector3 moveDirection;
@@ -28,10 +28,11 @@ public class PlayerLocomotionController : CharacterLocomotionManager {
     }
 
     private void HandleGroundedMovement() {
-        (horizontalMovement, verticalMovement) = PlayerInputController.Instance.GetHorizontalAndVerticalInputs();
+        horizontalMovement = PlayerInputController.Instance.HorizontalMovementInput();
+        verticalMovement = PlayerInputController.Instance.VerticalMovementInput();
 
-        moveDirection = PlayerCamera.Instance.transform.right * horizontalMovement;
-        moveDirection = moveDirection + PlayerCamera.Instance.transform.forward * verticalMovement; 
+        moveDirection = PlayerCameraManager.Instance.transform.right * horizontalMovement;
+        moveDirection = moveDirection + PlayerCameraManager.Instance.transform.forward * verticalMovement;
         moveDirection.Normalize();
         moveDirection.y = 0;
 
@@ -42,8 +43,8 @@ public class PlayerLocomotionController : CharacterLocomotionManager {
 
     private void HandleRotation() {
         targetRotationDirection = Vector3.zero;
-        targetRotationDirection = PlayerCamera.Instance.cameraObject.transform.right * horizontalMovement;
-        targetRotationDirection = targetRotationDirection + PlayerCamera.Instance.cameraObject.transform.forward * verticalMovement;
+        targetRotationDirection = PlayerCameraManager.Instance.transform.right * horizontalMovement;
+        targetRotationDirection = targetRotationDirection + PlayerCameraManager.Instance.transform.forward * verticalMovement;
         targetRotationDirection.Normalize();
         targetRotationDirection.y = 0;
 
@@ -51,8 +52,9 @@ public class PlayerLocomotionController : CharacterLocomotionManager {
             targetRotationDirection = transform.forward;
         }
 
-        Quaternion newRotation = Quaternion.LookRotation(targetRotationDirection);
-        Quaternion targetRotation = Quaternion.Slerp(transform.rotation, newRotation, rotationSpeed  * Time.deltaTime);
-        transform.rotation = targetRotation;
+        if (moveDirection != Vector3.zero) {
+            Quaternion newRotation = Quaternion.LookRotation(targetRotationDirection);
+            transform.rotation = Quaternion.Slerp(transform.rotation, newRotation, rotationSpeed * Time.deltaTime);
+        }
     }
 }

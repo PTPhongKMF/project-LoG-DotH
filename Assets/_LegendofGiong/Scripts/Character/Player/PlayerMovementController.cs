@@ -14,4 +14,9 @@ public class PlayerMovementController : CharacterMovementManager {
         base.Update();
         playerLocomotionController.HandleAllMovement(); 
     }
+
+    protected override void LateUpdate() {
+        base.LateUpdate();
+        PlayerCameraManager.Instance.HandleAllCameraAction();
+    }
 }
