@@ -13,8 +13,8 @@ public class PlayerCameraManager : MonoBehaviour {
     public Transform viewpointObject;
     public Camera cameraObject;
 
-    public float horizontalLookSensitivity = 110f;
-    public float verticalLookSensitivity = 80f;
+    public float horizontalLookSensitivity = 50f;
+    public float verticalLookSensitivity = 30f;
     [SerializeField] private float minVerticalAngle = -89f;
     [SerializeField] private float maxVerticalAngle = 89f;
 

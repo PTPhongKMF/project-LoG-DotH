@@ -3,18 +3,20 @@ using System.Collections.Generic;
 using UnityEngine;
 
 public class PlayerLocomotionController : CharacterLocomotionManager {
-    private PlayerMovementController playerMovementController;
+    public PlayerMovementController playerMovementController;
 
-    public float horizontalMovement;
-    public float verticalMovement;
+    private float horizontalMovement;
+    private float verticalMovement;
 
     private Vector3 moveDirection;
     private Vector3 targetRotationDirection;
+    [HideInInspector] public float walkSpeed = 2f;
+    [HideInInspector] public float runSpeed = 7f;
+    [HideInInspector] public float dodgeSpeed = 7f;
+    [HideInInspector] public float sprintSpeed = 10f;
+    [HideInInspector] public float rotationSpeed = 15f;
 
-    //[SerializeField] private float walkSpeed = 2f;
-    [SerializeField] private float runSpeed = 7f;
-    //[SerializeField] private float sprintSpeed = 10f;
-    [SerializeField] private float rotationSpeed = 15f;
+    public Vector3 dodgeDirection;
 
     protected override void Awake() {
         base.Awake();
@@ -23,30 +25,34 @@ public class PlayerLocomotionController : CharacterLocomotionManager {
     }
 
     public void HandleAllMovement() {
+        if (playerMovementController.isPerformingAction) return;
+
+        GetMovementInput();
         HandleGroundedMovement();
         HandleRotation();
     }
 
     private void HandleGroundedMovement() {
-        horizontalMovement = PlayerInputController.Instance.HorizontalMovementInput();
-        verticalMovement = PlayerInputController.Instance.VerticalMovementInput();
+        moveDirection = GetGroundedDirection(moveDirection, horizontalMovement, verticalMovement);
 
-        moveDirection = PlayerCameraManager.Instance.transform.right * horizontalMovement;
-        moveDirection = moveDirection + PlayerCameraManager.Instance.transform.forward * verticalMovement;
-        moveDirection.Normalize();
-        moveDirection.y = 0;
-
-        if (PlayerInputController.Instance.moveAmount == 1f) {
-            playerMovementController.characterController.Move(moveDirection * runSpeed * Time.deltaTime);
+        if (true) {
+            switch (PlayerInputController.Instance.moveValue) {
+                case 1f:
+                    playerMovementController.characterController.Move(moveDirection * runSpeed * Time.deltaTime);
+                    break;
+                case 0.5f:
+                    playerMovementController.characterController.Move(moveDirection * walkSpeed * Time.deltaTime);
+                    break;
+                case 1.5f:
+                    playerMovementController.characterController.Move(moveDirection * sprintSpeed * Time.deltaTime);
+                    break;
+            }
         }
     }
 
     private void HandleRotation() {
         targetRotationDirection = Vector3.zero;
-        targetRotationDirection = PlayerCameraManager.Instance.transform.right * horizontalMovement;
-        targetRotationDirection = targetRotationDirection + PlayerCameraManager.Instance.transform.forward * verticalMovement;
-        targetRotationDirection.Normalize();
-        targetRotationDirection.y = 0;
+        targetRotationDirection = GetGroundedDirection(targetRotationDirection, horizontalMovement, verticalMovement);
 
         if (targetRotationDirection == Vector3.zero) {
             targetRotationDirection = transform.forward;
@@ -56,5 +62,34 @@ public class PlayerLocomotionController : CharacterLocomotionManager {
             Quaternion newRotation = Quaternion.LookRotation(targetRotationDirection);
             transform.rotation = Quaternion.Slerp(transform.rotation, newRotation, rotationSpeed * Time.deltaTime);
         }
+    }
+
+    public void AttemptToPerformDodge() {
+        if (playerMovementController.isPerformingAction) return; // player is busy, do not perform action
+
+        if (horizontalMovement != 0 || verticalMovement != 0) {
+            dodgeDirection = GetGroundedDirection(dodgeDirection, horizontalMovement, verticalMovement);
+        } else {
+            dodgeDirection = transform.forward; // the direction of the player current facing toward
+        }
+
+        Quaternion playerRotation = Quaternion.LookRotation(dodgeDirection);
+        playerMovementController.transform.rotation = playerRotation;
+
+        playerMovementController.playerAnimatorController.PlayTargetActionAnimation("B_RollForward", true);
+    }
+
+    private void GetMovementInput() {
+        horizontalMovement = PlayerInputController.Instance.HorizontalMovementInput();
+        verticalMovement = PlayerInputController.Instance.VerticalMovementInput();
+    }
+
+    private Vector3 GetGroundedDirection(Vector3 direction, float horizontalValue, float verticalValue) {
+        direction = PlayerCameraManager.Instance.transform.right * horizontalValue;
+        direction = direction + PlayerCameraManager.Instance.transform.forward * verticalValue;
+        direction.Normalize();
+        direction.y = 0;
+
+        return direction;
     }
 }

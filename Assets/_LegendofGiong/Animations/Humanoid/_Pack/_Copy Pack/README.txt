@@ -1,0 +1,1 @@
+Some how copy and paste this pack reveal crouch animation lol. Look like the .fbx is weirdly modified to hide it

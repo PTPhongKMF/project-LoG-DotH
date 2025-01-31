@@ -1,6 +1,8 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.InputSystem;
+using UnityEngine.InputSystem.Interactions;
 using UnityEngine.SceneManagement;
 
 public class PlayerInputController : MonoBehaviour {
@@ -10,17 +12,27 @@ public class PlayerInputController : MonoBehaviour {
         private set => instance = value;
     }
 
-    PlayerControls playerControls;
+    [SerializeField] private GameObject player;
+    private PlayerControls playerControls;
+    [HideInInspector] public PlayerMovementController playerMovementController;
 
     [SerializeField] private Vector2 movementInput; // keyboard WASD input
     public float HorizontalMovementInput() => movementInput.x;
     public float VerticalMovementInput() => movementInput.y;
-    public float moveAmount;
+
+    [SerializeField] private bool walkInput = false;
+    [SerializeField] private bool sprintInput = false;
+    private IInputInteraction dodgeSprintInputContext;
+
+    public float moveValue;
+    private float idleValue = 0f;
+    private float walkValue = 0.5f;
+    private float runValue = 1f;
+    private float sprintValue = 1.5f;
 
     [SerializeField] private Vector2 lookInput; // mouse input
     public float HorizontalLookInput() => lookInput.x;
     public float VerticalLookInput() => lookInput.y;
-
 
     private void Awake() {
         // there can only be one of this instance script at one time, if another exist, destroy it
@@ -30,6 +42,8 @@ public class PlayerInputController : MonoBehaviour {
         } else {
             Destroy(gameObject);
         }
+
+        playerMovementController = player.GetComponent<PlayerMovementController>();
 
         // run this whenever on a new screen after changed
         SceneManager.activeSceneChanged += OnSceneChange;
@@ -45,6 +59,8 @@ public class PlayerInputController : MonoBehaviour {
 
             playerControls.Player.Move.performed += i => movementInput = i.ReadValue<Vector2>();
             playerControls.Player.Move.canceled += i => movementInput = i.ReadValue<Vector2>();
+            playerControls.Player.Walk.performed += i => walkInput = !walkInput;
+            playerControls.Player.DodgeSprint.performed += i => dodgeSprintInputContext = i.interaction;
 
             playerControls.Camera.Look.performed += i => lookInput = i.ReadValue<Vector2>();
             playerControls.Camera.Look.canceled += i => lookInput = i.ReadValue<Vector2>();
@@ -68,22 +84,50 @@ public class PlayerInputController : MonoBehaviour {
     }
 
     private void Update() {
-        HandlePlayerMovementInput();
-        HandleCameraLookInput();
+        HandleAllInputs();
     }
 
+    private void HandleAllInputs() {
+        HandlePlayerMovementInput();
+        HandleCameraLookInput();
+        HandleDodgeSprintInput();
+    }
+
+    // MOVEMENT
     private void HandlePlayerMovementInput() {
         if (movementInput.x != 0 || movementInput.y != 0) {
-            moveAmount = 1f; // is moving
+            if (sprintInput) {
+                moveValue = sprintValue;
+            } else if (walkInput) {
+                moveValue = walkValue;
+            } else {
+                moveValue = runValue;
+            }
         } else {
-            moveAmount = 0f; // is idle
+            moveValue = idleValue;
+            sprintInput = false;
         }
+
+        // use 0 and moveAmount to prevent strafing, only enable strafing when in combat
+        playerMovementController.playerAnimatorController.UpdateAnimatorMovementValues(0, moveValue);
     }
 
     private void HandleCameraLookInput() {
-
+        // maybe some implement in the future?
     }
 
+    // ACTION
+    private void HandleDodgeSprintInput() {
+        if (dodgeSprintInputContext is TapInteraction) {
+            dodgeSprintInputContext = default;
+            playerMovementController.playerLocomotionController.AttemptToPerformDodge();
+        } else if (dodgeSprintInputContext is HoldInteraction) {
+            dodgeSprintInputContext = default;
+            sprintInput = true;
+        }
+    }
+
+    // OTHER
     private void OnSceneChange(Scene previousScene, Scene currentScene) {
         SceneMetadata metadata = FindObjectOfType<SceneMetadata>();
 
