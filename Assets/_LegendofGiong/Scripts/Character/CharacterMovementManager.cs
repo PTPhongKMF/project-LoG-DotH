@@ -12,7 +12,7 @@ public class CharacterMovementManager : MonoBehaviour {
         DontDestroyOnLoad(this);
 
         characterController = GetComponent<CharacterController>();
-        animator = GetComponentInChildren<Animator>();
+        animator = GetComponent<Animator>();
     }
 
     protected virtual void Update() {
