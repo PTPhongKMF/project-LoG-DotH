@@ -16,7 +16,9 @@ public class CharacterAnimatorManager : MonoBehaviour {
         characterMovementManager.animator.SetFloat("Vertical", verticalValue, 0.1f, Time.deltaTime);
     }
 
-    public virtual void PlayTargetActionAnimation(string targetAnimation, bool isPerformingAction, bool? applyRootMotion = null, bool revertApplyRootMotion = false) {
+    public virtual void PlayTargetActionAnimation
+        (string targetAnimation, bool isPerformingAction = true, bool canMove = false, bool canRotate = false, bool canDodge = false, 
+        bool? applyRootMotion = null, bool revertApplyRootMotion = false) {
         if (applyRootMotion.HasValue) {
             characterMovementManager.animator.applyRootMotion = applyRootMotion.Value;
 
@@ -25,6 +27,9 @@ public class CharacterAnimatorManager : MonoBehaviour {
 
         characterMovementManager.animator.CrossFade(targetAnimation, 0.2f);
         characterMovementManager.isPerformingAction = isPerformingAction;
+        characterMovementManager.canMove = canMove;
+        characterMovementManager.canRotate = canRotate;
+        characterMovementManager.canDodge = canDodge;
     }
 
     public virtual void RevertAnimatorRootMotion() {

@@ -25,14 +25,14 @@ public class PlayerLocomotionController : CharacterLocomotionManager {
     }
 
     public void HandleAllMovement() {
-        if (playerMovementController.isPerformingAction) return;
-
         GetMovementInput();
         HandleGroundedMovement();
         HandleRotation();
     }
 
     private void HandleGroundedMovement() {
+        if (!playerMovementController.canMove) return;
+
         moveDirection = GetGroundedDirection(moveDirection, horizontalMovement, verticalMovement);
 
         if (true) {
@@ -51,6 +51,8 @@ public class PlayerLocomotionController : CharacterLocomotionManager {
     }
 
     private void HandleRotation() {
+        if (!playerMovementController.canRotate) return;
+
         targetRotationDirection = Vector3.zero;
         targetRotationDirection = GetGroundedDirection(targetRotationDirection, horizontalMovement, verticalMovement);
 
@@ -65,7 +67,7 @@ public class PlayerLocomotionController : CharacterLocomotionManager {
     }
 
     public void AttemptToPerformDodge() {
-        if (playerMovementController.isPerformingAction) return; // player is busy, do not perform action
+        if (!playerMovementController.canDodge) return; // player is busy, do not perform action
 
         if (horizontalMovement != 0 || verticalMovement != 0) {
             dodgeDirection = GetGroundedDirection(dodgeDirection, horizontalMovement, verticalMovement);
@@ -76,7 +78,7 @@ public class PlayerLocomotionController : CharacterLocomotionManager {
         Quaternion playerRotation = Quaternion.LookRotation(dodgeDirection);
         playerMovementController.transform.rotation = playerRotation;
 
-        playerMovementController.playerAnimatorController.PlayTargetActionAnimation("B_RollForward", true);
+        playerMovementController.playerAnimatorController.PlayTargetActionAnimation("B_RollForward");
     }
 
     private void GetMovementInput() {
