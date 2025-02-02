@@ -20,8 +20,8 @@ public class PlayerInputController : MonoBehaviour {
     public float HorizontalMovementInput() => movementInput.x;
     public float VerticalMovementInput() => movementInput.y;
 
-    [SerializeField] private bool walkInput = false;
-    [SerializeField] private bool sprintInput = false;
+    [HideInInspector] public bool walkInput = false;
+    [HideInInspector] public bool sprintInput = false;
     private IInputInteraction dodgeSprintInputContext;
 
     public float moveValue;

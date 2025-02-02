@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class PlayerLocomotionController : CharacterLocomotionManager {
     public PlayerMovementController playerMovementController;
+    public PlayerStatsManager playerStatsManager;
 
     private float horizontalMovement;
     private float verticalMovement;
@@ -12,16 +13,19 @@ public class PlayerLocomotionController : CharacterLocomotionManager {
     private Vector3 targetRotationDirection;
     [HideInInspector] public float walkSpeed = 2f;
     [HideInInspector] public float runSpeed = 7f;
-    [HideInInspector] public float dodgeSpeed = 7f;
     [HideInInspector] public float sprintSpeed = 10f;
     [HideInInspector] public float rotationSpeed = 15f;
 
     public Vector3 dodgeDirection;
+    [HideInInspector] public float dodgeSpeed = 7f;
+
+    [HideInInspector] public float dodgeStamCost = 35f;
 
     protected override void Awake() {
         base.Awake();
 
         playerMovementController = GetComponent<PlayerMovementController>();
+        playerStatsManager = GetComponent<PlayerStatsManager>();
     }
 
     public void HandleAllMovement() {
@@ -44,7 +48,13 @@ public class PlayerLocomotionController : CharacterLocomotionManager {
                     playerMovementController.characterController.Move(moveDirection * walkSpeed * Time.deltaTime);
                     break;
                 case 1.5f:
+                    if (playerStatsManager.CurrentStam <= 0) {
+                        PlayerInputController.Instance.sprintInput = false;
+                        return;
+                    }
+
                     playerMovementController.characterController.Move(moveDirection * sprintSpeed * Time.deltaTime);
+                    playerStatsManager.CurrentStam -= CalculateSprintStamCost() * Time.deltaTime;
                     break;
             }
         }
@@ -67,7 +77,8 @@ public class PlayerLocomotionController : CharacterLocomotionManager {
     }
 
     public void AttemptToPerformDodge() {
-        if (!playerMovementController.canDodge) return; // player is busy, do not perform action
+        if (!playerMovementController.canDodge | playerStatsManager.CurrentStam <= 0) 
+            return; // player is busy or out of stam, do not dodge
 
         if (horizontalMovement != 0 || verticalMovement != 0) {
             dodgeDirection = GetGroundedDirection(dodgeDirection, horizontalMovement, verticalMovement);
@@ -79,6 +90,7 @@ public class PlayerLocomotionController : CharacterLocomotionManager {
         playerMovementController.transform.rotation = playerRotation;
 
         playerMovementController.playerAnimatorController.PlayTargetActionAnimation("B_RollForward");
+        playerStatsManager.CurrentStam -= dodgeStamCost;
     }
 
     private void GetMovementInput() {
@@ -93,5 +105,9 @@ public class PlayerLocomotionController : CharacterLocomotionManager {
         direction.y = 0;
 
         return direction;
+    }
+
+    private float CalculateSprintStamCost() {
+        return 5f + (playerStatsManager.totalStam * 0.1f);
     }
 }

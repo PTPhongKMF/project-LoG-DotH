@@ -18,6 +18,10 @@ public class CharacterMovementManager : MonoBehaviour {
         animator = GetComponent<Animator>();
     }
 
+    protected virtual void Start() {
+
+    }
+
     protected virtual void Update() {
         
     }
