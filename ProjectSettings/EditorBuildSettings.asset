@@ -5,12 +5,15 @@ EditorBuildSettings:
   m_ObjectHideFlags: 0
   serializedVersion: 2
   m_Scenes:
-  - enabled: 1
+  - enabled: 0
     path: Assets/_LegendofGiong/Scenes/DevScene.unity
     guid: 99c9720ab356a0642a771bea13969a05
   - enabled: 1
     path: Assets/_LegendofGiong/Scenes/MenuScreenScene.unity
     guid: 9338c22cde8333d468a17b972ed1c1bb
+  - enabled: 1
+    path: Assets/_LegendofGiong/Scenes/Village.unity
+    guid: b692c9127005bdc489ae9be78b29a3a8
   m_configObjects:
     com.unity.input.settings.actions: {fileID: -944628639613478452, guid: b3a4852e2ba53054298d6825d3729aa5,
       type: 3}

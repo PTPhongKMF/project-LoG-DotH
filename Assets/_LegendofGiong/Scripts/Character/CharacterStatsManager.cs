@@ -3,6 +3,8 @@ using System.Collections.Generic;
 using UnityEngine;
 
 public class CharacterStatsManager : MonoBehaviour {
+    [HideInInspector] public string charName;
+
     private float baseStam = 100;
 
     private float stamPoint = 0;

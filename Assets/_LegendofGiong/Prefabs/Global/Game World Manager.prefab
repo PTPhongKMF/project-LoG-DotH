@@ -45,3 +45,131 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   worldSceneIndex: 0
+  playerStatsManager: {fileID: 0}
+  currentCharSaveSlot: 0
+  currentCharData:
+    charName: 
+    secondsPlayed: 0
+    xWorldPosition: 0
+    yWorldPosition: 0
+    zWorldPosition: 0
+  saveSlot01:
+    charName: 
+    secondsPlayed: 0
+    xWorldPosition: 0
+    yWorldPosition: 0
+    zWorldPosition: 0
+  saveSlot02:
+    charName: 
+    secondsPlayed: 0
+    xWorldPosition: 0
+    yWorldPosition: 0
+    zWorldPosition: 0
+  saveSlot03:
+    charName: 
+    secondsPlayed: 0
+    xWorldPosition: 0
+    yWorldPosition: 0
+    zWorldPosition: 0
+  saveSlot04:
+    charName: 
+    secondsPlayed: 0
+    xWorldPosition: 0
+    yWorldPosition: 0
+    zWorldPosition: 0
+  saveSlot05:
+    charName: 
+    secondsPlayed: 0
+    xWorldPosition: 0
+    yWorldPosition: 0
+    zWorldPosition: 0
+  saveSlot06:
+    charName: 
+    secondsPlayed: 0
+    xWorldPosition: 0
+    yWorldPosition: 0
+    zWorldPosition: 0
+  saveSlot07:
+    charName: 
+    secondsPlayed: 0
+    xWorldPosition: 0
+    yWorldPosition: 0
+    zWorldPosition: 0
+  saveSlot08:
+    charName: 
+    secondsPlayed: 0
+    xWorldPosition: 0
+    yWorldPosition: 0
+    zWorldPosition: 0
+  saveSlot09:
+    charName: 
+    secondsPlayed: 0
+    xWorldPosition: 0
+    yWorldPosition: 0
+    zWorldPosition: 0
+  saveSlot10:
+    charName: 
+    secondsPlayed: 0
+    xWorldPosition: 0
+    yWorldPosition: 0
+    zWorldPosition: 0
+  saveSlot11:
+    charName: 
+    secondsPlayed: 0
+    xWorldPosition: 0
+    yWorldPosition: 0
+    zWorldPosition: 0
+  saveSlot12:
+    charName: 
+    secondsPlayed: 0
+    xWorldPosition: 0
+    yWorldPosition: 0
+    zWorldPosition: 0
+  saveSlot13:
+    charName: 
+    secondsPlayed: 0
+    xWorldPosition: 0
+    yWorldPosition: 0
+    zWorldPosition: 0
+  saveSlot14:
+    charName: 
+    secondsPlayed: 0
+    xWorldPosition: 0
+    yWorldPosition: 0
+    zWorldPosition: 0
+  saveSlot15:
+    charName: 
+    secondsPlayed: 0
+    xWorldPosition: 0
+    yWorldPosition: 0
+    zWorldPosition: 0
+  saveSlot16:
+    charName: 
+    secondsPlayed: 0
+    xWorldPosition: 0
+    yWorldPosition: 0
+    zWorldPosition: 0
+  saveSlot17:
+    charName: 
+    secondsPlayed: 0
+    xWorldPosition: 0
+    yWorldPosition: 0
+    zWorldPosition: 0
+  saveSlot18:
+    charName: 
+    secondsPlayed: 0
+    xWorldPosition: 0
+    yWorldPosition: 0
+    zWorldPosition: 0
+  saveSlot19:
+    charName: 
+    secondsPlayed: 0
+    xWorldPosition: 0
+    yWorldPosition: 0
+    zWorldPosition: 0
+  saveSlot20:
+    charName: 
+    secondsPlayed: 0
+    xWorldPosition: 0
+    yWorldPosition: 0
+    zWorldPosition: 0

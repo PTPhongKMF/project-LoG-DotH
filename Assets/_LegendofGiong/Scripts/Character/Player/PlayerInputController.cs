@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.InputSystem;
 using UnityEngine.InputSystem.Interactions;
+using UnityEngine.Rendering;
 using UnityEngine.SceneManagement;
 
 public class PlayerInputController : MonoBehaviour {
@@ -35,7 +36,6 @@ public class PlayerInputController : MonoBehaviour {
     public float VerticalLookInput() => lookInput.y;
 
     private void Awake() {
-        // there can only be one of this instance script at one time, if another exist, destroy it
         if (instance == null) {
             instance = this;
             DontDestroyOnLoad(gameObject);
@@ -44,28 +44,23 @@ public class PlayerInputController : MonoBehaviour {
         }
 
         playerMovementController = player.GetComponent<PlayerMovementController>();
-
-        // run this whenever on a new screen after changed
         SceneManager.activeSceneChanged += OnSceneChange;
     }
 
     private void Start() {
-        instance.enabled = false;
+
     }
 
     private void OnEnable() {
         if (playerControls == null) {
             playerControls = new PlayerControls();
-
             playerControls.Player.Move.performed += i => movementInput = i.ReadValue<Vector2>();
             playerControls.Player.Move.canceled += i => movementInput = i.ReadValue<Vector2>();
             playerControls.Player.Walk.performed += i => walkInput = !walkInput;
             playerControls.Player.DodgeSprint.performed += i => dodgeSprintInputContext = i.interaction;
-
             playerControls.Camera.Look.performed += i => lookInput = i.ReadValue<Vector2>();
             playerControls.Camera.Look.canceled += i => lookInput = i.ReadValue<Vector2>();
         }
-
         playerControls.Enable();
     }
 
@@ -130,11 +125,6 @@ public class PlayerInputController : MonoBehaviour {
     // OTHER
     private void OnSceneChange(Scene previousScene, Scene currentScene) {
         SceneMetadata metadata = FindObjectOfType<SceneMetadata>();
-
-        if (metadata.isPlayerMovable) {
-            instance.enabled = true;
-        } else {
-            instance.enabled = false;
-        }
+        instance.enabled = metadata.isPlayerMovable;
     }
 }

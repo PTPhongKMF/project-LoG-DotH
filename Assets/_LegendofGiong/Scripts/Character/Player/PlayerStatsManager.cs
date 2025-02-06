@@ -19,6 +19,7 @@ public class PlayerStatsManager : CharacterStatsManager {
     protected override void Start() {
         base.Start();
 
+        charName = "Gióng";
         PlayerUIManager.Instance.playerUIHudManager.SetMaxStamValue(totalStam);
     }
 
