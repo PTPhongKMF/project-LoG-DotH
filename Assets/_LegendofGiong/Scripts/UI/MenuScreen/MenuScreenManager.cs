@@ -3,15 +3,34 @@ using System.Collections.Generic;
 using UnityEngine;
 
 public class MenuScreenManager : MonoBehaviour {
+    private static MenuScreenManager instance;
+    public static MenuScreenManager Instance {
+        get => instance;
+        private set => instance = value;
+    }
+
     [SerializeField] private GameObject titleScreen;
     [SerializeField] private GameObject loadScreen;
 
+    [SerializeField] private GameObject alertOutOfSaveSlots;
+
+    private void Awake() {
+        if (instance == null) {
+            instance = this;
+        } else {
+            Destroy(gameObject);
+        }
+    }
+
     public void StartNewGame() {
-        WorldManager.Instance.NewGame();
-        StartCoroutine(WorldManager.Instance.LoadWorldScene(1));
+        WorldSaveManager.Instance.NewGame();
     }
 
     public void OpenLoadGameMenu(bool value) {
         loadScreen.SetActive(value);
+    }
+
+    public void ShowAlertOutOfSaveSlots(bool value) {
+        alertOutOfSaveSlots.SetActive(value);
     }
 }

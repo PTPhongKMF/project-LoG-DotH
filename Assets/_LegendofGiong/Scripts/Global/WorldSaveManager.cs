@@ -1,17 +1,18 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using System.IO;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
-public class WorldManager : MonoBehaviour {
-    private static WorldManager instance;
-    public static WorldManager Instance {
+public class WorldSaveManager : MonoBehaviour {
+    private static WorldSaveManager instance;
+    public static WorldSaveManager Instance {
         get => instance;
         private set => instance = value;
     }
 
-    [SerializeField] private int worldSceneIndex;
+    [SerializeField] private string worldSceneName;
 
     public PlayerStatsManager playerStatsManager;
     private SaveLoadFileManager saveLoadFileManager;
@@ -49,7 +50,7 @@ public class WorldManager : MonoBehaviour {
         if (!Application.isEditor) {
             gamePath = Directory.GetParent(gamePath).FullName;
         } else {
-            gamePath = Application.dataPath;
+            gamePath = Path.Combine(Application.dataPath, "_Test SaveLoad");
         }
     }
 
@@ -73,78 +74,27 @@ public class WorldManager : MonoBehaviour {
     }
 
     public string DecideCharacterSaveFileName(SaveSlot slot) {
-        switch (slot) {
-            case SaveSlot.SaveSlot01:
-                saveFileName = "CharacterSlot_01";
-                break;
-            case SaveSlot.SaveSlot02:
-                saveFileName = "CharacterSlot_02";
-                break;
-            case SaveSlot.SaveSlot03:
-                saveFileName = "CharacterSlot_03";
-                break;
-            case SaveSlot.SaveSlot04:
-                saveFileName = "CharacterSlot_04";
-                break;
-            case SaveSlot.SaveSlot05:
-                saveFileName = "CharacterSlot_05";
-                break;
-            case SaveSlot.SaveSlot06:
-                saveFileName = "CharacterSlot_06";
-                break;
-            case SaveSlot.SaveSlot07:
-                saveFileName = "CharacterSlot_07";
-                break;
-            case SaveSlot.SaveSlot08:
-                saveFileName = "CharacterSlot_08";
-                break;
-            case SaveSlot.SaveSlot09:
-                saveFileName = "CharacterSlot_09";
-                break;
-            case SaveSlot.SaveSlot10:
-                saveFileName = "CharacterSlot_10";
-                break;
-            case SaveSlot.SaveSlot11:
-                saveFileName = "CharacterSlot_11";
-                break;
-            case SaveSlot.SaveSlot12:
-                saveFileName = "CharacterSlot_12";
-                break;
-            case SaveSlot.SaveSlot13:
-                saveFileName = "CharacterSlot_13";
-                break;
-            case SaveSlot.SaveSlot14:
-                saveFileName = "CharacterSlot_14";
-                break;
-            case SaveSlot.SaveSlot15:
-                saveFileName = "CharacterSlot_15";
-                break;
-            case SaveSlot.SaveSlot16:
-                saveFileName = "CharacterSlot_16";
-                break;
-            case SaveSlot.SaveSlot17:
-                saveFileName = "CharacterSlot_17";
-                break;
-            case SaveSlot.SaveSlot18:
-                saveFileName = "CharacterSlot_18";
-                break;
-            case SaveSlot.SaveSlot19:
-                saveFileName = "CharacterSlot_19";
-                break;
-            case SaveSlot.SaveSlot20:
-                saveFileName = "CharacterSlot_20";
-                break;
-            default:
-                break;
-        }
+        saveFileName = slot.ToString();
 
         return saveFileName;
     }
 
     public void NewGame() {
-        DecideCharacterSaveFileName(currentCharSaveSlot);
+        saveLoadFileManager = new SaveLoadFileManager();
+        saveLoadFileManager.saveFileDirPath = Path.Combine(gamePath, "Data", "Saves");
 
-        currentCharData = new CharacterSaveData();
+        foreach (SaveSlot slot in Enum.GetValues(typeof(SaveSlot))) {
+            saveLoadFileManager.saveFileName = DecideCharacterSaveFileName(slot);
+
+            if (!saveLoadFileManager.IsSaveFileExists()) {
+                currentCharSaveSlot = slot;
+                currentCharData = new CharacterSaveData();
+                StartCoroutine(LoadWorldScene("Village"));
+                return;
+            }
+        }
+
+        MenuScreenManager.Instance.ShowAlertOutOfSaveSlots(true);
     }
 
     public void LoadGame() {
@@ -155,7 +105,7 @@ public class WorldManager : MonoBehaviour {
         saveLoadFileManager.saveFileName = saveFileName;
         currentCharData = saveLoadFileManager.LoadSaveFile();
 
-        StartCoroutine(LoadWorldScene(currentCharData.worldSceneIndex));
+        StartCoroutine(LoadWorldScene(currentCharData.worldSceneName));
     }
 
     public void SaveGame() {
@@ -165,33 +115,38 @@ public class WorldManager : MonoBehaviour {
         saveLoadFileManager.saveFileDirPath = Path.Combine(gamePath, "Data", "Saves");
         saveLoadFileManager.saveFileName = saveFileName;
 
-        SaveGameDataToCurrentCharData();
+        CacheGameDataToCurrentCharData();
 
         saveLoadFileManager.CreateSaveFile(currentCharData);
     }
 
-    public void SaveGameDataToCurrentCharData() {
+    public void CacheGameDataToCurrentCharData() {
         currentCharData.charName = playerStatsManager.charName;
+        currentCharData.secondsPlayed = 1;
+        currentCharData.worldSceneName = worldSceneName;
+        currentCharData.locationName = SceneMetadata.Instance.locationName;
         currentCharData.xWorldPosition = playerStatsManager.transform.position.x;
         currentCharData.yWorldPosition = playerStatsManager.transform.position.y;
         currentCharData.zWorldPosition = playerStatsManager.transform.position.z;
     }
 
-    public void LoadGameDataFromCurrentCharData() {
+    public void FetchGameDataFromCurrentCharData() {
         playerStatsManager.charName = currentCharData.charName;
         Vector3 currentPosition = new Vector3(currentCharData.xWorldPosition, currentCharData.yWorldPosition, currentCharData.zWorldPosition);
-        transform.position = currentPosition;
+        playerStatsManager.transform.position = currentPosition;
     }
 
     //private 
 
-    public IEnumerator LoadWorldScene(int sceneIndex) {
-        AsyncOperation loadOperation = SceneManager.LoadSceneAsync(sceneIndex);
+    public IEnumerator LoadWorldScene(string sceneName) {
+        AsyncOperation loadOperation = SceneManager.LoadSceneAsync(sceneName);
+
+        FetchGameDataFromCurrentCharData();
 
         yield return null;
     }
 
     private void OnSceneChange(Scene previousScene, Scene currentScene) {
-        worldSceneIndex = SceneManager.GetActiveScene().buildIndex;
+        worldSceneName = SceneManager.GetActiveScene().name;
     }
 }

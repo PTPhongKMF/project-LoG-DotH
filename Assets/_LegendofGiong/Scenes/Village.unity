@@ -356,6 +356,11 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 2980832059064684965, guid: 75566850159c79643be3483ecff72bed,
         type: 3}
+      propertyPath: locationName
+      value: "L\xE0ng Th\xF4n VN"
+      objectReference: {fileID: 0}
+    - target: {fileID: 2980832059064684965, guid: 75566850159c79643be3483ecff72bed,
+        type: 3}
       propertyPath: isPlayerMovable
       value: 1
       objectReference: {fileID: 0}

@@ -124,7 +124,6 @@ public class PlayerInputController : MonoBehaviour {
 
     // OTHER
     private void OnSceneChange(Scene previousScene, Scene currentScene) {
-        SceneMetadata metadata = FindObjectOfType<SceneMetadata>();
-        instance.enabled = metadata.isPlayerMovable;
+        instance.enabled = SceneMetadata.Instance.isPlayerMovable;
     }
 }

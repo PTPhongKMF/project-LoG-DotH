@@ -11,6 +11,7 @@ public class UISaveSlot : MonoBehaviour {
 
     public SaveSlot saveSlot;
 
+    private Button saveSlotButton;
     public Image icon;
     public TextMeshProUGUI saveSlotNumber;
     public TextMeshProUGUI level;
@@ -18,13 +19,15 @@ public class UISaveSlot : MonoBehaviour {
     public TextMeshProUGUI location;
 
     private void OnEnable() {
-        LoadSaveSlot();
+        saveSlotButton = GetComponent<Button>();
+
+        ShowSaveSlot();
     }
 
-    private void LoadSaveSlot() {
+    private void ShowSaveSlot() {
         saveLoadFileManager = new SaveLoadFileManager();
-        saveLoadFileManager.saveFileDirPath = Path.Combine(WorldManager.Instance.gamePath, "Data", "Saves");
-        saveLoadFileManager.saveFileName = WorldManager.Instance.DecideCharacterSaveFileName(saveSlot);
+        saveLoadFileManager.saveFileDirPath = Path.Combine(WorldSaveManager.Instance.gamePath, "Data", "Saves");
+        saveLoadFileManager.saveFileName = WorldSaveManager.Instance.DecideCharacterSaveFileName(saveSlot);
 
         saveSlotNumber.text = saveSlot.ToString().Replace("SaveSlot", "Slot ");
         if (saveLoadFileManager.IsSaveFileExists()) {
@@ -32,9 +35,15 @@ public class UISaveSlot : MonoBehaviour {
             timePlayed.text = "test succesful";
             location.text = "test succesful";
         } else {
+            saveSlotButton.interactable = false;
             level.text = string.Empty;
             timePlayed.text = string.Empty;
             location.text = string.Empty;
         }
+    }
+
+    public void LoadSaveSlot() {
+        WorldSaveManager.Instance.currentCharSaveSlot = saveSlot;
+        WorldSaveManager.Instance.LoadGame();
     }
 }

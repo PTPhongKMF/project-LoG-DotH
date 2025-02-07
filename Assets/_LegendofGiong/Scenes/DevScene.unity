@@ -14099,6 +14099,11 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 2980832059064684965, guid: 75566850159c79643be3483ecff72bed,
         type: 3}
+      propertyPath: locationName
+      value: Test Area
+      objectReference: {fileID: 0}
+    - target: {fileID: 2980832059064684965, guid: 75566850159c79643be3483ecff72bed,
+        type: 3}
       propertyPath: isPlayerMovable
       value: 1
       objectReference: {fileID: 0}

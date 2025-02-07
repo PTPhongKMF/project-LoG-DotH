@@ -8,7 +8,8 @@ public class CharacterSaveData {
 
     public float secondsPlayed;
 
-    public int worldSceneIndex;
+    public string worldSceneName;
+    public string locationName;
     public float xWorldPosition;
     public float yWorldPosition;
     public float zWorldPosition;
