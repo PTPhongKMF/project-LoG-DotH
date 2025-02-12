@@ -11,16 +11,18 @@ public class UISaveSlot : MonoBehaviour {
 
     public SaveSlot saveSlot;
 
-    private Button saveSlotButton;
+    public Button loadSaveSlotButton;
+    public Button deleteSaveSlotButton;
     public Image icon;
     public TextMeshProUGUI saveSlotNumber;
     public TextMeshProUGUI level;
     public TextMeshProUGUI timePlayed;
     public TextMeshProUGUI location;
 
-    private void OnEnable() {
-        saveSlotButton = GetComponent<Button>();
+    private void Awake() {
+    }
 
+    private void OnEnable() {
         ShowSaveSlot();
     }
 
@@ -35,7 +37,8 @@ public class UISaveSlot : MonoBehaviour {
             timePlayed.text = "test succesful";
             location.text = "test succesful";
         } else {
-            saveSlotButton.interactable = false;
+            loadSaveSlotButton.interactable = false;
+            deleteSaveSlotButton.interactable = false;
             level.text = string.Empty;
             timePlayed.text = string.Empty;
             location.text = string.Empty;
@@ -45,5 +48,10 @@ public class UISaveSlot : MonoBehaviour {
     public void LoadSaveSlot() {
         WorldSaveManager.Instance.currentCharSaveSlot = saveSlot;
         WorldSaveManager.Instance.LoadGame();
+    }
+
+    public void ShowAlertDeleteSaveSlot() {
+        MenuScreenManager.Instance.alertDeleteSaveSlot.AttemptToDeleteSaveSlot(saveSlot);
+        //AlertDeleteSaveSlot.Instance.AttemptToDeleteSaveSlot(saveSlot);
     }
 }

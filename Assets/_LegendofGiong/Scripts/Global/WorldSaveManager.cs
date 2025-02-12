@@ -120,6 +120,14 @@ public class WorldSaveManager : MonoBehaviour {
         saveLoadFileManager.CreateSaveFile(currentCharData);
     }
 
+    public void DeleteGame(SaveSlot slot) {
+        saveLoadFileManager = new SaveLoadFileManager();
+        saveLoadFileManager.saveFileDirPath = Path.Combine(gamePath, "Data", "Saves");
+        saveLoadFileManager.saveFileName = slot.ToString();
+
+        saveLoadFileManager.DeleteSaveFile();
+    }
+
     public void CacheGameDataToCurrentCharData() {
         currentCharData.charName = playerStatsManager.charName;
         currentCharData.secondsPlayed = 1;
@@ -135,8 +143,6 @@ public class WorldSaveManager : MonoBehaviour {
         Vector3 currentPosition = new Vector3(currentCharData.xWorldPosition, currentCharData.yWorldPosition, currentCharData.zWorldPosition);
         playerStatsManager.transform.position = currentPosition;
     }
-
-    //private 
 
     public IEnumerator LoadWorldScene(string sceneName) {
         AsyncOperation loadOperation = SceneManager.LoadSceneAsync(sceneName);

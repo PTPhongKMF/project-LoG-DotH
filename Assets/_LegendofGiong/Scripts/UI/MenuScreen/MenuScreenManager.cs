@@ -9,6 +9,8 @@ public class MenuScreenManager : MonoBehaviour {
         private set => instance = value;
     }
 
+    public AlertDeleteSaveSlot alertDeleteSaveSlot;
+
     [SerializeField] private GameObject titleScreen;
     [SerializeField] private GameObject loadScreen;
 
