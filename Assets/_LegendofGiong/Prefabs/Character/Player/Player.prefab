@@ -196,6 +196,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 144d909f8f3fac84b878ccfadec80bc1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  charName: 
+  totalStam: 100
+  stamRegenTick: 2
+  stamRegenDelay: 2
 --- !u!114 &1005772863596041042
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -214,8 +218,12 @@ MonoBehaviour:
   canMove: 1
   canRotate: 1
   canDodge: 1
+  canJump: 1
+  isJumping: 0
+  isGrounded: 1
   playerLocomotionController: {fileID: 0}
   playerAnimatorController: {fileID: 0}
+  playerStatsManager: {fileID: 0}
 --- !u!114 &3203359487481291239
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -228,13 +236,22 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5d981e8bb02bae1478ec02423c12884a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  groundLayer:
+    serializedVersion: 2
+    m_Bits: 1
+  groundCheckSphereRadius: 1
+  yVelocity: {x: 0, y: 0, z: 0}
+  groundedYVelocity: -20
+  fallStartYVelocity: -5
   playerMovementController: {fileID: 0}
+  playerStatsManager: {fileID: 0}
   walkSpeed: 2
   runSpeed: 7
-  dodgeSpeed: 7
   sprintSpeed: 10
   rotationSpeed: 15
   dodgeDirection: {x: 0, y: 0, z: 0}
+  dodgeSpeed: 7
+  dodgeStamCost: 35
 --- !u!114 &1652207774882411095
 MonoBehaviour:
   m_ObjectHideFlags: 0

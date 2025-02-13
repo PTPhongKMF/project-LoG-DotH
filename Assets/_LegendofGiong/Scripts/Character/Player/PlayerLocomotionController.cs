@@ -89,8 +89,20 @@ public class PlayerLocomotionController : CharacterLocomotionManager {
         Quaternion playerRotation = Quaternion.LookRotation(dodgeDirection);
         playerMovementController.transform.rotation = playerRotation;
 
-        playerMovementController.playerAnimatorController.PlayTargetActionAnimation("B_RollForward");
+        playerMovementController.playerAnimatorController.PlayTargetActionAnimation("B_RollForward", AnimationSettings.IsPerformingAction | AnimationSettings.IsGrounded);
         playerStatsManager.CurrentStam -= dodgeStamCost;
+    }
+
+    public void AttemptToPerformJump() {
+        if (!playerMovementController.canJump) return; // player is busy
+        if (!playerMovementController.isJumping) return;
+        if (!playerMovementController.isGrounded) return;
+
+        playerMovementController.playerAnimatorController.PlayTargetActionAnimation("Jump_Up", AnimationSettings.IsPerformingAction | AnimationSettings.IsJumping);
+    }
+
+    public void ApplyJumpingVelocity() {
+
     }
 
     private void GetMovementInput() {

@@ -24,6 +24,7 @@ public class PlayerInputController : MonoBehaviour {
     [HideInInspector] public bool walkInput = false;
     [HideInInspector] public bool sprintInput = false;
     private IInputInteraction dodgeSprintInputContext;
+    [HideInInspector] public bool jumpInput = false;
 
     public float moveValue;
     private float idleValue = 0f;
@@ -58,6 +59,8 @@ public class PlayerInputController : MonoBehaviour {
             playerControls.Player.Move.canceled += i => movementInput = i.ReadValue<Vector2>();
             playerControls.Player.Walk.performed += i => walkInput = !walkInput;
             playerControls.Player.DodgeSprint.performed += i => dodgeSprintInputContext = i.interaction;
+            playerControls.Player.Jump.performed += i => jumpInput = true;
+
             playerControls.Camera.Look.performed += i => lookInput = i.ReadValue<Vector2>();
             playerControls.Camera.Look.canceled += i => lookInput = i.ReadValue<Vector2>();
         }
@@ -119,6 +122,14 @@ public class PlayerInputController : MonoBehaviour {
         } else if (dodgeSprintInputContext is HoldInteraction) {
             dodgeSprintInputContext = default;
             sprintInput = true;
+        }
+    }
+
+    private void HandleJumpInput() {
+        if (jumpInput) {
+            jumpInput = false;
+
+            playerMovementController.playerLocomotionController.AttemptToPerformJump();
         }
     }
 

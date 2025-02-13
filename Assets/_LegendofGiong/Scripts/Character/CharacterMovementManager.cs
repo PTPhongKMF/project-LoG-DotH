@@ -10,6 +10,9 @@ public class CharacterMovementManager : MonoBehaviour {
     public bool canMove = true;
     public bool canRotate = true;
     public bool canDodge = true;
+    public bool canJump = true;
+    public bool isJumping = false;
+    public bool isGrounded = true;
 
     protected virtual void Awake() {
         DontDestroyOnLoad(this);

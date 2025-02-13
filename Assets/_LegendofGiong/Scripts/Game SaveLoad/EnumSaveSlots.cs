@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class EnumSaveSlot : MonoBehaviour {
+public class EnumSaveSlots : MonoBehaviour {
 }
 
 public enum SaveSlot {
