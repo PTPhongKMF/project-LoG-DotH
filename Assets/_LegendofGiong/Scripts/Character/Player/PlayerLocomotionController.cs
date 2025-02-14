@@ -15,6 +15,12 @@ public class PlayerLocomotionController : CharacterLocomotionManager {
     [HideInInspector] public float runSpeed = 7f;
     [HideInInspector] public float sprintSpeed = 10f;
     [HideInInspector] public float rotationSpeed = 15f;
+    public float jumpHeight = 3f;
+    public float jumpSpeed = 7f;
+    public Vector3 jumpDirection;
+
+    public float aerialSpeed = 5f;
+    private Vector3 aerialDirection;
 
     public Vector3 dodgeDirection;
     [HideInInspector] public float dodgeSpeed = 7f;
@@ -32,31 +38,46 @@ public class PlayerLocomotionController : CharacterLocomotionManager {
         GetMovementInput();
         HandleGroundedMovement();
         HandleRotation();
+        HandleJumpMovement();
+        HandleAerialMovement();
     }
 
     private void HandleGroundedMovement() {
         if (!playerMovementController.canMove) return;
 
-        moveDirection = GetGroundedDirection(moveDirection, horizontalMovement, verticalMovement);
+        moveDirection = GetDirection(horizontalMovement, verticalMovement);
 
-        if (true) {
-            switch (PlayerInputController.Instance.moveValue) {
-                case 1f:
-                    playerMovementController.characterController.Move(moveDirection * runSpeed * Time.deltaTime);
-                    break;
-                case 0.5f:
-                    playerMovementController.characterController.Move(moveDirection * walkSpeed * Time.deltaTime);
-                    break;
-                case 1.5f:
-                    if (playerStatsManager.CurrentStam <= 0) {
-                        PlayerInputController.Instance.sprintInput = false;
-                        return;
-                    }
+        switch (PlayerInputController.Instance.moveValue) {
+            case 1f:
+                playerMovementController.characterController.Move(moveDirection * runSpeed * Time.deltaTime);
+                break;
+            case 0.5f:
+                playerMovementController.characterController.Move(moveDirection * walkSpeed * Time.deltaTime);
+                break;
+            case 1.5f:
+                if (playerStatsManager.CurrentStam <= 0) {
+                    PlayerInputController.Instance.sprintInput = false;
+                    return;
+                }
 
-                    playerMovementController.characterController.Move(moveDirection * sprintSpeed * Time.deltaTime);
-                    playerStatsManager.CurrentStam -= CalculateSprintStamCost() * Time.deltaTime;
-                    break;
-            }
+                playerMovementController.characterController.Move(moveDirection * sprintSpeed * Time.deltaTime);
+                playerStatsManager.CurrentStam -= CalculateSprintStamCost() * Time.deltaTime;
+                break;
+        }
+
+    }
+
+    private void HandleAerialMovement() {
+        if (!playerMovementController.isGrounded) {
+            aerialDirection = GetDirection(horizontalMovement, verticalMovement);
+
+            playerMovementController.characterController.Move(aerialDirection * aerialSpeed * Time.deltaTime);
+        }
+    }
+
+    private void HandleJumpMovement() {
+        if (playerMovementController.isJumping) {
+            playerMovementController.characterController.Move(jumpDirection * jumpSpeed * Time.deltaTime);
         }
     }
 
@@ -64,7 +85,7 @@ public class PlayerLocomotionController : CharacterLocomotionManager {
         if (!playerMovementController.canRotate) return;
 
         targetRotationDirection = Vector3.zero;
-        targetRotationDirection = GetGroundedDirection(targetRotationDirection, horizontalMovement, verticalMovement);
+        targetRotationDirection = GetDirection(horizontalMovement, verticalMovement);
 
         if (targetRotationDirection == Vector3.zero) {
             targetRotationDirection = transform.forward;
@@ -77,11 +98,13 @@ public class PlayerLocomotionController : CharacterLocomotionManager {
     }
 
     public void AttemptToPerformDodge() {
-        if (!playerMovementController.canDodge | playerStatsManager.CurrentStam <= 0) 
+        if (!playerMovementController.canDodge | playerStatsManager.CurrentStam <= 0)
             return; // player is busy or out of stam, do not dodge
 
+        if (!playerMovementController.isGrounded) return;
+
         if (horizontalMovement != 0 || verticalMovement != 0) {
-            dodgeDirection = GetGroundedDirection(dodgeDirection, horizontalMovement, verticalMovement);
+            dodgeDirection = GetDirection(horizontalMovement, verticalMovement);
         } else {
             dodgeDirection = transform.forward; // the direction of the player current facing toward
         }
@@ -95,14 +118,29 @@ public class PlayerLocomotionController : CharacterLocomotionManager {
 
     public void AttemptToPerformJump() {
         if (!playerMovementController.canJump) return; // player is busy
-        if (!playerMovementController.isJumping) return;
+        if (playerMovementController.isJumping) return;
         if (!playerMovementController.isGrounded) return;
 
         playerMovementController.playerAnimatorController.PlayTargetActionAnimation("Jump_Up", AnimationSettings.IsPerformingAction | AnimationSettings.IsJumping);
+        jumpDirection = GetDirection(horizontalMovement, verticalMovement);
+
+        if (jumpDirection != Vector3.zero) {
+            switch (PlayerInputController.Instance.moveValue) {
+                case 1f:
+                    jumpDirection *= 1f;
+                    break;
+                case 0.5f:
+                    jumpDirection *= 0.5f;
+                    break;
+                case 1.5f:
+                    jumpDirection *= 1.5f;
+                    break;
+            }
+        }
     }
 
     public void ApplyJumpingVelocity() {
-
+        yVelocity.y = Mathf.Sqrt(jumpHeight * -2 * gravityForce);
     }
 
     private void GetMovementInput() {
@@ -110,7 +148,8 @@ public class PlayerLocomotionController : CharacterLocomotionManager {
         verticalMovement = PlayerInputController.Instance.VerticalMovementInput();
     }
 
-    private Vector3 GetGroundedDirection(Vector3 direction, float horizontalValue, float verticalValue) {
+    private Vector3 GetDirection(float horizontalValue, float verticalValue) {
+        Vector3 direction = Vector3.zero;
         direction = PlayerCameraManager.Instance.transform.right * horizontalValue;
         direction = direction + PlayerCameraManager.Instance.transform.forward * verticalValue;
         direction.Normalize();

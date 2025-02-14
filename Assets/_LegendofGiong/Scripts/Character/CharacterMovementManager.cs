@@ -26,7 +26,7 @@ public class CharacterMovementManager : MonoBehaviour {
     }
 
     protected virtual void Update() {
-        
+        animator.SetBool("isGrounded", isGrounded);
     }
 
     protected virtual void LateUpdate() {

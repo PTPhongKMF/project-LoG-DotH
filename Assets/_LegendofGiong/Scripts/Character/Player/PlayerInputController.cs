@@ -89,6 +89,7 @@ public class PlayerInputController : MonoBehaviour {
         HandlePlayerMovementInput();
         HandleCameraLookInput();
         HandleDodgeSprintInput();
+        HandleJumpInput();
     }
 
     // MOVEMENT
