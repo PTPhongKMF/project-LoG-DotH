@@ -5,13 +5,32 @@ using UnityEngine;
 public class CharacterStatsManager : MonoBehaviour {
     [HideInInspector] public string charName;
 
+    private float baseHealth = 500;
     private float baseStam = 100;
 
-    private float stamPoint = 0;
+    [SerializeField] private int healthPoint = 0;
+    [SerializeField] private int stamPoint = 0;
 
+    private float currentHealth = 500;
     private float currentStam = 100;
 
+    public float totalHealth = 500;
     public float totalStam = 100;
+
+    public virtual float CurrentHealth {
+        get => currentHealth;
+        set {
+            currentHealth = value;
+        }
+    }
+    public virtual int HealthPoint {
+        get => healthPoint;
+        set {
+            healthPoint = value;
+            CalculateTotalHealth();
+            CurrentHealth = totalHealth;
+        }
+    }
 
     private float stamRegenTimer = 0f;
     private float stamRegenTickTimer = 0f;
@@ -24,13 +43,23 @@ public class CharacterStatsManager : MonoBehaviour {
             currentStam = value;
         }
     }
+    public virtual int StamPoint {
+        get => stamPoint;
+        set {
+            stamPoint = value;
+            CalculateTotalStamina();
+            CurrentStam = totalStam;
+        }
+    }
 
     protected virtual void Awake() {
-  
     }
 
     protected virtual void Start() {
-        totalStam = CalculateTotalStamina();
+        CalculateTotalHealth();
+        CalculateTotalStamina();
+
+        CurrentHealth = totalHealth;
         CurrentStam = totalStam;
     }
 
@@ -38,12 +67,20 @@ public class CharacterStatsManager : MonoBehaviour {
         RegenerateStam();
     }
 
-    public float CalculateTotalStamina() {
-        return baseStam + CalculateBonusStamina();
+    public void CalculateTotalHealth() {
+        totalHealth = baseHealth + CalculateBonusHealth();
+    }
+
+    public void CalculateTotalStamina() {
+        totalStam = baseStam + CalculateBonusStamina();
+    }
+
+    private float CalculateBonusHealth() {
+        return healthPoint * baseHealth * 0.2f;
     }
 
     private float CalculateBonusStamina() {
-        return stamPoint * baseStam * 0.05f;
+        return stamPoint * baseStam * 0.25f;
     }
 
     public virtual void RegenerateStam() {

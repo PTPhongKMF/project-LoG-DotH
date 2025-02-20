@@ -13,4 +13,7 @@ public class CharacterSaveData {
     public float xWorldPosition;
     public float yWorldPosition;
     public float zWorldPosition;
+
+    public int healthPoint;
+    public int stamPoint;
 }

@@ -14,7 +14,7 @@ public class WorldSaveManager : MonoBehaviour {
 
     [SerializeField] private string worldSceneName;
 
-    public PlayerStatsManager playerStatsManager;
+    private PlayerStatsManager playerStatsManager;
     private SaveLoadFileManager saveLoadFileManager;
 
     public string gamePath;
@@ -115,7 +115,7 @@ public class WorldSaveManager : MonoBehaviour {
         saveLoadFileManager.saveFileDirPath = Path.Combine(gamePath, "Data", "Saves");
         saveLoadFileManager.saveFileName = saveFileName;
 
-        CacheGameDataToCurrentCharData();
+        WriteGameDataToCurrentCharData();
 
         saveLoadFileManager.CreateSaveFile(currentCharData);
     }
@@ -128,7 +128,7 @@ public class WorldSaveManager : MonoBehaviour {
         saveLoadFileManager.DeleteSaveFile();
     }
 
-    public void CacheGameDataToCurrentCharData() {
+    public void WriteGameDataToCurrentCharData() {
         currentCharData.charName = playerStatsManager.charName;
         currentCharData.secondsPlayed = 1;
         currentCharData.worldSceneName = worldSceneName;
@@ -136,18 +136,23 @@ public class WorldSaveManager : MonoBehaviour {
         currentCharData.xWorldPosition = playerStatsManager.transform.position.x;
         currentCharData.yWorldPosition = playerStatsManager.transform.position.y;
         currentCharData.zWorldPosition = playerStatsManager.transform.position.z;
+        currentCharData.healthPoint = playerStatsManager.HealthPoint;
+        currentCharData.stamPoint = playerStatsManager.StamPoint;
     }
 
-    public void FetchGameDataFromCurrentCharData() {
+    public void ReadGameDataFromCurrentCharData() {
         playerStatsManager.charName = currentCharData.charName;
         Vector3 currentPosition = new Vector3(currentCharData.xWorldPosition, currentCharData.yWorldPosition, currentCharData.zWorldPosition);
         playerStatsManager.transform.position = currentPosition;
+
+        playerStatsManager.HealthPoint = currentCharData.healthPoint;
+        playerStatsManager.StamPoint = currentCharData.stamPoint;
     }
 
     public IEnumerator LoadWorldScene(string sceneName) {
         AsyncOperation loadOperation = SceneManager.LoadSceneAsync(sceneName);
 
-        FetchGameDataFromCurrentCharData();
+        ReadGameDataFromCurrentCharData();
 
         yield return null;
     }
