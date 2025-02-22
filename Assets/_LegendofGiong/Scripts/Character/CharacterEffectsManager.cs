@@ -3,13 +3,13 @@ using System.Collections.Generic;
 using UnityEngine;
 
 public class CharacterEffectsManager : MonoBehaviour {
-    CharacterStatsManager characterStatsManager;
+    CharacterMovementManager characterMovementManager;
 
     protected virtual void Awake() {
-        characterStatsManager = GetComponent<CharacterStatsManager>();
+        characterMovementManager = GetComponent<CharacterMovementManager>();
     }
 
     public virtual void ProcessInstantEffect(InstantCharacterEffect instantEffect) {
-        instantEffect.ProcessEffect(characterStatsManager);
+        instantEffect.ProcessEffect(characterMovementManager);
     }
 }

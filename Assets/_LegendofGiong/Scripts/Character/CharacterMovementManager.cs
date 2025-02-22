@@ -4,7 +4,11 @@ using UnityEngine;
 
 public class CharacterMovementManager : MonoBehaviour {
     [HideInInspector] public CharacterController characterController;
+    [HideInInspector] public CharacterStatsManager characterStatsManager;
+    [HideInInspector] public CharacterEffectsManager characterEffectsManager;
     [HideInInspector] public Animator animator;
+
+    public bool isDead = false;
 
     public bool isPerformingAction = false;
     public bool canMove = true;
@@ -18,6 +22,8 @@ public class CharacterMovementManager : MonoBehaviour {
         DontDestroyOnLoad(this);
 
         characterController = GetComponent<CharacterController>();
+        characterStatsManager = GetComponent<CharacterStatsManager>();
+        characterEffectsManager = GetComponent<CharacterEffectsManager>();
         animator = GetComponent<Animator>();
     }
 

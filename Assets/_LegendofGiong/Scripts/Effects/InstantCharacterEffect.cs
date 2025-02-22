@@ -5,7 +5,7 @@ using UnityEngine;
 public class InstantCharacterEffect : ScriptableObject {
     public int instantEffectId;
 
-    public virtual void ProcessEffect(CharacterStatsManager characterStats) {
+    public virtual void ProcessEffect(CharacterMovementManager character) {
 
     }
 }
