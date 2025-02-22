@@ -7,16 +7,16 @@ public class PlayerUIHudManager : MonoBehaviour
     [SerializeField] private StatusBar healthBar;
     [SerializeField] private StatusBar stamBar;
 
-    public void SetNewHealthValue(float oldValue, float newValue, float maxValue) {
-        healthBar.SetStat(newValue, maxValue);
+    public void SetNewHealthValue(float oldValue, float newValue) {
+        healthBar.SetStat(newValue);
     }
 
     public void SetMaxHealthValue(float maxHealth) {
         healthBar.SetMaxStat(maxHealth);
     }
 
-    public void SetNewStamValue(float oldValue, float newValue, float maxValue) {
-        stamBar.SetStat(newValue, maxValue);
+    public void SetNewStamValue(float oldValue, float newValue) {
+        stamBar.SetStat(newValue);
     }
 
     public void SetMaxStamValue(float maxStam) {

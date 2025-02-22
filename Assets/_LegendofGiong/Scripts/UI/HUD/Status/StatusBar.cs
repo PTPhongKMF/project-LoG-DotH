@@ -13,8 +13,8 @@ public class StatusBar : MonoBehaviour {
         slider = GetComponent<Slider>();
     }
 
-    public virtual void SetStat(float newValue, float maxValue) {
-        newValue = Mathf.Clamp(Mathf.RoundToInt(newValue), 0, maxValue);
+    public virtual void SetStat(float newValue) {
+        newValue = Mathf.RoundToInt(newValue);
         currentValueText.text = newValue.ToString();
         slider.value = newValue;
     }

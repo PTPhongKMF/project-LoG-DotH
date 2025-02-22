@@ -6,6 +6,7 @@ public class CharacterMovementManager : MonoBehaviour {
     [HideInInspector] public CharacterController characterController;
     [HideInInspector] public CharacterStatsManager characterStatsManager;
     [HideInInspector] public CharacterEffectsManager characterEffectsManager;
+    [HideInInspector] public CharacterAnimatorManager characterAnimatorManager;
     [HideInInspector] public Animator animator;
 
     public bool isDead = false;
@@ -24,6 +25,7 @@ public class CharacterMovementManager : MonoBehaviour {
         characterController = GetComponent<CharacterController>();
         characterStatsManager = GetComponent<CharacterStatsManager>();
         characterEffectsManager = GetComponent<CharacterEffectsManager>();
+        characterAnimatorManager = GetComponent<CharacterAnimatorManager>();
         animator = GetComponent<Animator>();
     }
 
@@ -36,6 +38,20 @@ public class CharacterMovementManager : MonoBehaviour {
     }
 
     protected virtual void LateUpdate() {
+
+    }
+
+    public virtual IEnumerator ProcessDeathEvent(bool manuallySelectDeathAnimation = false) {
+        isDead = true;
+
+        if (!manuallySelectDeathAnimation) {
+            characterAnimatorManager.PlayTargetActionAnimation("Death", AnimationSettings.IsPerformingAction | AnimationSettings.IsGrounded);
+        }
+
+        yield return new WaitForSeconds(5);
+    }
+
+    public virtual void ReviveCharacter() {
 
     }
 }

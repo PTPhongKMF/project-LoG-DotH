@@ -6,8 +6,9 @@ public class PlayerStatsManager : CharacterStatsManager {
     public override float CurrentHealth {
         get => base.CurrentHealth;
         set {
-            PlayerUIManager.Instance.playerUIHudManager.SetNewHealthValue(CurrentHealth, value, totalHealth);
+            float oldHealth = base.CurrentHealth;
             base.CurrentHealth = value;
+            PlayerUIManager.Instance.playerUIHudManager.SetNewHealthValue(oldHealth, Mathf.Clamp(value, 0, totalHealth));
         }
     }
     public override int HealthPoint {
@@ -21,8 +22,9 @@ public class PlayerStatsManager : CharacterStatsManager {
     public override float CurrentStam {
         get => base.CurrentStam;
         set {
-            PlayerUIManager.Instance.playerUIHudManager.SetNewStamValue(CurrentStam, value, totalStam);
+            float oldStam = base.CurrentStam;
             base.CurrentStam = value;
+            PlayerUIManager.Instance.playerUIHudManager.SetNewStamValue(oldStam, Mathf.Clamp(value, 0, totalStam));
         }
     }
     public override int StamPoint {

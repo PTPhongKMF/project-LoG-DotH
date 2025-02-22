@@ -11,6 +11,7 @@ public class PlayerUIManager : MonoBehaviour {
     }
 
     [HideInInspector] public PlayerUIHudManager playerUIHudManager;
+    [HideInInspector] public PlayerUIPopupManager playerUIPopupManager;
 
     private void Awake() {
         // there can only be one of this instance script at one time, if another exist, destroy it
@@ -22,5 +23,6 @@ public class PlayerUIManager : MonoBehaviour {
         }
 
         playerUIHudManager = GetComponentInChildren<PlayerUIHudManager>();
+        playerUIPopupManager = GetComponentInChildren<PlayerUIPopupManager>();
     }
 }

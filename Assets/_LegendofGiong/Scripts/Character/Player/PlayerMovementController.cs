@@ -27,4 +27,21 @@ public class PlayerMovementController : CharacterMovementManager {
         base.LateUpdate();
         PlayerCameraManager.Instance.HandleAllCameraAction();
     }
+
+    public override IEnumerator ProcessDeathEvent(bool manuallySelectDeathAnimation = false) {
+        PlayerUIManager.Instance.playerUIPopupManager.ShowYouDiedPopup();
+
+        return base.ProcessDeathEvent(manuallySelectDeathAnimation);
+    }
+
+    public override void ReviveCharacter() {
+        base.ReviveCharacter();
+
+        playerStatsManager.CurrentHealth = playerStatsManager.totalHealth;
+        playerStatsManager.CurrentStam = playerStatsManager.totalStam;
+
+        // teleport to last checkpoint (maybe)
+
+        // play revive animation (maybe)
+    }
 }

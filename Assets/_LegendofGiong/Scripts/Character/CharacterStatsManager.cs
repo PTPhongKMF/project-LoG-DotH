@@ -3,6 +3,8 @@ using System.Collections.Generic;
 using UnityEngine;
 
 public class CharacterStatsManager : MonoBehaviour {
+    [HideInInspector] public CharacterMovementManager characterMovementManager;
+
     [HideInInspector] public string charName;
 
     private float baseHealth = 500;
@@ -20,7 +22,9 @@ public class CharacterStatsManager : MonoBehaviour {
     public virtual float CurrentHealth {
         get => currentHealth;
         set {
+            value = Mathf.Clamp(value, 0, totalHealth);
             currentHealth = value;
+            if (!characterMovementManager.isDead) CheckHealthToHandleDeath();
         }
     }
     public virtual int HealthPoint {
@@ -39,6 +43,7 @@ public class CharacterStatsManager : MonoBehaviour {
     public virtual float CurrentStam {
         get => currentStam;
         set {
+            value = Mathf.Clamp(value, 0, totalStam);
             ResetStamRegenTimer(currentStam, value);
             currentStam = value;
         }
@@ -53,6 +58,7 @@ public class CharacterStatsManager : MonoBehaviour {
     }
 
     protected virtual void Awake() {
+        characterMovementManager = GetComponent<CharacterMovementManager>();
     }
 
     protected virtual void Start() {
@@ -98,6 +104,12 @@ public class CharacterStatsManager : MonoBehaviour {
                     CurrentStam += stamRegenTick;
                 }
             }
+        }
+    }
+
+    public void CheckHealthToHandleDeath() {
+        if (currentHealth <= 0) {
+            StartCoroutine(characterMovementManager.ProcessDeathEvent());
         }
     }
 
