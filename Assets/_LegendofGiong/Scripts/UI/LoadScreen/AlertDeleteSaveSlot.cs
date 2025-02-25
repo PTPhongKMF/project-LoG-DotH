@@ -5,6 +5,7 @@ using UnityEngine;
 using UnityEngine.InputSystem;
 using TMPro;
 using UnityEngine.UI;
+using UnityEngine.Localization.Settings;
 
 public class AlertDeleteSaveSlot : MonoBehaviour {
     private static AlertDeleteSaveSlot instance;
@@ -21,6 +22,8 @@ public class AlertDeleteSaveSlot : MonoBehaviour {
     public Button confirmDeleteSaveSlot;
     public Button cancelDeleteSaveSlot;
 
+    private string localizedAlertText;
+
     private void Awake() {
         if (instance == null) {
             instance = this;
@@ -30,7 +33,8 @@ public class AlertDeleteSaveSlot : MonoBehaviour {
     }
 
     public void AttemptToDeleteSaveSlot(SaveSlot slot) {
-        alertBoxText.text = $"Are you sure you want to delete {slot.ToString()}?";
+        localizedAlertText = LocalizationSettings.StringDatabase.GetLocalizedString("UIText", "alert_confirm_delete_save");
+        alertBoxText.text = slot.ToString().Replace("SaveSlot", localizedAlertText + " ") + "?";
         gameObject.SetActive(true);
         cancelDeleteSaveSlot.Select();
         saveSlot = slot;
