@@ -40,4 +40,8 @@ public class MenuScreenManager : MonoBehaviour {
     public void ShowSelectLanguageScreen(bool value) {
         selectLanguageScreen.SetActive(value);
     }
+
+    public void OpenLink(string link) {
+        Application.OpenURL(link);
+    }
 }
