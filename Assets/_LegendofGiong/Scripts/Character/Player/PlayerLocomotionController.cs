@@ -15,7 +15,7 @@ public class PlayerLocomotionController : CharacterLocomotionManager {
     [HideInInspector] public float runSpeed = 7f;
     [HideInInspector] public float sprintSpeed = 10f;
     [HideInInspector] public float rotationSpeed = 15f;
-    public float jumpHeight = 3f;
+    public float jumpHeight = 1f;
     public float jumpSpeed = 7f;
     public Vector3 jumpDirection;
 
@@ -121,7 +121,8 @@ public class PlayerLocomotionController : CharacterLocomotionManager {
         if (playerMovementController.isJumping) return;
         if (!playerMovementController.isGrounded) return;
 
-        playerMovementController.playerAnimatorController.PlayTargetActionAnimation("Jump_Up", AnimationSettings.IsPerformingAction | AnimationSettings.IsJumping);
+        playerMovementController.playerAnimatorController.PlayTargetActionAnimation("Jump_Up", AnimationSettings.IsPerformingAction | AnimationSettings.IsJumping |
+                                                                                               AnimationSettings.CanRotate);
         jumpDirection = GetDirection(horizontalMovement, verticalMovement);
 
         if (jumpDirection != Vector3.zero) {
@@ -137,6 +138,7 @@ public class PlayerLocomotionController : CharacterLocomotionManager {
                     break;
             }
         }
+        ApplyJumpingVelocity();
     }
 
     public void ApplyJumpingVelocity() {

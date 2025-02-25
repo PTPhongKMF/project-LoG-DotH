@@ -22,6 +22,11 @@ MonoBehaviour:
     m_ReadOnly: 1
     m_SerializedLabels: []
     FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 1e53aff8deb83034c9715fbf2d5e7285
+    m_Address: Assets/_LegendofGiong/Localization/Tables/WeaponItemText Shared Data.asset
+    m_ReadOnly: 1
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
   m_ReadOnly: 1
   m_Settings: {fileID: 11400000, guid: a8fd47b9ef5b39b44abe7f6619fa9f56, type: 2}
   m_SchemaSet:

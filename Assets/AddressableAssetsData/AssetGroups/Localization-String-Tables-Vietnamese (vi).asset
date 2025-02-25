@@ -17,6 +17,13 @@ MonoBehaviour:
     m_SerializedData: []
   m_GUID: e526de4571a6e0b4f9816d58e3976fc1
   m_SerializeEntries:
+  - m_GUID: 96e6b7523f476c949907a83b1e62c7e3
+    m_Address: WeaponItemText_vi
+    m_ReadOnly: 1
+    m_SerializedLabels:
+    - Locale-vi
+    - Preload
+    FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: ff8955f3ef39ef44eade4111b6eb0317
     m_Address: UIText_vi
     m_ReadOnly: 1

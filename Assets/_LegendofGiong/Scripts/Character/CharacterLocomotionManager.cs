@@ -45,7 +45,7 @@ public class CharacterLocomotionManager : MonoBehaviour {
         characterMovementManager.isGrounded = Physics.CheckSphere(characterMovementManager.transform.position, groundCheckSphereRadius, groundLayer);
     }
 
-    protected void OnDrawGizmosSelected() {
-        Gizmos.DrawSphere(characterMovementManager.transform.position, groundCheckSphereRadius);
-    }
+    //protected void OnDrawGizmosSelected() {
+    //    Gizmos.DrawSphere(characterMovementManager.transform.position, groundCheckSphereRadius);
+    //}
 }

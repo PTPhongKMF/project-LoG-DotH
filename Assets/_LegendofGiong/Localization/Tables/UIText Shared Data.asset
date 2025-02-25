@@ -39,6 +39,14 @@ MonoBehaviour:
     m_Key: english_lang_button
     m_Metadata:
       m_Items: []
+  - m_Id: 23153766711296
+    m_Key: saveslot_slot_text
+    m_Metadata:
+      m_Items: []
+  - m_Id: 109157475303424
+    m_Key: you_died_allcaps_text
+    m_Metadata:
+      m_Items: []
   m_Metadata:
     m_Items: []
   m_KeyGenerator:

@@ -6,12 +6,14 @@ public class PlayerMovementController : CharacterMovementManager {
     [HideInInspector] public PlayerLocomotionController playerLocomotionController;
     [HideInInspector] public PlayerAnimatorController playerAnimatorController;
     [HideInInspector] public PlayerStatsManager playerStatsManager;
+    [HideInInspector] public PlayerInventoryManager playerInventoryManager;
 
     protected override void Awake() {
         base.Awake();
         playerLocomotionController = GetComponent<PlayerLocomotionController>();
         playerAnimatorController = GetComponent<PlayerAnimatorController>();
         playerStatsManager = GetComponent<PlayerStatsManager>();
+        playerInventoryManager = GetComponent<PlayerInventoryManager>();
     }
 
     protected override void Start() {
