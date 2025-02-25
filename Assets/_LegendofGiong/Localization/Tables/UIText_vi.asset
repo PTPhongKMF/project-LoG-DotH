@@ -50,6 +50,23 @@ MonoBehaviour:
     m_Localized: "B\u1EA0N \u0110\xC3 CH\u1EBET"
     m_Metadata:
       m_Items: []
+  - m_Id: 189875186450432
+    m_Localized: "S\u1ED1 l\u01B0\u1EE3ng L\u01B0u \u0111\u1EA1t t\u1ED1i \u0111a!
+      H\xE3y x\xF3a b\u1EDBt \u0111\u1EC3 c\xF3 th\u1EC3 ch\u01A1i game."
+    m_Metadata:
+      m_Items: []
+  - m_Id: 190932415299584
+    m_Localized: "KH\xD4NG"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 190994432278528
+    m_Localized: "C\xD3"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 193502353440768
+    m_Localized: "B\u1EA1n c\xF3 ch\u1EAFc b\u1EA1n mu\u1ED1n x\xF3a L\u01B0u"
+    m_Metadata:
+      m_Items: []
   references:
     version: 2
     RefIds: []

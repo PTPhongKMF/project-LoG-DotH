@@ -50,6 +50,22 @@ MonoBehaviour:
     m_Localized: YOU DIED
     m_Metadata:
       m_Items: []
+  - m_Id: 189875186450432
+    m_Localized: Max Save Slots reached! Please detele some before starting new game.
+    m_Metadata:
+      m_Items: []
+  - m_Id: 190932415299584
+    m_Localized: NO
+    m_Metadata:
+      m_Items: []
+  - m_Id: 190994432278528
+    m_Localized: YES
+    m_Metadata:
+      m_Items: []
+  - m_Id: 193502353440768
+    m_Localized: Are you sure you want to delete Slot
+    m_Metadata:
+      m_Items: []
   references:
     version: 2
     RefIds: []

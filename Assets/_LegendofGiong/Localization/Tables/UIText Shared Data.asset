@@ -47,6 +47,22 @@ MonoBehaviour:
     m_Key: you_died_allcaps_text
     m_Metadata:
       m_Items: []
+  - m_Id: 189875186450432
+    m_Key: alert_no_saveslot
+    m_Metadata:
+      m_Items: []
+  - m_Id: 190932415299584
+    m_Key: no_allcaps
+    m_Metadata:
+      m_Items: []
+  - m_Id: 190994432278528
+    m_Key: yes_allcaps
+    m_Metadata:
+      m_Items: []
+  - m_Id: 193502353440768
+    m_Key: alert_confirm_delete_save
+    m_Metadata:
+      m_Items: []
   m_Metadata:
     m_Items: []
   m_KeyGenerator:
