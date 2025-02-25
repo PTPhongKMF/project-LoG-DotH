@@ -5,6 +5,7 @@ using TMPro;
 using System.IO;
 using UnityEngine.InputSystem;
 using UnityEngine.UI;
+using UnityEngine.Localization.Settings;
 
 public class UISaveSlot : MonoBehaviour {
     SaveLoadFileManager saveLoadFileManager;
@@ -19,11 +20,14 @@ public class UISaveSlot : MonoBehaviour {
     public TextMeshProUGUI timePlayed;
     public TextMeshProUGUI location;
 
+    private string localizedSlotText;
+
     private void Awake() {
     }
 
     private void OnEnable() {
         ShowSaveSlot();
+        GetLocalizedText();
     }
 
     private void ShowSaveSlot() {
@@ -31,7 +35,7 @@ public class UISaveSlot : MonoBehaviour {
         saveLoadFileManager.saveFileDirPath = Path.Combine(WorldSaveManager.Instance.gamePath, "Data", "Saves");
         saveLoadFileManager.saveFileName = WorldSaveManager.Instance.DecideCharacterSaveFileName(saveSlot);
 
-        saveSlotNumber.text = saveSlot.ToString().Replace("SaveSlot", "Slot ");
+        saveSlotNumber.text = saveSlot.ToString().Replace("SaveSlot", localizedSlotText + " ");
         if (saveLoadFileManager.IsSaveFileExists()) {
             level.text = "test succesful";
             timePlayed.text = "test succesful";
@@ -43,6 +47,10 @@ public class UISaveSlot : MonoBehaviour {
             timePlayed.text = string.Empty;
             location.text = string.Empty;
         }
+    }
+
+    private void GetLocalizedText() {
+        localizedSlotText = LocalizationSettings.StringDatabase.GetLocalizedString("UIText", "saveslot_slot_text");
     }
 
     public void LoadSaveSlot() {

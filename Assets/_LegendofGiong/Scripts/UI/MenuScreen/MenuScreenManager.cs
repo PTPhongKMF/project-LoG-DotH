@@ -13,6 +13,7 @@ public class MenuScreenManager : MonoBehaviour {
 
     [SerializeField] private GameObject titleScreen;
     [SerializeField] private GameObject loadScreen;
+    [SerializeField] private GameObject selectLanguageScreen;
 
     [SerializeField] private GameObject alertOutOfSaveSlots;
 
@@ -34,5 +35,9 @@ public class MenuScreenManager : MonoBehaviour {
 
     public void ShowAlertOutOfSaveSlots(bool value) {
         alertOutOfSaveSlots.SetActive(value);
+    }
+
+    public void ShowSelectLanguageScreen(bool value) {
+        selectLanguageScreen.SetActive(value);
     }
 }

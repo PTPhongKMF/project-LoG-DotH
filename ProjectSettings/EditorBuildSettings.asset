@@ -15,5 +15,9 @@ EditorBuildSettings:
     path: Assets/_LegendofGiong/Scenes/Village.unity
     guid: b692c9127005bdc489ae9be78b29a3a8
   m_configObjects:
+    com.unity.addressableassets: {fileID: 11400000, guid: 93be296eb1acd9c4785ec5a2c32f4b7b,
+      type: 2}
     com.unity.input.settings.actions: {fileID: -944628639613478452, guid: b3a4852e2ba53054298d6825d3729aa5,
       type: 3}
+    com.unity.localization.settings: {fileID: 11400000, guid: dc4ea83d0dbfa274aa5bed0fbba912f2,
+      type: 2}
