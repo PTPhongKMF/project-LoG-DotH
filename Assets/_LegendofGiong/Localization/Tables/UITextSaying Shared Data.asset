@@ -10,36 +10,36 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 5b11a58205ec3474ca216360e9fa74a8, type: 3}
-  m_Name: WeaponItemText Shared Data
+  m_Name: UITextSaying Shared Data
   m_EditorClassIdentifier: 
-  m_TableCollectionName: WeaponItemText
-  m_TableCollectionNameGuidString: 1e53aff8deb83034c9715fbf2d5e7285
+  m_TableCollectionName: UITextSaying
+  m_TableCollectionNameGuidString: 1b788da9a4f3fe0448f157d8a57f98d9
   m_Entries:
-  - m_Id: 42635771904
-    m_Key: sword_name
+  - m_Id: 27729215488
+    m_Key: saying_01
     m_Metadata:
       m_Items: []
-  - m_Id: 112001171456
-    m_Key: sword_description
+  - m_Id: 43759845376
+    m_Key: saying_02
     m_Metadata:
       m_Items: []
-  - m_Id: 452446955126784
-    m_Key: axe_name
+  - m_Id: 60990046208
+    m_Key: saying_03
     m_Metadata:
       m_Items: []
-  - m_Id: 452469902163968
-    m_Key: axe_description
+  - m_Id: 79277211648
+    m_Key: saying_04
     m_Metadata:
       m_Items: []
   m_Metadata:
     m_Items: []
   m_KeyGenerator:
-    rid: 5368604689314611227
+    rid: 5368604716732514306
   references:
     version: 2
     RefIds:
-    - rid: 5368604689314611227
+    - rid: 5368604716732514306
       type: {class: DistributedUIDGenerator, ns: UnityEngine.Localization.Tables,
         asm: Unity.Localization}
       data:
-        m_CustomEpoch: 1740475642332
+        m_CustomEpoch: 1740573655354

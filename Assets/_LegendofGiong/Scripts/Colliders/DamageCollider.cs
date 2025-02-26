@@ -3,6 +3,8 @@ using System.Collections.Generic;
 using UnityEngine;
 
 public class DamageCollider : MonoBehaviour {
+    protected Collider damageCollider;
+
     public float damageDealt = 0f; // pure dmg
 
     protected Vector3 contactPoint;
@@ -12,7 +14,7 @@ public class DamageCollider : MonoBehaviour {
     private void OnTriggerEnter(Collider other) {
         if (other.gameObject.layer == LayerMask.NameToLayer("Character") ||
             other.gameObject.layer == LayerMask.NameToLayer("Player")) {
-            CharacterMovementManager damageTarget = other.GetComponent<CharacterMovementManager>();
+            CharacterMovementManager damageTarget = other.GetComponentInParent<CharacterMovementManager>();
 
             if (damageTarget != null) {
                 contactPoint = other.gameObject.GetComponent<Collider>().ClosestPointOnBounds(transform.position);
@@ -32,5 +34,14 @@ public class DamageCollider : MonoBehaviour {
         damageEffect.contactPoint = contactPoint;
 
         damageTarget.characterEffectsManager.ProcessInstantEffect(damageEffect);
+    }
+
+    public virtual void EnableDamageCollider() {
+        damageCollider.enabled = true;
+    }
+
+    public virtual void DisableDamageCollider() {
+        damageCollider.enabled = false;
+        damagedCharacter.Clear();
     }
 }

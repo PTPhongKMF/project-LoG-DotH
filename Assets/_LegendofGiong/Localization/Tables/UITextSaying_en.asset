@@ -10,28 +10,31 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: e9620f8c34305754d8cc9a7e49e852d9, type: 3}
-  m_Name: WeaponItemText_en
+  m_Name: UITextSaying_en
   m_EditorClassIdentifier: 
   m_LocaleId:
     m_Code: en
-  m_SharedData: {fileID: 11400000, guid: 1e53aff8deb83034c9715fbf2d5e7285, type: 2}
+  m_SharedData: {fileID: 11400000, guid: 1b788da9a4f3fe0448f157d8a57f98d9, type: 2}
   m_Metadata:
     m_Items: []
   m_TableData:
-  - m_Id: 42635771904
-    m_Localized: Sword
+  - m_Id: 27729215488
+    m_Localized: '"Sometimes, the heart needs time to accept what the mind already
+      knows."'
     m_Metadata:
       m_Items: []
-  - m_Id: 112001171456
-    m_Localized: An iron straight sword.
+  - m_Id: 43759845376
+    m_Localized: '"Why blame the wind for the mess, when you were the one who opened
+      the window?"'
     m_Metadata:
       m_Items: []
-  - m_Id: 452446955126784
-    m_Localized: Axe
+  - m_Id: 60990046208
+    m_Localized: "\"You can\u2019t stop the waves, but you can learn to surf.\""
     m_Metadata:
       m_Items: []
-  - m_Id: 452469902163968
-    m_Localized: A sharp axe.
+  - m_Id: 79277211648
+    m_Localized: '"A bird sitting on a branch is never afraid of it breaking, because
+      its trust is in its own wings, not the branch."'
     m_Metadata:
       m_Items: []
   references:

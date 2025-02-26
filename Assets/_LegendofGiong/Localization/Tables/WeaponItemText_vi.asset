@@ -26,6 +26,14 @@ MonoBehaviour:
     m_Localized: "M\u1ED9t c\xE2y ki\u1EBFm s\u1EAFt."
     m_Metadata:
       m_Items: []
+  - m_Id: 452446955126784
+    m_Localized: "R\xECu"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 452469902163968
+    m_Localized: "M\u1ED9t c\xE2y r\xECu s\u1EAFc b\xE9n"
+    m_Metadata:
+      m_Items: []
   references:
     version: 2
     RefIds: []

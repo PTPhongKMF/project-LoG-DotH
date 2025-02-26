@@ -27,7 +27,7 @@ Transform:
   serializedVersion: 2
   m_LocalRotation: {x: 0.18733011, y: -0.23537497, z: -0.78918016, w: 0.53544456}
   m_LocalPosition: {x: 0.00046002405, y: 0.0013000366, z: -0.000080010745}
-  m_LocalScale: {x: 0.50000024, y: 0.5000001, z: 0.50000006}
+  m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 3926245124978553752}
@@ -73,7 +73,7 @@ Transform:
   serializedVersion: 2
   m_LocalRotation: {x: 0.18733294, y: 0.23537667, z: 0.78918034, w: 0.5354425}
   m_LocalPosition: {x: -0.000460024, y: 0.0013000366, z: 0.00008001074}
-  m_LocalScale: {x: 0.50000024, y: 0.5000001, z: 0.50000006}
+  m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 4187688936958803141}
@@ -103,6 +103,7 @@ GameObject:
   - component: {fileID: 2960971143359698629}
   - component: {fileID: 493606711079861759}
   - component: {fileID: 3010338025624044176}
+  - component: {fileID: 928195121332350302}
   - component: {fileID: 1892985841557721080}
   - component: {fileID: 8596374208230317033}
   - component: {fileID: 1005772863596041042}
@@ -183,6 +184,33 @@ CharacterController:
   m_SkinWidth: 0.08
   m_MinMoveDistance: 0.001
   m_Center: {x: 0, y: 1.05, z: 0}
+--- !u!54 &928195121332350302
+Rigidbody:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5195181839696956881}
+  serializedVersion: 4
+  m_Mass: 1
+  m_Drag: 0
+  m_AngularDrag: 0.05
+  m_CenterOfMass: {x: 0, y: 0, z: 0}
+  m_InertiaTensor: {x: 1, y: 1, z: 1}
+  m_InertiaRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ImplicitCom: 1
+  m_ImplicitTensor: 1
+  m_UseGravity: 0
+  m_IsKinematic: 1
+  m_Interpolate: 0
+  m_Constraints: 0
+  m_CollisionDetection: 0
 --- !u!82 &1892985841557721080
 AudioSource:
   m_ObjectHideFlags: 0
@@ -328,6 +356,8 @@ MonoBehaviour:
   playerAnimatorController: {fileID: 0}
   playerStatsManager: {fileID: 0}
   playerInventoryManager: {fileID: 0}
+  playerEquipmentManager: {fileID: 0}
+  switchRight: 0
 --- !u!114 &3203359487481291239
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -386,8 +416,20 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a142fcad9b660204eb2ecea8c0d022a3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  currentRightHandWeapon: {fileID: 0}
-  currentLeftHandWeapon: {fileID: 0}
+  currentLeftHandWeapon: {fileID: 11400000, guid: d23811f0b1777174db7e6ba6c0a20037,
+    type: 2}
+  currentRightHandWeapon: {fileID: 11400000, guid: d23811f0b1777174db7e6ba6c0a20037,
+    type: 2}
+  weaponsInLeftHandSlots:
+  - {fileID: 11400000, guid: d23811f0b1777174db7e6ba6c0a20037, type: 2}
+  - {fileID: 11400000, guid: d23811f0b1777174db7e6ba6c0a20037, type: 2}
+  - {fileID: 11400000, guid: d23811f0b1777174db7e6ba6c0a20037, type: 2}
+  leftHandWeaponIndex: 0
+  weaponsInRightHandSlots:
+  - {fileID: 11400000, guid: d23811f0b1777174db7e6ba6c0a20037, type: 2}
+  - {fileID: 11400000, guid: d23811f0b1777174db7e6ba6c0a20037, type: 2}
+  - {fileID: 11400000, guid: d23811f0b1777174db7e6ba6c0a20037, type: 2}
+  rightHandWeaponIndex: 0
 --- !u!114 &8940323592348914393
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -402,6 +444,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   leftHandSlot: {fileID: 0}
   rightHandSlot: {fileID: 0}
+  leftWeaponManager: {fileID: 0}
+  rightWeaponManager: {fileID: 0}
   leftHandWeaponModel: {fileID: 0}
   rightHandWeaponModel: {fileID: 0}
 --- !u!114 &3728634068589240184

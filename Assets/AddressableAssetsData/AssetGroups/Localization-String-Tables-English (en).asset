@@ -31,6 +31,12 @@ MonoBehaviour:
     - Locale-en
     - Preload
     FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: a5c4a9ab2d877ff41a7ac7d1e1192014
+    m_Address: UITextSaying_en
+    m_ReadOnly: 1
+    m_SerializedLabels:
+    - Locale-en
+    FlaggedDuringContentUpdateRestriction: 0
   m_ReadOnly: 1
   m_Settings: {fileID: 11400000, guid: a8fd47b9ef5b39b44abe7f6619fa9f56, type: 2}
   m_SchemaSet:

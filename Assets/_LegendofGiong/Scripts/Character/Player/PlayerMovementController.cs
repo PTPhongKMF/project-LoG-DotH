@@ -7,6 +7,10 @@ public class PlayerMovementController : CharacterMovementManager {
     [HideInInspector] public PlayerAnimatorController playerAnimatorController;
     [HideInInspector] public PlayerStatsManager playerStatsManager;
     [HideInInspector] public PlayerInventoryManager playerInventoryManager;
+    [HideInInspector] public PlayerEquipmentManager playerEquipmentManager;
+
+    // debug / testing
+    public bool switchRight = false;
 
     protected override void Awake() {
         base.Awake();
@@ -14,6 +18,7 @@ public class PlayerMovementController : CharacterMovementManager {
         playerAnimatorController = GetComponent<PlayerAnimatorController>();
         playerStatsManager = GetComponent<PlayerStatsManager>();
         playerInventoryManager = GetComponent<PlayerInventoryManager>();
+        playerEquipmentManager = GetComponent<PlayerEquipmentManager>();
     }
 
     protected override void Start() {
@@ -22,7 +27,12 @@ public class PlayerMovementController : CharacterMovementManager {
 
     protected override void Update() {
         base.Update();
-        playerLocomotionController.HandleAllMovement(); 
+        playerLocomotionController.HandleAllMovement();
+
+        if (switchRight) {
+            switchRight = false;
+            playerEquipmentManager.SwitchRightWeapon();
+        }
     }
 
     protected override void LateUpdate() {
