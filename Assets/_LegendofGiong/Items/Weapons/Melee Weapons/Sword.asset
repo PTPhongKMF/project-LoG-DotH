@@ -15,7 +15,8 @@ MonoBehaviour:
   itemName: sword_name
   itemIcon: {fileID: 21300000, guid: ac18a14d868d07a478cf4c75533291c9, type: 3}
   itemDescription: sword_description
-  itemId: 0
+  itemId: 1
   weaponModel: {fileID: 8941423462805020661, guid: 3d5103e39c29fd944afdaedf5aef5c6b,
     type: 3}
   damage: 50
+  lmb_Action: {fileID: 11400000, guid: 381ae0bfa53732a4f80936c08661aa6d, type: 2}

@@ -8,6 +8,10 @@ public class PlayerMovementController : CharacterMovementManager {
     [HideInInspector] public PlayerStatsManager playerStatsManager;
     [HideInInspector] public PlayerInventoryManager playerInventoryManager;
     [HideInInspector] public PlayerEquipmentManager playerEquipmentManager;
+    [HideInInspector] public PlayerCombatManager playerCombatManager;
+
+    public bool isUsingLeftHand = false;
+    public bool isUsingRightHand = false;
 
     // debug / testing
     public bool switchRight = false;
@@ -19,10 +23,11 @@ public class PlayerMovementController : CharacterMovementManager {
         playerStatsManager = GetComponent<PlayerStatsManager>();
         playerInventoryManager = GetComponent<PlayerInventoryManager>();
         playerEquipmentManager = GetComponent<PlayerEquipmentManager>();
+        playerCombatManager = GetComponent<PlayerCombatManager>();
     }
 
     protected override void Start() {
-
+        base.Start();
     }
 
     protected override void Update() {
@@ -55,5 +60,15 @@ public class PlayerMovementController : CharacterMovementManager {
         // teleport to last checkpoint (maybe)
 
         // play revive animation (maybe)
+    }
+
+    public void SetPlayerActionHand(bool isRightHand) {
+        if (isRightHand) {
+            isUsingLeftHand = false;
+            isUsingRightHand = true;
+        } else {
+            isUsingLeftHand = true;
+            isUsingRightHand = false;
+        }
     }
 }

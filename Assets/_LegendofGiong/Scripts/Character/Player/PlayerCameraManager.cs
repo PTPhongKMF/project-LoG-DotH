@@ -12,6 +12,7 @@ public class PlayerCameraManager : MonoBehaviour {
 
     public Transform viewpointObject;
     public Camera cameraObject;
+    [SerializeField] private PlayerMovementController playerMovementController;
 
     public float horizontalLookSensitivity = 20f;
     public float verticalLookSensitivity = 10f;
@@ -31,7 +32,6 @@ public class PlayerCameraManager : MonoBehaviour {
     }
 
     private void Start() {
-
     }
 
     public void HandleAllCameraAction() {
@@ -44,10 +44,15 @@ public class PlayerCameraManager : MonoBehaviour {
 
         currentVerticalAngle = Mathf.Clamp(currentVerticalAngle, minVerticalAngle, maxVerticalAngle);
 
-        // rotate the viewpoint left and right so player know what direction is forward
-        transform.rotation = Quaternion.Euler(0, currentHorizontalAngle, 0);
+        if (playerMovementController != null && playerMovementController.isArmed) {
+            // When armed, rotate both the camera and the player
+            transform.rotation = Quaternion.Euler(0, currentHorizontalAngle, 0);
+            playerMovementController.transform.rotation = Quaternion.Euler(0, currentHorizontalAngle, 0);
+        } else {
+            // Normal free-look camera when not armed
+            transform.rotation = Quaternion.Euler(0, currentHorizontalAngle, 0);
+        }
 
-        // rotate the viewpoint up/down/left/right by adjusting the viewpoint child object of the player object
         viewpointObject.rotation = Quaternion.Euler(currentVerticalAngle, currentHorizontalAngle, 0);
     }
 }

@@ -16,6 +16,7 @@ public enum AnimationSettings {
     CanJump = 1 << 4,          
     IsJumping = 1 << 5,        
     IsGrounded = 1 << 6,
-    ApplyRootMotion = 1 << 7,  
-    RevertApplyRootMotion = 1 << 8 
+    IsAttacking = 1 << 7,
+    ApplyRootMotion = 1 << 8,  
+    RevertApplyRootMotion = 1 << 9
 }

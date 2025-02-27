@@ -6,4 +6,6 @@ public class WeaponItem : Item {
     public GameObject weaponModel;
 
     public float damage;
+
+    public WeaponItemAction lmb_Action; // left mouse button
 }

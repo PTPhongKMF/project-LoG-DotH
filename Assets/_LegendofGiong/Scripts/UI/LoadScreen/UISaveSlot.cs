@@ -27,7 +27,6 @@ public class UISaveSlot : MonoBehaviour {
 
     private void OnEnable() {
         ShowSaveSlot();
-        GetLocalizedText();
     }
 
     private void ShowSaveSlot() {
@@ -35,6 +34,7 @@ public class UISaveSlot : MonoBehaviour {
         saveLoadFileManager.saveFileDirPath = Path.Combine(WorldSaveManager.Instance.gamePath, "Data", "Saves");
         saveLoadFileManager.saveFileName = WorldSaveManager.Instance.DecideCharacterSaveFileName(saveSlot);
 
+        localizedSlotText = LocalizationSettings.StringDatabase.GetLocalizedString("UIText", "saveslot_slot_text");
         saveSlotNumber.text = saveSlot.ToString().Replace("SaveSlot", localizedSlotText + " ");
         if (saveLoadFileManager.IsSaveFileExists()) {
             level.text = "test succesful";
@@ -47,10 +47,6 @@ public class UISaveSlot : MonoBehaviour {
             timePlayed.text = string.Empty;
             location.text = string.Empty;
         }
-    }
-
-    private void GetLocalizedText() {
-        localizedSlotText = LocalizationSettings.StringDatabase.GetLocalizedString("UIText", "saveslot_slot_text");
     }
 
     public void LoadSaveSlot() {

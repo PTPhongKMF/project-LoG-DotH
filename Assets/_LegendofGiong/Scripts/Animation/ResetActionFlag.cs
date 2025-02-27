@@ -23,6 +23,7 @@ public class ResetActionFlag : StateMachineBehaviour {
         characterMovementManager.canJump = true;
         characterMovementManager.isJumping = false;
         characterMovementManager.isGrounded = true;
+        characterMovementManager.isAttacking = false;
     }
 
     // OnStateUpdate is called on each Update frame between OnStateEnter and OnStateExit callbacks

@@ -47,6 +47,21 @@ public class CharacterAnimatorManager : MonoBehaviour {
         characterMovementManager.animator.CrossFade(targetAnimation, 0.2f);
     }
 
+    public virtual void PlayTargetAttackActionAnimation(string targetAnimation, AnimationSettings settings) {
+        characterMovementManager.isPerformingAction = settings.HasFlag(AnimationSettings.IsPerformingAction);
+        characterMovementManager.canMove = settings.HasFlag(AnimationSettings.CanMove);
+        characterMovementManager.canRotate = settings.HasFlag(AnimationSettings.CanRotate);
+        characterMovementManager.canDodge = settings.HasFlag(AnimationSettings.CanDodge);
+        characterMovementManager.canJump = settings.HasFlag(AnimationSettings.CanJump);
+        characterMovementManager.isJumping = settings.HasFlag(AnimationSettings.IsJumping);
+        characterMovementManager.isGrounded = settings.HasFlag(AnimationSettings.IsGrounded);
+        characterMovementManager.isAttacking = settings.HasFlag(AnimationSettings.IsAttacking);
+        characterMovementManager.animator.applyRootMotion = settings.HasFlag(AnimationSettings.ApplyRootMotion);
+        revertAnimatorRootMotionSetting = settings.HasFlag(AnimationSettings.RevertApplyRootMotion);
+
+        characterMovementManager.animator.CrossFade(targetAnimation, 0.2f);
+    }
+
     public virtual void RevertAnimatorRootMotion() {
         if (revertAnimatorRootMotionSetting) {
             revertAnimatorRootMotionSetting = false;

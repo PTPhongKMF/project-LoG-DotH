@@ -9,6 +9,7 @@ public class CharacterMovementManager : MonoBehaviour {
     [HideInInspector] public CharacterAnimatorManager characterAnimatorManager;
     [HideInInspector] public Animator animator;
 
+    public bool isArmed = false;
     public bool isDead = false;
 
     public bool isPerformingAction = false;
@@ -18,6 +19,7 @@ public class CharacterMovementManager : MonoBehaviour {
     public bool canJump = true;
     public bool isJumping = false;
     public bool isGrounded = true;
+    public bool isAttacking = false;
 
     protected virtual void Awake() {
         DontDestroyOnLoad(this);
@@ -30,7 +32,6 @@ public class CharacterMovementManager : MonoBehaviour {
     }
 
     protected virtual void Start() {
-
     }
 
     protected virtual void Update() {

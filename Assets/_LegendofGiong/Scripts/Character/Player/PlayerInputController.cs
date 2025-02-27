@@ -26,6 +26,8 @@ public class PlayerInputController : MonoBehaviour {
     private IInputInteraction dodgeSprintInputContext;
     [HideInInspector] public bool jumpInput = false;
 
+    [SerializeField] private bool lmb_Input = false;
+
     public float moveValue;
     private float idleValue = 0f;
     private float walkValue = 0.5f;
@@ -60,6 +62,7 @@ public class PlayerInputController : MonoBehaviour {
             playerControls.Player.Walk.performed += i => walkInput = !walkInput;
             playerControls.Player.DodgeSprint.performed += i => dodgeSprintInputContext = i.interaction;
             playerControls.Player.Jump.performed += i => jumpInput = true;
+            playerControls.Player.LeftMouseButton.performed += i => lmb_Input = true;
 
             playerControls.Camera.Look.performed += i => lookInput = i.ReadValue<Vector2>();
             playerControls.Camera.Look.canceled += i => lookInput = i.ReadValue<Vector2>();
@@ -90,6 +93,7 @@ public class PlayerInputController : MonoBehaviour {
         HandleCameraLookInput();
         HandleDodgeSprintInput();
         HandleJumpInput();
+        HandleLmbInput();
     }
 
     // MOVEMENT
@@ -131,6 +135,20 @@ public class PlayerInputController : MonoBehaviour {
             jumpInput = false;
 
             playerMovementController.playerLocomotionController.AttemptToPerformJump();
+        }
+    }
+
+    private void HandleLmbInput() {
+        if (lmb_Input) {
+            lmb_Input = false;
+
+            // if we on ui dont do anyhthing, just return
+
+            if (playerMovementController.isArmed) {
+                playerMovementController.SetPlayerActionHand(true);
+                playerMovementController.playerCombatManager.PerformWeaponBasedAction(playerMovementController.playerInventoryManager.currentRightHandWeapon
+                    .lmb_Action, playerMovementController.playerInventoryManager.currentRightHandWeapon);
+            }
         }
     }
 

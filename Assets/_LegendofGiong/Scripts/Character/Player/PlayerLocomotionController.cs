@@ -47,6 +47,11 @@ public class PlayerLocomotionController : CharacterLocomotionManager {
 
         moveDirection = GetDirection(horizontalMovement, verticalMovement);
 
+        if (playerMovementController.isAttacking) {
+            playerMovementController.characterController.Move(moveDirection * runSpeed * Time.deltaTime);
+            return;
+        }
+
         switch (PlayerInputController.Instance.moveValue) {
             case 1f:
                 playerMovementController.characterController.Move(moveDirection * runSpeed * Time.deltaTime);
@@ -83,6 +88,7 @@ public class PlayerLocomotionController : CharacterLocomotionManager {
 
     private void HandleRotation() {
         if (!playerMovementController.canRotate) return;
+        if (playerMovementController.isArmed) return; 
 
         targetRotationDirection = Vector3.zero;
         targetRotationDirection = GetDirection(horizontalMovement, verticalMovement);
