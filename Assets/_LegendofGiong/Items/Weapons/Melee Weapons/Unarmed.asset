@@ -13,9 +13,11 @@ MonoBehaviour:
   m_Name: Unarmed
   m_EditorClassIdentifier: 
   itemName: 
-  itemIcon: {fileID: 21300000, guid: a9c3de6d4fe79f54ba55aca077bec376, type: 3}
+  itemIcon: {fileID: 0}
   itemDescription: 
   itemId: 0
   weaponModel: {fileID: 8624879120008288425, guid: 11a35cf5ef3731344b74dd0177987c6e,
     type: 3}
   damage: 10
+  light_Attack_01_Modifier: 1.1
+  lmb_Action: {fileID: 0}

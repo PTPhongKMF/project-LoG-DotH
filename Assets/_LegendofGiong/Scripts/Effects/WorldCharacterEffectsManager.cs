@@ -9,6 +9,8 @@ public class WorldCharacterEffectsManager : MonoBehaviour {
         private set => instance = value;
     }
 
+    public GameObject bloodSplatterVfx;
+
     public TakeDamageEffect takeDamageEffect;
 
     [SerializeField] private List<InstantCharacterEffect> instantEffects;

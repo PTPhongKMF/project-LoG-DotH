@@ -25,13 +25,13 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 438026352698075526}
   serializedVersion: 2
-  m_LocalRotation: {x: 0.18733011, y: -0.23537497, z: -0.78918016, w: 0.53544456}
-  m_LocalPosition: {x: 0.00046002405, y: 0.0013000366, z: -0.000080010745}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalRotation: {x: 0.56131995, y: -0.38110936, z: 0.11126291, w: 0.72615165}
+  m_LocalPosition: {x: 0.000279, y: 0.001176, z: -0.000086}
+  m_LocalScale: {x: 0.01, y: 0.01, z: 0.01}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 3926245124978553752}
-  m_LocalEulerAnglesHint: {x: -9.84, y: -33.774, z: -108.694}
+  m_LocalEulerAnglesHint: {x: 64.16, y: -79.51, z: -37.653}
 --- !u!114 &2632109818258433248
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -71,13 +71,13 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 3019482845906626711}
   serializedVersion: 2
-  m_LocalRotation: {x: 0.18733294, y: 0.23537667, z: 0.78918034, w: 0.5354425}
-  m_LocalPosition: {x: -0.000460024, y: 0.0013000366, z: 0.00008001074}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalRotation: {x: 0.56131977, y: 0.38110766, z: -0.11126421, w: 0.7261525}
+  m_LocalPosition: {x: -0.000279, y: 0.001176, z: 0.000086}
+  m_LocalScale: {x: 0.01, y: 0.01, z: 0.01}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 4187688936958803141}
-  m_LocalEulerAnglesHint: {x: -9.84, y: 33.774, z: 108.694}
+  m_LocalEulerAnglesHint: {x: 64.16, y: 79.51, z: 37.653}
 --- !u!114 &8417560515278213741
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -344,7 +344,11 @@ MonoBehaviour:
   characterStatsManager: {fileID: 0}
   characterEffectsManager: {fileID: 0}
   characterAnimatorManager: {fileID: 0}
+  characterCombatManager: {fileID: 0}
+  characterSoundFXManager: {fileID: 0}
   animator: {fileID: 0}
+  isArmed: 0
+  revertIsArmed: 0
   isDead: 0
   isPerformingAction: 0
   canMove: 1
@@ -353,6 +357,7 @@ MonoBehaviour:
   canJump: 1
   isJumping: 0
   isGrounded: 1
+  isAttacking: 0
   playerLocomotionController: {fileID: 0}
   playerAnimatorController: {fileID: 0}
   playerStatsManager: {fileID: 0}
@@ -384,6 +389,7 @@ MonoBehaviour:
   fallStartYVelocity: -5
   playerMovementController: {fileID: 0}
   playerStatsManager: {fileID: 0}
+  moveSpeedWhenAttacking: 4
   walkSpeed: 2
   runSpeed: 7
   sprintSpeed: 10
@@ -476,6 +482,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e6cdbeca15129bf479f79b61e81d9623, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  bloodSplatterVfx: {fileID: 0}
 --- !u!114 &8630667944871291257
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -488,6 +495,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 37d2f34979bf22542a93e4fcbff649b8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  currentAttackType: 0
   currentWeaponBeingUsed: {fileID: 0}
 --- !u!1 &7583589471612458873
 GameObject:

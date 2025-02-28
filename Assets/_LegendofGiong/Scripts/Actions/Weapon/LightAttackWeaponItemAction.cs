@@ -17,7 +17,7 @@ public class LightAttackWeaponItemAction : WeaponItemAction {
 
     private void PerformLightAttack(PlayerMovementController playerPerforming, WeaponItem weaponPerforming) {
         if (playerPerforming.isUsingRightHand) {
-            playerPerforming.playerAnimatorController.PlayTargetAttackActionAnimation(light_attack_01, AnimationSettings.IsPerformingAction | AnimationSettings.IsGrounded
+            playerPerforming.playerAnimatorController.PlayTargetAttackActionAnimation(light_attack_01, AttackType.LightAttack01 , AnimationSettings.IsPerformingAction | AnimationSettings.IsGrounded
                                                                                       | AnimationSettings.CanRotate | AnimationSettings.CanMove | AnimationSettings.IsAttacking);
 
         }

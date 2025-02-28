@@ -47,7 +47,9 @@ public class CharacterAnimatorManager : MonoBehaviour {
         characterMovementManager.animator.CrossFade(targetAnimation, 0.2f);
     }
 
-    public virtual void PlayTargetAttackActionAnimation(string targetAnimation, AnimationSettings settings) {
+    public virtual void PlayTargetAttackActionAnimation(string targetAnimation, AttackType attackType, AnimationSettings settings) {
+        characterMovementManager.characterCombatManager.currentAttackType = attackType;
+        
         characterMovementManager.isPerformingAction = settings.HasFlag(AnimationSettings.IsPerformingAction);
         characterMovementManager.canMove = settings.HasFlag(AnimationSettings.CanMove);
         characterMovementManager.canRotate = settings.HasFlag(AnimationSettings.CanRotate);

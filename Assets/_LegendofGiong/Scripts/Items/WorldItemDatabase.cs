@@ -34,13 +34,13 @@ public class WorldItemDatabase : MonoBehaviour {
         }
     }
 
-    //public WeaponItem GetWeaponById(int id) {
-    //    for (int i = 0; i < weapons.Count; i++) {
-    //        if (weapons[i].itemId == id) {
-    //            return weapons[i];
-    //        }
-    //    }
+    public WeaponItem GetWeaponById(int id) {
+        for (int i = 0; i < weapons.Count; i++) {
+            if (weapons[i].itemId == id) {
+                return weapons[i];
+            }
+        }
 
-    //    return null;
-    //}
+        return null;
+    }
 }

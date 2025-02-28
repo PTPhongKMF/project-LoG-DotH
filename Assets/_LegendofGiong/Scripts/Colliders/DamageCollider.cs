@@ -11,16 +11,17 @@ public class DamageCollider : MonoBehaviour {
 
     protected List<CharacterMovementManager> damagedCharacter = new();
 
-    private void OnTriggerEnter(Collider other) {
-        if (other.gameObject.layer == LayerMask.NameToLayer("Character") ||
-            other.gameObject.layer == LayerMask.NameToLayer("Player")) {
-            CharacterMovementManager damageTarget = other.GetComponentInParent<CharacterMovementManager>();
+    protected virtual void Awake() {
+        damageCollider = GetComponent<Collider>();
+    }
 
-            if (damageTarget != null) {
-                contactPoint = other.gameObject.GetComponent<Collider>().ClosestPointOnBounds(transform.position);
+    protected virtual void OnTriggerEnter(Collider other) {
+        CharacterMovementManager damageTarget = other.GetComponentInParent<CharacterMovementManager>();
 
-                DealDamageToTarget(damageTarget);
-            }
+        if (damageTarget != null) {
+            contactPoint = other.gameObject.GetComponent<Collider>().ClosestPointOnBounds(transform.position);
+
+            DealDamageToTarget(damageTarget);
         }
     }
 

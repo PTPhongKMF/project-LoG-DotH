@@ -11,6 +11,8 @@ public class WorldSoundFXManager : MonoBehaviour {
 
     public AudioClip dodgeSFX;
 
+    public AudioClip[] bladeDamageSfx;
+
     private void Awake() {
         // there can only be one of this instance script at one time, if another exist, destroy it
         if (instance == null) {
@@ -19,5 +21,10 @@ public class WorldSoundFXManager : MonoBehaviour {
         } else {
             Destroy(gameObject);
         }
+    }
+
+    public AudioClip ChooseRandomSoundFXFromArray(AudioClip[] array) {
+        int index = Random.Range(0, array.Length);
+        return array[index];
     }
 }

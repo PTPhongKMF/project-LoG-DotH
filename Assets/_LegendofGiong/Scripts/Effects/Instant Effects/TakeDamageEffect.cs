@@ -25,6 +25,8 @@ public class TakeDamageEffect : InstantCharacterEffect {
         //if (character.isInvulnerability) return;
 
         CalculateDamage(character);
+        PlayDamageSfx(character);
+        PlayDamageVfx(character);
     }
 
     private void CalculateDamage(CharacterMovementManager character) {
@@ -33,6 +35,18 @@ public class TakeDamageEffect : InstantCharacterEffect {
         }
 
         finalDamageDealt = damageDealt;
+        Debug.Log($"[Damage] {character.name} took {finalDamageDealt} damage. Health before: {character.characterStatsManager.CurrentHealth}");
         character.characterStatsManager.CurrentHealth -= finalDamageDealt;
+        Debug.Log($"[Damage] {character.name}'s health after: {character.characterStatsManager.CurrentHealth}");
+    }
+
+    private void PlayDamageVfx(CharacterMovementManager character) {
+        character.characterEffectsManager.PlayBloodSplatterVfx(contactPoint);
+    }
+
+    private void PlayDamageSfx(CharacterMovementManager character) {
+        AudioClip damageSfx = WorldSoundFXManager.Instance.ChooseRandomSoundFXFromArray(WorldSoundFXManager.Instance.bladeDamageSfx);
+
+        character.characterSoundFXManager.PlaySoundFX(damageSfx);
     }
 }

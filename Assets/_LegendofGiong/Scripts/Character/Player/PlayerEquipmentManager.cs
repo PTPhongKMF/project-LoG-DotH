@@ -48,6 +48,11 @@ public class PlayerEquipmentManager : CharacterEquipmentManager {
         LoadWeaponRightHand();
     }
 
+    public void UnloadWeaponOnBothHands() {
+        leftHandSlot.UnloadWeapon();
+        rightHandSlot.UnloadWeapon();
+    }
+
     //  LEFT HAND WEAPON
 
     public void LoadWeaponLeftHand() {
@@ -58,6 +63,14 @@ public class PlayerEquipmentManager : CharacterEquipmentManager {
             leftWeaponManager = leftHandWeaponModel.GetComponent<WeaponManager>();
             leftWeaponManager.SetWeaponDamage(playerController, playerController.playerInventoryManager.currentLeftHandWeapon);
         }
+    }
+
+    public void SwitchLeftWeaponToIndex(int index) {
+        playerController.playerInventoryManager.currentLeftHandWeapon = Instantiate(
+            playerController.playerInventoryManager.weaponsInLeftHandSlots[index]);
+        playerController.playerInventoryManager.leftHandWeaponIndex = index;
+
+        LoadWeaponLeftHand();
     }
 
     public void SwitchLeftWeapon() {
@@ -99,15 +112,15 @@ public class PlayerEquipmentManager : CharacterEquipmentManager {
         }
 
         //foreach (WeaponItem item in playerController.playerInventoryManager.weaponsInLeftHandSlots) {
-            if (playerController.playerInventoryManager.weaponsInLeftHandSlots
-                [playerController.playerInventoryManager.leftHandWeaponIndex].itemId !=
-                WorldItemDatabase.Instance.unarmedWeapon.itemId) {
-                selectedWeapon = playerController.playerInventoryManager
-                    .weaponsInLeftHandSlots[playerController.playerInventoryManager.leftHandWeaponIndex];
-                playerController.playerInventoryManager.currentLeftHandWeapon = Instantiate(selectedWeapon);
-                LoadWeaponLeftHand();
-                return;
-            }
+        if (playerController.playerInventoryManager.weaponsInLeftHandSlots
+            [playerController.playerInventoryManager.leftHandWeaponIndex].itemId !=
+            WorldItemDatabase.Instance.unarmedWeapon.itemId) {
+            selectedWeapon = playerController.playerInventoryManager
+                .weaponsInLeftHandSlots[playerController.playerInventoryManager.leftHandWeaponIndex];
+            playerController.playerInventoryManager.currentLeftHandWeapon = Instantiate(selectedWeapon);
+            LoadWeaponLeftHand();
+            return;
+        }
         //}
 
         if (selectedWeapon == null && playerController.playerInventoryManager.rightHandWeaponIndex <= 2) {
@@ -125,6 +138,15 @@ public class PlayerEquipmentManager : CharacterEquipmentManager {
             rightWeaponManager = rightHandWeaponModel.GetComponent<WeaponManager>();
             rightWeaponManager.SetWeaponDamage(playerController, playerController.playerInventoryManager.currentRightHandWeapon);
         }
+    }
+
+    public void SwitchRightWeaponToIndex(int index) {
+        playerController.playerInventoryManager.currentRightHandWeapon = Instantiate(
+            playerController.playerInventoryManager.weaponsInRightHandSlots[index]);
+        playerController.playerInventoryManager.rightHandWeaponIndex = index;
+        PlayerUIManager.Instance.playerUIHudManager.RefreshActiveWeaponSlot(); 
+
+        LoadWeaponRightHand();
     }
 
     public void SwitchRightWeapon() {
@@ -166,19 +188,37 @@ public class PlayerEquipmentManager : CharacterEquipmentManager {
         }
 
         //foreach (WeaponItem item in playerController.playerInventoryManager.weaponsInRightHandSlots) {
-            if (playerController.playerInventoryManager.weaponsInRightHandSlots
-                [playerController.playerInventoryManager.rightHandWeaponIndex].itemId !=
-                WorldItemDatabase.Instance.unarmedWeapon.itemId) {
-                selectedWeapon = playerController.playerInventoryManager
-                    .weaponsInRightHandSlots[playerController.playerInventoryManager.rightHandWeaponIndex];
-                playerController.playerInventoryManager.currentRightHandWeapon = Instantiate(selectedWeapon);
-                LoadWeaponRightHand();
-                return;
-            }
+        if (playerController.playerInventoryManager.weaponsInRightHandSlots
+            [playerController.playerInventoryManager.rightHandWeaponIndex].itemId !=
+            WorldItemDatabase.Instance.unarmedWeapon.itemId) {
+            selectedWeapon = playerController.playerInventoryManager
+                .weaponsInRightHandSlots[playerController.playerInventoryManager.rightHandWeaponIndex];
+            playerController.playerInventoryManager.currentRightHandWeapon = Instantiate(selectedWeapon);
+            LoadWeaponRightHand();
+            return;
+        }
         //}
 
         if (selectedWeapon == null && playerController.playerInventoryManager.rightHandWeaponIndex <= 2) {
             SwitchRightWeapon();
+        }
+    }
+
+    // DAMAGE COLLIDER
+
+    public void OpenDamageCollider() {
+        if (playerController.isUsingRightHand) {
+            rightWeaponManager.meleeDamageCollider.EnableDamageCollider();
+        } else if (playerController.isUsingLeftHand) {
+            leftWeaponManager.meleeDamageCollider.EnableDamageCollider();
+        }
+    }
+
+    public void CloseDamageCollider() {
+        if (playerController.isUsingRightHand) {
+            rightWeaponManager.meleeDamageCollider.DisableDamageCollider();
+        } else if (playerController.isUsingLeftHand) {
+            leftWeaponManager.meleeDamageCollider.DisableDamageCollider();
         }
     }
 }

@@ -48,9 +48,9 @@ SphereCollider:
     serializedVersion: 2
     m_Bits: 0
   m_LayerOverridePriority: 0
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_ProvidesContacts: 0
-  m_Enabled: 1
+  m_Enabled: 0
   serializedVersion: 3
   m_Radius: 0.004
   m_Center: {x: -0.002, y: 0, z: 0.006}
@@ -68,6 +68,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   damageDealt: 0
   characterCausingDamage: {fileID: 0}
+  light_Attack_01_Modifier: 0
 --- !u!1 &8078642971407734879
 GameObject:
   m_ObjectHideFlags: 0
@@ -113,6 +114,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9aeb3f4734219714a8a7dded6533034d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  meleeDamageCollider: {fileID: 0}
 --- !u!1001 &1178003414683474531
 PrefabInstance:
   m_ObjectHideFlags: 0

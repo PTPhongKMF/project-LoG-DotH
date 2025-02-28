@@ -5,7 +5,7 @@ using UnityEngine;
 public class CharacterStatsManager : MonoBehaviour {
     [HideInInspector] public CharacterMovementManager characterMovementManager;
 
-    [HideInInspector] public string charName;
+    public string charName;
 
     private float baseHealth = 500;
     private float baseStam = 100;

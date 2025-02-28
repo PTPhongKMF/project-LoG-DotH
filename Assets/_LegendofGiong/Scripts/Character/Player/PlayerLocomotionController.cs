@@ -11,6 +11,7 @@ public class PlayerLocomotionController : CharacterLocomotionManager {
 
     private Vector3 moveDirection;
     private Vector3 targetRotationDirection;
+    [HideInInspector] public float moveSpeedWhenAttacking = 4f;
     [HideInInspector] public float walkSpeed = 2f;
     [HideInInspector] public float runSpeed = 7f;
     [HideInInspector] public float sprintSpeed = 10f;
@@ -48,7 +49,7 @@ public class PlayerLocomotionController : CharacterLocomotionManager {
         moveDirection = GetDirection(horizontalMovement, verticalMovement);
 
         if (playerMovementController.isAttacking) {
-            playerMovementController.characterController.Move(moveDirection * runSpeed * Time.deltaTime);
+            playerMovementController.characterController.Move(moveDirection * moveSpeedWhenAttacking * Time.deltaTime);
             return;
         }
 
@@ -88,7 +89,8 @@ public class PlayerLocomotionController : CharacterLocomotionManager {
 
     private void HandleRotation() {
         if (!playerMovementController.canRotate) return;
-        if (playerMovementController.isArmed) return; 
+
+        if (playerMovementController.isArmed) return;
 
         targetRotationDirection = Vector3.zero;
         targetRotationDirection = GetDirection(horizontalMovement, verticalMovement);
@@ -118,7 +120,20 @@ public class PlayerLocomotionController : CharacterLocomotionManager {
         Quaternion playerRotation = Quaternion.LookRotation(dodgeDirection);
         playerMovementController.transform.rotation = playerRotation;
 
-        playerMovementController.playerAnimatorController.PlayTargetActionAnimation("B_RollForward", AnimationSettings.IsPerformingAction | AnimationSettings.IsGrounded);
+        if (!playerMovementController.isArmed) {
+            playerMovementController.playerAnimatorController.PlayTargetActionAnimation("B_RollForward", AnimationSettings.IsPerformingAction | AnimationSettings.IsGrounded);
+        } else {
+            if (verticalMovement < 0) {
+                playerMovementController.playerAnimatorController.PlayTargetActionAnimation("B_RollBackward", AnimationSettings.IsPerformingAction | AnimationSettings.IsGrounded);
+            } else if (horizontalMovement < 0) {
+                playerMovementController.playerAnimatorController.PlayTargetActionAnimation("B_RollLeft", AnimationSettings.IsPerformingAction | AnimationSettings.IsGrounded);
+            } else if (horizontalMovement > 0) {
+                playerMovementController.playerAnimatorController.PlayTargetActionAnimation("B_RollRight", AnimationSettings.IsPerformingAction | AnimationSettings.IsGrounded);
+            } else if (horizontalMovement == 0 && verticalMovement == 0 || verticalMovement > 0) {
+                playerMovementController.playerAnimatorController.PlayTargetActionAnimation("B_RollForward", AnimationSettings.IsPerformingAction | AnimationSettings.IsGrounded);
+            }
+        }
+
         playerStatsManager.CurrentStam -= dodgeStamCost;
     }
 
