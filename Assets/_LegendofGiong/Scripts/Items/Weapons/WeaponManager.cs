@@ -14,5 +14,8 @@ public class WeaponManager : MonoBehaviour {
         meleeDamageCollider.damageDealt = weapon.damage;
 
         meleeDamageCollider.light_Attack_01_Modifier = weapon.light_Attack_01_Modifier;
+        meleeDamageCollider.light_Attack_02_Modifier = weapon.light_Attack_02_Modifier;
+        meleeDamageCollider.light_Attack_03_Modifier = weapon.light_Attack_03_Modifier;
+        meleeDamageCollider.special_Attack_01_Modifier = weapon.special_Attack_01_Modifier;
     }
 }

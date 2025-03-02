@@ -19,3 +19,8 @@ MonoBehaviour:
   weaponModel: {fileID: 8078642971407734879, guid: 1a4b38d78564e7849b67d30a240c88e6,
     type: 3}
   damage: 100
+  light_Attack_01_Modifier: 1
+  light_Attack_02_Modifier: 1.5
+  light_Attack_03_Modifier: 2
+  special_Attack_01_Modifier: 5
+  lmb_Action: {fileID: 0}

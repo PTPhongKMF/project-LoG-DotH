@@ -18,5 +18,5 @@ public enum AnimationSettings {
     IsGrounded = 1 << 6,
     IsAttacking = 1 << 7,
     ApplyRootMotion = 1 << 8,  
-    RevertApplyRootMotion = 1 << 9
+    RevertApplyRootMotion = 1 << 9,
 }

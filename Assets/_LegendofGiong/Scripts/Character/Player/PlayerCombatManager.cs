@@ -7,6 +7,8 @@ public class PlayerCombatManager : CharacterCombatManager {
 
     public WeaponItem currentWeaponBeingUsed;
 
+    public bool canCombo = false;
+
     protected override void Awake() {
         base.Awake();
 

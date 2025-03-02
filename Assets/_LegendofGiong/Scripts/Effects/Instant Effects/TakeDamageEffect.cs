@@ -35,9 +35,7 @@ public class TakeDamageEffect : InstantCharacterEffect {
         }
 
         finalDamageDealt = damageDealt;
-        Debug.Log($"[Damage] {character.name} took {finalDamageDealt} damage. Health before: {character.characterStatsManager.CurrentHealth}");
         character.characterStatsManager.CurrentHealth -= finalDamageDealt;
-        Debug.Log($"[Damage] {character.name}'s health after: {character.characterStatsManager.CurrentHealth}");
     }
 
     private void PlayDamageVfx(CharacterMovementManager character) {

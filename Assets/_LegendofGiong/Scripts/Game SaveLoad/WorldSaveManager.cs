@@ -132,7 +132,7 @@ public class WorldSaveManager : MonoBehaviour {
         currentCharData.charName = playerStatsManager.charName;
         currentCharData.secondsPlayed = 1;
         currentCharData.worldSceneName = worldSceneName;
-        currentCharData.locationName = SceneMetadata.Instance.locationName;
+        currentCharData.locationName = SceneData.Instance.locationName;
         currentCharData.xWorldPosition = playerStatsManager.transform.position.x;
         currentCharData.yWorldPosition = playerStatsManager.transform.position.y;
         currentCharData.zWorldPosition = playerStatsManager.transform.position.z;

@@ -146,6 +146,9 @@ public class PlayerInputController : MonoBehaviour {
             armedMoveValue = Vector2.zero;
         }
 
+        if (moveValue != 0) playerMovementController.IsMoving = true;
+        else playerMovementController.IsMoving = false;
+
         if (playerMovementController.isArmed && !sprintInput) {
             playerMovementController.playerAnimatorController.UpdateAnimatorMovementValues(armedMoveValue.x, armedMoveValue.y);
         } else {
@@ -225,6 +228,6 @@ public class PlayerInputController : MonoBehaviour {
 
     // OTHER
     private void OnSceneChange(Scene previousScene, Scene currentScene) {
-        instance.enabled = SceneMetadata.Instance.isPlayerMovable;
+        instance.enabled = SceneData.Instance.isPlayerMovable;
     }
 }

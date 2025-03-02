@@ -12,6 +12,8 @@ public class WorldSoundFXManager : MonoBehaviour {
     public AudioClip dodgeSFX;
 
     public AudioClip[] bladeDamageSfx;
+    public AudioClip[] weaponSwingSfx; // Array for different weapon swing sounds
+    public AudioClip[] punchSwingSfx; // Array for different punch swing sounds
 
     private void Awake() {
         // there can only be one of this instance script at one time, if another exist, destroy it

@@ -24,6 +24,7 @@ public class ResetActionFlag : StateMachineBehaviour {
         characterMovementManager.isJumping = false;
         characterMovementManager.isGrounded = true;
         characterMovementManager.isAttacking = false;
+        characterMovementManager.characterAnimatorManager.DisableCanDoCombo();
     }
 
     // OnStateUpdate is called on each Update frame between OnStateEnter and OnStateExit callbacks

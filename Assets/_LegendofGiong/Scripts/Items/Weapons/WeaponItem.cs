@@ -7,7 +7,11 @@ public class WeaponItem : Item {
 
     public float damage;
 
-    public float light_Attack_01_Modifier = 1.1f;
+    public float light_Attack_01_Modifier = 1f;
+    public float light_Attack_02_Modifier = 1.5f;
+    public float light_Attack_03_Modifier = 2f;
+
+    public float special_Attack_01_Modifier = 5f;
 
     public WeaponItemAction lmb_Action; // left mouse button
 }

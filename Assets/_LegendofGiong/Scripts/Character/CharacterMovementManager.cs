@@ -22,7 +22,18 @@ public class CharacterMovementManager : MonoBehaviour {
     public bool canJump = true;
     public bool isJumping = false;
     public bool isGrounded = true;
+    private bool isMoving = false;
     public bool isAttacking = false;
+
+    public CharacterGroup characterGroup;
+
+    public bool IsMoving {
+        get => isMoving; 
+        set {
+            isMoving = value;
+            animator.SetBool("isMoving", value);
+        } 
+    }
 
     protected virtual void Awake() {
         DontDestroyOnLoad(this);
@@ -41,6 +52,10 @@ public class CharacterMovementManager : MonoBehaviour {
 
     protected virtual void Update() {
         animator.SetBool("isGrounded", isGrounded);
+    }
+
+    protected virtual void FixedUpdate() {
+        
     }
 
     protected virtual void LateUpdate() {

@@ -1,0 +1,22 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8f1714edbb0a2f14ba9f3c6a75556457, type: 3}
+  m_Name: Npc Combat Stance
+  m_EditorClassIdentifier: 
+  npcAttacks:
+  - {fileID: 11400000, guid: 82e2b6d9a3b828f42bf253b2b79710ef, type: 2}
+  - {fileID: 11400000, guid: ceee4045c4e0ed544b244aeebda55461, type: 2}
+  - {fileID: 11400000, guid: bf9173382dd7f0a48a9e540ebc7486ff, type: 2}
+  - {fileID: 11400000, guid: d81ba05ce595fba4ab418da817b05089, type: 2}
+  canPerformCombo: 0
+  chanceToPerformCombo: 25
+  maximumEngagementDistance: 5

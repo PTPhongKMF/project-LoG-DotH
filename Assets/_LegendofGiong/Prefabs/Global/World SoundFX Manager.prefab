@@ -48,3 +48,11 @@ MonoBehaviour:
   bladeDamageSfx:
   - {fileID: 8300000, guid: 7cbd6cd765888ff418d01d98bd1ce9c2, type: 3}
   - {fileID: 8300000, guid: 3df9bbbc130ccb344af5f3fc793a630f, type: 3}
+  weaponSwingSfx:
+  - {fileID: 8300000, guid: a0b53396a5ac7d845a63ee8cd61880e4, type: 3}
+  - {fileID: 8300000, guid: 2932e4aa0206fb344a6e2143b77d8a6b, type: 3}
+  punchSwingSfx:
+  - {fileID: 8300000, guid: dfa4b6c32b650054ea4b1a93b022b071, type: 3}
+  - {fileID: 8300000, guid: b9bc6bd50d1698648b4c0185d02f54f9, type: 3}
+  - {fileID: 8300000, guid: ee6cfe4a07beadf41ac382cabfe115ed, type: 3}
+  - {fileID: 8300000, guid: f8d3a1ebb4723914fafb7c5382a035fa, type: 3}

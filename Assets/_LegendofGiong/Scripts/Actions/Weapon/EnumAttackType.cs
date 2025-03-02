@@ -7,4 +7,7 @@ public class EnumAttackType : MonoBehaviour {
 
 public enum AttackType {
     LightAttack01,
+    LightAttack02,
+    LightAttack03,
+    SpecialAttack01,
 }

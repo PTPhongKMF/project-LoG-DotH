@@ -6,6 +6,10 @@ public class MeleeWeaponDamageCollider : DamageCollider {
     public CharacterMovementManager characterCausingDamage;
 
     public float light_Attack_01_Modifier;
+    public float light_Attack_02_Modifier;
+    public float light_Attack_03_Modifier;
+
+    public float special_Attack_01_Modifier;
 
     protected override void Awake() {
         base.Awake();
@@ -16,9 +20,10 @@ public class MeleeWeaponDamageCollider : DamageCollider {
     protected override void OnTriggerEnter(Collider other) {
         CharacterMovementManager damageTarget = other.GetComponentInParent<CharacterMovementManager>();
 
-
         if (damageTarget != null) {
             if (damageTarget == characterCausingDamage) return;
+            
+            if (!WorldLayerUtilityManager.Instance.CanIDamageThisTarget(characterCausingDamage.characterGroup, damageTarget.characterGroup)) return;
 
             contactPoint = other.gameObject.GetComponent<Collider>().ClosestPointOnBounds(transform.position);
             DealDamageToTarget(damageTarget);
@@ -37,6 +42,15 @@ public class MeleeWeaponDamageCollider : DamageCollider {
         switch (characterCausingDamage.characterCombatManager.currentAttackType) {
             case AttackType.LightAttack01:
                 ApplyAttackDamageModifiers(light_Attack_01_Modifier, damageEffect);
+                break;
+            case AttackType.LightAttack02:
+                ApplyAttackDamageModifiers(light_Attack_02_Modifier, damageEffect);
+                break;
+            case AttackType.LightAttack03:
+                ApplyAttackDamageModifiers(light_Attack_03_Modifier, damageEffect);
+                break;
+            case AttackType.SpecialAttack01:
+                ApplyAttackDamageModifiers(special_Attack_01_Modifier, damageEffect);
                 break;
         }
 
