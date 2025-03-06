@@ -25,6 +25,7 @@ public class InvaderCombatManager : NpcCombatManager {
     }
 
     public void OpenDamageCollider() {
+        npcCharacterManager.characterSoundFXManager.PlayAttackGruntSFX();
         swordWeaponDamageCollider.EnableDamageCollider();
     }
     public void CloseDamageCollider() {

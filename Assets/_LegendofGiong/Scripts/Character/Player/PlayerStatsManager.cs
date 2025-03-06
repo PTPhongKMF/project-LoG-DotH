@@ -3,6 +3,14 @@ using System.Collections.Generic;
 using UnityEngine;
 
 public class PlayerStatsManager : CharacterStatsManager {
+    [HideInInspector] public PlayerEquipmentManager playerEquipmentManager;
+
+    public override void SpentLevelPoint(string spentTarget) {
+        base.SpentLevelPoint(spentTarget);
+
+
+    }
+
     public override float CurrentHealth {
         get => base.CurrentHealth;
         set {
@@ -37,6 +45,8 @@ public class PlayerStatsManager : CharacterStatsManager {
 
     protected override void Awake() {
         base.Awake();
+
+        playerEquipmentManager = GetComponent<PlayerEquipmentManager>();
     }
 
     protected override void Start() {

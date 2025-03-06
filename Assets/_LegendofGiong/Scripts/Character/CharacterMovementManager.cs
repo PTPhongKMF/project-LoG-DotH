@@ -36,8 +36,6 @@ public class CharacterMovementManager : MonoBehaviour {
     }
 
     protected virtual void Awake() {
-        DontDestroyOnLoad(this);
-
         characterController = GetComponent<CharacterController>();
         characterStatsManager = GetComponent<CharacterStatsManager>();
         characterEffectsManager = GetComponent<CharacterEffectsManager>();
@@ -68,6 +66,7 @@ public class CharacterMovementManager : MonoBehaviour {
         if (!manuallySelectDeathAnimation) {
             characterAnimatorManager.PlayTargetActionAnimation("Death", AnimationSettings.IsPerformingAction | AnimationSettings.IsGrounded);
         }
+        characterSoundFXManager.PlayDeathSFX();
 
         yield return new WaitForSeconds(5);
     }

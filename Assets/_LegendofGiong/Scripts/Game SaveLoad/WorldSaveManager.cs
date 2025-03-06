@@ -89,7 +89,7 @@ public class WorldSaveManager : MonoBehaviour {
             if (!saveLoadFileManager.IsSaveFileExists()) {
                 currentCharSaveSlot = slot;
                 currentCharData = new CharacterSaveData();
-                StartCoroutine(LoadWorldScene("Village"));
+                StartCoroutine(LoadWorldScene("IntroCutscene"));
                 return;
             }
         }
@@ -109,6 +109,8 @@ public class WorldSaveManager : MonoBehaviour {
     }
 
     public void SaveGame() {
+        if (!SceneData.Instance.isSafeToSave) return;
+
         DecideCharacterSaveFileName(currentCharSaveSlot);
 
         saveLoadFileManager = new SaveLoadFileManager();
@@ -136,8 +138,36 @@ public class WorldSaveManager : MonoBehaviour {
         currentCharData.xWorldPosition = playerStatsManager.transform.position.x;
         currentCharData.yWorldPosition = playerStatsManager.transform.position.y;
         currentCharData.zWorldPosition = playerStatsManager.transform.position.z;
+
+        currentCharData.levelPoint = playerStatsManager.GetLevelPoint();
+        currentCharData.attackPoint = playerStatsManager.AttackPoint;
         currentCharData.healthPoint = playerStatsManager.HealthPoint;
         currentCharData.stamPoint = playerStatsManager.StamPoint;
+
+        // Save weapon equipment data
+        PlayerInventoryManager inventory = playerStatsManager.GetComponent<PlayerInventoryManager>();
+        PlayerMovementController movement = playerStatsManager.GetComponent<PlayerMovementController>();
+        
+        currentCharData.currentLeftHandWeaponId = inventory.currentLeftHandWeapon != null ? inventory.currentLeftHandWeapon.itemId : WorldItemDatabase.Instance.unarmedWeapon.itemId;
+        currentCharData.currentRightHandWeaponId = inventory.currentRightHandWeapon != null ? inventory.currentRightHandWeapon.itemId : WorldItemDatabase.Instance.unarmedWeapon.itemId;
+        
+        for (int i = 0; i < 3; i++) {
+            currentCharData.weaponsInLeftHandSlots[i] = inventory.weaponsInLeftHandSlots[i].itemId;
+            currentCharData.weaponsInRightHandSlots[i] = inventory.weaponsInRightHandSlots[i].itemId;
+        }
+        
+        currentCharData.leftHandWeaponIndex = inventory.leftHandWeaponIndex;
+        currentCharData.rightHandWeaponIndex = inventory.rightHandWeaponIndex;
+        currentCharData.isArmed = movement.isArmed;
+        currentCharData.revertIsArmed = movement.revertIsArmed;
+
+        currentCharData.allUtilitySlotsCanvasGroup = PlayerUIManager.Instance.playerUIHudManager.allUtilitySlotsCanvasGroup.alpha;
+
+        currentCharData.hasHealingAbility = playerStatsManager.playerEquipmentManager.hasHealingAbility;
+        currentCharData.hasRageAbility = playerStatsManager.playerEquipmentManager.hasRageAbility;
+
+        currentCharData.hasStartFirstFightAndWeapon = SceneData.Instance.hasStartFirstFightAndWeapon;
+        currentCharData.hasFirstFightAndWeapon = SceneData.Instance.hasFirstFightAndWeapon;
     }
 
     public void ReadGameDataFromCurrentCharData() {
@@ -145,13 +175,48 @@ public class WorldSaveManager : MonoBehaviour {
         Vector3 currentPosition = new Vector3(currentCharData.xWorldPosition, currentCharData.yWorldPosition, currentCharData.zWorldPosition);
         playerStatsManager.transform.position = currentPosition;
 
+        playerStatsManager.AddLevelPoint(currentCharData.levelPoint);
+        playerStatsManager.AttackPoint = currentCharData.attackPoint;
         playerStatsManager.HealthPoint = currentCharData.healthPoint;
         playerStatsManager.StamPoint = currentCharData.stamPoint;
+
+        // Load weapon equipment data
+        PlayerInventoryManager inventory = playerStatsManager.GetComponent<PlayerInventoryManager>();
+        PlayerMovementController movement = playerStatsManager.GetComponent<PlayerMovementController>();
+        PlayerEquipmentManager equipment = playerStatsManager.GetComponent<PlayerEquipmentManager>();
+
+        // Load weapons in slots
+        for (int i = 0; i < 3; i++) {
+            inventory.weaponsInLeftHandSlots[i] = WorldItemDatabase.Instance.GetWeaponById(currentCharData.weaponsInLeftHandSlots[i]);
+            inventory.weaponsInRightHandSlots[i] = WorldItemDatabase.Instance.GetWeaponById(currentCharData.weaponsInRightHandSlots[i]);
+        }
+
+        // Set current weapons and indexes
+        inventory.currentLeftHandWeapon = WorldItemDatabase.Instance.GetWeaponById(currentCharData.currentLeftHandWeaponId);
+        inventory.currentRightHandWeapon = WorldItemDatabase.Instance.GetWeaponById(currentCharData.currentRightHandWeaponId);
+        inventory.leftHandWeaponIndex = currentCharData.leftHandWeaponIndex;
+        inventory.rightHandWeaponIndex = currentCharData.rightHandWeaponIndex;
+
+        // Set armed state
+        movement.isArmed = currentCharData.isArmed;
+        movement.revertIsArmed = currentCharData.revertIsArmed;
+
+        // Load weapon models
+        equipment.LoadWeaponOnBothHands();
+
+        PlayerUIManager.Instance.playerUIHudManager.allUtilitySlotsCanvasGroup.alpha = currentCharData.allUtilitySlotsCanvasGroup;
+
+        playerStatsManager.playerEquipmentManager.hasHealingAbility = currentCharData.hasHealingAbility;
+        playerStatsManager.playerEquipmentManager.hasRageAbility = currentCharData.hasRageAbility;
+
+        SceneData.Instance.hasStartFirstFightAndWeapon = currentCharData.hasStartFirstFightAndWeapon;
+        SceneData.Instance.hasFirstFightAndWeapon = currentCharData.hasFirstFightAndWeapon;
     }
 
     public IEnumerator LoadWorldScene(string sceneName) {
-        AsyncOperation loadOperation = SceneManager.LoadSceneAsync(sceneName);
+        PlayerUIManager.Instance.playerUILoadingScreen.ActivateLoadingScreen();
 
+        AsyncOperation loadOperation = SceneManager.LoadSceneAsync(sceneName);
         ReadGameDataFromCurrentCharData();
 
         yield return null;

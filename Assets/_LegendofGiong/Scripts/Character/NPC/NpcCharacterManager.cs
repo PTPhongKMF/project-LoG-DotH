@@ -10,6 +10,7 @@ public class NpcCharacterManager : CharacterMovementManager {
     public NavMeshAgent navMeshAgent;
 
     [SerializeField] private Vector3 defaultSpawnPosition = Vector3.zero;
+    [SerializeField] private Quaternion defaultSpawnRotation = Quaternion.identity;
 
     [SerializeField] private NpcAIState currentState;
 
@@ -73,9 +74,11 @@ public class NpcCharacterManager : CharacterMovementManager {
         }
     }
 
-    public void Spawn(Vector3? position = null) {
+    public void Spawn(Vector3? position = null, Quaternion? rotation = null) {
         Vector3 spawnPosition = position ?? defaultSpawnPosition;
+        Quaternion spawnRotation = rotation ?? defaultSpawnRotation;
         transform.position = spawnPosition;
+        transform.rotation = spawnRotation;
     }
 
     public void Despawn() {

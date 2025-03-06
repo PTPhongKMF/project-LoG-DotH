@@ -12,6 +12,16 @@ public class PlayerUIManager : MonoBehaviour {
 
     [HideInInspector] public PlayerUIHudManager playerUIHudManager;
     [HideInInspector] public PlayerUIPopupManager playerUIPopupManager;
+    [HideInInspector] public PlayerUIStatsManager playerUIStatsManager;
+    [HideInInspector] public PlayerUILoadingScreen playerUILoadingScreen;
+    [HideInInspector] public MinigameManager minigameManager;
+    public EatingMinigame eatingMinigame;
+
+    public GameObject eatingMiniGame;
+
+    public bool menuWindowIsOpen = false;
+    public bool popupWindowIsOpen = false;
+    public bool isPerformingLoadingOperation = false;
 
     private void Awake() {
         // there can only be one of this instance script at one time, if another exist, destroy it
@@ -24,5 +34,13 @@ public class PlayerUIManager : MonoBehaviour {
 
         playerUIHudManager = GetComponentInChildren<PlayerUIHudManager>();
         playerUIPopupManager = GetComponentInChildren<PlayerUIPopupManager>();
+        playerUIStatsManager = GetComponentInChildren<PlayerUIStatsManager>();
+        playerUILoadingScreen = GetComponentInChildren<PlayerUILoadingScreen>();
+        minigameManager = GetComponentInChildren<MinigameManager>();
+        if (eatingMinigame == null) eatingMinigame = GetComponentInChildren<EatingMinigame>();
     }
+
+    //public void CloseAllMenuWindows() {
+    //    playerUIMenuManager.CloseCharacterMenu();
+    //}
 }

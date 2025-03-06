@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class WeaponItem : Item {
     public GameObject weaponModel;
+    public WeaponType weaponType;
 
     public float damage;
 

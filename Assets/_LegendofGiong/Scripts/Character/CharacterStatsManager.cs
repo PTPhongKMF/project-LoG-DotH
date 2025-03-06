@@ -9,15 +9,37 @@ public class CharacterStatsManager : MonoBehaviour {
 
     private float baseHealth = 500;
     private float baseStam = 100;
+    private float baseAttack = 50;
 
+    [SerializeField] private int levelPoint = 0;
     [SerializeField] private int healthPoint = 0;
     [SerializeField] private int stamPoint = 0;
+    [SerializeField] private int attackPoint = 0;
 
     private float currentHealth = 500;
     private float currentStam = 100;
 
     public float totalHealth = 500;
     public float totalStam = 100;
+    public float totalAttack = 50;
+
+    public virtual int GetLevelPoint() => levelPoint;
+    public virtual void AddLevelPoint(int point) {
+        if (point <= 0) return;
+        levelPoint += point; 
+    }
+    public virtual void SpentLevelPoint(string spentTarget) {
+        if (levelPoint <= 0) return;
+
+        levelPoint -= 1;
+        if (spentTarget == "hp") {
+            HealthPoint += 1;
+        } else if (spentTarget == "st") {
+            StamPoint += 1;
+        } else if (spentTarget == "atk") {
+            AttackPoint += 1;
+        }
+    }
 
     public virtual float CurrentHealth {
         get => currentHealth;
@@ -57,6 +79,14 @@ public class CharacterStatsManager : MonoBehaviour {
         }
     }
 
+    public virtual int AttackPoint {
+        get => attackPoint;
+        set {
+            attackPoint = value;
+            CalculateTotalAttack();
+        }
+    }
+
     protected virtual void Awake() {
         characterMovementManager = GetComponent<CharacterMovementManager>();
     }
@@ -64,6 +94,7 @@ public class CharacterStatsManager : MonoBehaviour {
     protected virtual void Start() {
         CalculateTotalHealth();
         CalculateTotalStamina();
+        CalculateTotalAttack();
 
         CurrentHealth = totalHealth;
         CurrentStam = totalStam;
@@ -81,6 +112,10 @@ public class CharacterStatsManager : MonoBehaviour {
         totalStam = baseStam + CalculateBonusStamina();
     }
 
+    public void CalculateTotalAttack() {
+        totalAttack = baseAttack + CalculateBonusAttack();
+    }
+
     private float CalculateBonusHealth() {
         return healthPoint * baseHealth * 0.2f;
     }
@@ -89,8 +124,12 @@ public class CharacterStatsManager : MonoBehaviour {
         return stamPoint * baseStam * 0.25f;
     }
 
+    private float CalculateBonusAttack() {
+        return attackPoint * baseAttack * 0.15f;
+    }
+
     public virtual void RegenerateStam() {
-        if (PlayerInputController.Instance.moveValue >= 1.5f || 
+        if (PlayerInputController.Instance.moveValue >= 1.5f ||
             PlayerInputController.Instance.playerMovementController.isPerformingAction) return;
 
         stamRegenTimer += Time.deltaTime;
@@ -107,7 +146,11 @@ public class CharacterStatsManager : MonoBehaviour {
         }
     }
 
-    public void CheckHealthToHandleDeath() {
+    public virtual int GetTotalStatsPoint() {
+        return levelPoint + healthPoint + stamPoint + attackPoint;
+    }
+
+    public virtual void CheckHealthToHandleDeath() {
         if (currentHealth <= 0) {
             StartCoroutine(characterMovementManager.ProcessDeathEvent());
         }

@@ -4,6 +4,8 @@ using UnityEditor;
 using UnityEngine;
 
 public class NpcCombatManager : CharacterCombatManager {
+    protected NpcCharacterManager npcCharacterManager;
+
     public float distanceFromTarget;
     public float viewableAngle;
     public Vector3 targetsDirection;
@@ -15,6 +17,12 @@ public class NpcCombatManager : CharacterCombatManager {
     public float maximumFOV = 35f;
 
     public float attackRotationSpeed = 25f;
+
+    protected override void Awake() {
+        base.Awake();
+
+        npcCharacterManager = GetComponent<NpcCharacterManager>();
+    }
 
 
     public void FindATargetViaLineOfSight(NpcCharacterManager npcCharacter) {

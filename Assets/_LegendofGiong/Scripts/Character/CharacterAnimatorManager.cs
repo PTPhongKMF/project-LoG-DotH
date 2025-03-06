@@ -45,6 +45,9 @@ public class CharacterAnimatorManager : MonoBehaviour {
         characterMovementManager.animator.applyRootMotion = settings.HasFlag(AnimationSettings.ApplyRootMotion);
         revertAnimatorRootMotionSetting = settings.HasFlag(AnimationSettings.RevertApplyRootMotion);
 
+        if (settings.HasFlag(AnimationSettings.IsAttacking))
+            characterMovementManager.characterSoundFXManager.PlayAttackGruntSFX();
+
         characterMovementManager.animator.CrossFade(targetAnimation, 0.2f);
     }
 

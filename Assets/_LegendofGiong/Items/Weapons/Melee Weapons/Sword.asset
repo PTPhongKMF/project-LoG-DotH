@@ -18,6 +18,10 @@ MonoBehaviour:
   itemId: 1
   weaponModel: {fileID: 8941423462805020661, guid: 3d5103e39c29fd944afdaedf5aef5c6b,
     type: 3}
+  weaponType: 1
   damage: 50
   light_Attack_01_Modifier: 1
+  light_Attack_02_Modifier: 1.5
+  light_Attack_03_Modifier: 2
+  special_Attack_01_Modifier: 5
   lmb_Action: {fileID: 11400000, guid: 381ae0bfa53732a4f80936c08661aa6d, type: 2}

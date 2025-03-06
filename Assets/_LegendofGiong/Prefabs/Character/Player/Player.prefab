@@ -158,6 +158,7 @@ GameObject:
   - component: {fileID: 3728634068589240184}
   - component: {fileID: 2195005142984737653}
   - component: {fileID: 8630667944871291257}
+  - component: {fileID: 5535056365905332786}
   m_Layer: 10
   m_Name: Player
   m_TagString: Player
@@ -410,6 +411,8 @@ MonoBehaviour:
   playerInventoryManager: {fileID: 0}
   playerEquipmentManager: {fileID: 0}
   playerCombatManager: {fileID: 0}
+  playerSoundFXController: {fileID: 0}
+  playerInteractionManager: {fileID: 0}
   isUsingLeftHand: 0
   isUsingRightHand: 0
   switchRight: 0
@@ -547,6 +550,18 @@ MonoBehaviour:
   lockOnTransform: {fileID: 6571305649403376612}
   currentWeaponBeingUsed: {fileID: 0}
   canCombo: 0
+--- !u!114 &5535056365905332786
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5195181839696956881}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 443eafba59a28e648aeb6af369b52537, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &7583589471612458873
 GameObject:
   m_ObjectHideFlags: 0

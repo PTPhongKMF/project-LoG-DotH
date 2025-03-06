@@ -1,0 +1,82 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!1001 &538463368615728043
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    serializedVersion: 3
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: -8679921383154817045, guid: 2960057130be2484d98381922c6dc304,
+        type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 37.062057
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: 2960057130be2484d98381922c6dc304,
+        type: 3}
+      propertyPath: m_LocalPosition.y
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: 2960057130be2484d98381922c6dc304,
+        type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 61.75346
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: 2960057130be2484d98381922c6dc304,
+        type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: 2960057130be2484d98381922c6dc304,
+        type: 3}
+      propertyPath: m_LocalRotation.x
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: 2960057130be2484d98381922c6dc304,
+        type: 3}
+      propertyPath: m_LocalRotation.y
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: 2960057130be2484d98381922c6dc304,
+        type: 3}
+      propertyPath: m_LocalRotation.z
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: 2960057130be2484d98381922c6dc304,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: 2960057130be2484d98381922c6dc304,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: 2960057130be2484d98381922c6dc304,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: -2967252090742883940, guid: 2960057130be2484d98381922c6dc304,
+        type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: d975b2adc26d59a499a3bfb6e93493b8, type: 2}
+    - target: {fileID: 919132149155446097, guid: 2960057130be2484d98381922c6dc304,
+        type: 3}
+      propertyPath: m_Name
+      value: peasant boy with flute
+      objectReference: {fileID: 0}
+    - target: {fileID: 2589850415227007453, guid: 2960057130be2484d98381922c6dc304,
+        type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: da59a3f67f95b9c41b733e5b34ebb551, type: 2}
+    m_RemovedComponents: []
+    m_RemovedGameObjects:
+    - {fileID: 1626769313905843642, guid: 2960057130be2484d98381922c6dc304, type: 3}
+    - {fileID: -8964243578063491542, guid: 2960057130be2484d98381922c6dc304, type: 3}
+    m_AddedGameObjects: []
+    m_AddedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 2960057130be2484d98381922c6dc304, type: 3}

@@ -125,6 +125,33 @@ public partial class @PlayerControls: IInputActionCollection2, IDisposable
                     ""processors"": """",
                     ""interactions"": """",
                     ""initialStateCheck"": false
+                },
+                {
+                    ""name"": ""Interact"",
+                    ""type"": ""Button"",
+                    ""id"": ""3506e9d0-3959-4df7-9b27-dc8332281003"",
+                    ""expectedControlType"": """",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": false
+                },
+                {
+                    ""name"": ""Escape"",
+                    ""type"": ""Button"",
+                    ""id"": ""0305e8be-1702-428a-b1a0-751faf3e58ab"",
+                    ""expectedControlType"": """",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": false
+                },
+                {
+                    ""name"": ""InfoTabButton"",
+                    ""type"": ""Button"",
+                    ""id"": ""420627dd-adb6-42ad-837a-a10e6044c643"",
+                    ""expectedControlType"": """",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": false
                 }
             ],
             ""bindings"": [
@@ -230,7 +257,7 @@ public partial class @PlayerControls: IInputActionCollection2, IDisposable
                 {
                     ""name"": """",
                     ""id"": ""1cdbf796-0897-4103-8a8f-9349d29a9daf"",
-                    ""path"": ""<Keyboard>/tab"",
+                    ""path"": ""<Keyboard>/r"",
                     ""interactions"": """",
                     ""processors"": """",
                     ""groups"": """",
@@ -292,6 +319,39 @@ public partial class @PlayerControls: IInputActionCollection2, IDisposable
                     ""action"": ""QuickSlot5"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""a198bbf6-a0db-47b3-892e-fb3b625b41c1"",
+                    ""path"": ""<Keyboard>/e"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""Interact"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""cfdcef63-7c54-4e3a-845f-77559e5dd0d1"",
+                    ""path"": ""<Keyboard>/escape"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""Escape"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""fb7394a1-266a-40f3-a081-6020d0d2de4e"",
+                    ""path"": ""<Keyboard>/tab"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""InfoTabButton"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
                 }
             ]
         },
@@ -339,6 +399,9 @@ public partial class @PlayerControls: IInputActionCollection2, IDisposable
         m_Player_QuickSlot3 = m_Player.FindAction("QuickSlot3", throwIfNotFound: true);
         m_Player_QuickSlot4 = m_Player.FindAction("QuickSlot4", throwIfNotFound: true);
         m_Player_QuickSlot5 = m_Player.FindAction("QuickSlot5", throwIfNotFound: true);
+        m_Player_Interact = m_Player.FindAction("Interact", throwIfNotFound: true);
+        m_Player_Escape = m_Player.FindAction("Escape", throwIfNotFound: true);
+        m_Player_InfoTabButton = m_Player.FindAction("InfoTabButton", throwIfNotFound: true);
         // Camera
         m_Camera = asset.FindActionMap("Camera", throwIfNotFound: true);
         m_Camera_Look = m_Camera.FindAction("Look", throwIfNotFound: true);
@@ -420,6 +483,9 @@ public partial class @PlayerControls: IInputActionCollection2, IDisposable
     private readonly InputAction m_Player_QuickSlot3;
     private readonly InputAction m_Player_QuickSlot4;
     private readonly InputAction m_Player_QuickSlot5;
+    private readonly InputAction m_Player_Interact;
+    private readonly InputAction m_Player_Escape;
+    private readonly InputAction m_Player_InfoTabButton;
     public struct PlayerActions
     {
         private @PlayerControls m_Wrapper;
@@ -435,6 +501,9 @@ public partial class @PlayerControls: IInputActionCollection2, IDisposable
         public InputAction @QuickSlot3 => m_Wrapper.m_Player_QuickSlot3;
         public InputAction @QuickSlot4 => m_Wrapper.m_Player_QuickSlot4;
         public InputAction @QuickSlot5 => m_Wrapper.m_Player_QuickSlot5;
+        public InputAction @Interact => m_Wrapper.m_Player_Interact;
+        public InputAction @Escape => m_Wrapper.m_Player_Escape;
+        public InputAction @InfoTabButton => m_Wrapper.m_Player_InfoTabButton;
         public InputActionMap Get() { return m_Wrapper.m_Player; }
         public void Enable() { Get().Enable(); }
         public void Disable() { Get().Disable(); }
@@ -477,6 +546,15 @@ public partial class @PlayerControls: IInputActionCollection2, IDisposable
             @QuickSlot5.started += instance.OnQuickSlot5;
             @QuickSlot5.performed += instance.OnQuickSlot5;
             @QuickSlot5.canceled += instance.OnQuickSlot5;
+            @Interact.started += instance.OnInteract;
+            @Interact.performed += instance.OnInteract;
+            @Interact.canceled += instance.OnInteract;
+            @Escape.started += instance.OnEscape;
+            @Escape.performed += instance.OnEscape;
+            @Escape.canceled += instance.OnEscape;
+            @InfoTabButton.started += instance.OnInfoTabButton;
+            @InfoTabButton.performed += instance.OnInfoTabButton;
+            @InfoTabButton.canceled += instance.OnInfoTabButton;
         }
 
         private void UnregisterCallbacks(IPlayerActions instance)
@@ -514,6 +592,15 @@ public partial class @PlayerControls: IInputActionCollection2, IDisposable
             @QuickSlot5.started -= instance.OnQuickSlot5;
             @QuickSlot5.performed -= instance.OnQuickSlot5;
             @QuickSlot5.canceled -= instance.OnQuickSlot5;
+            @Interact.started -= instance.OnInteract;
+            @Interact.performed -= instance.OnInteract;
+            @Interact.canceled -= instance.OnInteract;
+            @Escape.started -= instance.OnEscape;
+            @Escape.performed -= instance.OnEscape;
+            @Escape.canceled -= instance.OnEscape;
+            @InfoTabButton.started -= instance.OnInfoTabButton;
+            @InfoTabButton.performed -= instance.OnInfoTabButton;
+            @InfoTabButton.canceled -= instance.OnInfoTabButton;
         }
 
         public void RemoveCallbacks(IPlayerActions instance)
@@ -590,6 +677,9 @@ public partial class @PlayerControls: IInputActionCollection2, IDisposable
         void OnQuickSlot3(InputAction.CallbackContext context);
         void OnQuickSlot4(InputAction.CallbackContext context);
         void OnQuickSlot5(InputAction.CallbackContext context);
+        void OnInteract(InputAction.CallbackContext context);
+        void OnEscape(InputAction.CallbackContext context);
+        void OnInfoTabButton(InputAction.CallbackContext context);
     }
     public interface ICameraActions
     {

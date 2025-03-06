@@ -11,9 +11,20 @@ public class WorldSoundFXManager : MonoBehaviour {
 
     public AudioClip dodgeSFX;
 
+    public AudioClip[] drawBladeSfx;
     public AudioClip[] bladeDamageSfx;
     public AudioClip[] weaponSwingSfx; // Array for different weapon swing sounds
     public AudioClip[] punchSwingSfx; // Array for different punch swing sounds
+
+    public AudioClip[] deathSfx;
+    public AudioClip[] attackGruntSfx;
+    public AudioClip[] damageGruntSfx;
+
+    // Footstep sounds for different surfaces
+    [Header("Footstep Sounds")]
+    public AudioClip[] walkFootstepSfx;
+    public AudioClip[] runFootstepSfx;
+    public AudioClip[] sprintFootstepSfx;
 
     private void Awake() {
         // there can only be one of this instance script at one time, if another exist, destroy it
@@ -26,6 +37,7 @@ public class WorldSoundFXManager : MonoBehaviour {
     }
 
     public AudioClip ChooseRandomSoundFXFromArray(AudioClip[] array) {
+        if (array == null || array.Length == 0) return null;
         int index = Random.Range(0, array.Length);
         return array[index];
     }

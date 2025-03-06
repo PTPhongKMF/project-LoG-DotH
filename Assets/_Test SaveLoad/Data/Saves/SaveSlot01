@@ -1,9 +1,28 @@
 {
-    "charName": "",
+    "charName": "Gióng",
     "secondsPlayed": 1.0,
-    "worldSceneName": "Village",
-    "locationName": "Làng Thôn VN",
-    "xWorldPosition": -11.270326614379883,
+    "worldSceneName": "DevScene",
+    "locationName": "Test",
+    "xWorldPosition": 0.0,
     "yWorldPosition": 0.0,
-    "zWorldPosition": 10.742831230163575
+    "zWorldPosition": 0.0,
+    "healthPoint": 0,
+    "stamPoint": 0,
+    "currentLeftHandWeaponId": 0,
+    "currentRightHandWeaponId": 0,
+    "weaponsInLeftHandSlots": [
+        0,
+        0,
+        0
+    ],
+    "weaponsInRightHandSlots": [
+        0,
+        1,
+        0
+    ],
+    "leftHandWeaponIndex": 0,
+    "rightHandWeaponIndex": 0,
+    "isArmed": false,
+    "revertIsArmed": false,
+    "hasMessengerGaveWeapon": false
 }

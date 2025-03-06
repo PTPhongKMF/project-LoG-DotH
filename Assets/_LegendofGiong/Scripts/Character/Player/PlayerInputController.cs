@@ -26,6 +26,7 @@ public class PlayerInputController : MonoBehaviour {
     [HideInInspector] public bool sprintInput = false;
     private IInputInteraction dodgeSprintInputContext;
     [HideInInspector] public bool jumpInput = false;
+    public bool interactionInput = false;
 
     [SerializeField] private bool lmb_Input = false;
 
@@ -39,6 +40,13 @@ public class PlayerInputController : MonoBehaviour {
     [SerializeField] private Vector2 lookInput; // mouse input
     public float HorizontalLookInput() => lookInput.x;
     public float VerticalLookInput() => lookInput.y;
+
+    private bool isMenuOpen = false;
+    private bool isInDialog = false;
+    public bool IsInputBlocked => isMenuOpen || isInDialog;
+    public bool IsMovementBlocked => IsInputBlocked;
+    public bool IsCombatInputBlocked => IsInputBlocked;
+    public bool IsCameraBlocked => isMenuOpen; // Dialog allows camera movement
 
     private void Awake() {
         if (instance == null) {
@@ -80,10 +88,30 @@ public class PlayerInputController : MonoBehaviour {
             playerControls.Player.QuickSlot1.performed += i => playerMovementController.playerEquipmentManager.SwitchRightWeaponToIndex(0);
             playerControls.Player.QuickSlot2.performed += i => playerMovementController.playerEquipmentManager.SwitchRightWeaponToIndex(1);
             playerControls.Player.QuickSlot3.performed += i => playerMovementController.playerEquipmentManager.SwitchRightWeaponToIndex(2);
-            playerControls.Player.QuickSlot4.performed += i => { };
-            playerControls.Player.QuickSlot5.performed += i => { };
+            playerControls.Player.QuickSlot4.performed += i => {
+                if (playerMovementController.playerEquipmentManager.hasHealingAbility) {
+                    playerMovementController.playerEquipmentManager.TriggerHealingAbility();
+                }
+            };
+            playerControls.Player.QuickSlot5.performed += i => {
+                if (playerMovementController.playerEquipmentManager.hasRageAbility) {
+                    playerMovementController.playerEquipmentManager.TriggerRageAbility();
+                }
+            };
+            playerControls.Player.Interact.performed += i => interactionInput = true;
 
             playerControls.Player.LeftMouseButton.performed += i => lmb_Input = true;
+            playerControls.Player.Escape.performed += i => {
+                // Check if eating minigame is active
+                if (PlayerUIManager.Instance.eatingMinigame != null && 
+                    PlayerUIManager.Instance.eatingMinigame.isActive) {
+                    PlayerUIManager.Instance.eatingMinigame.ForceEndGame();
+                } else {
+                    isMenuOpen = !isMenuOpen;
+                    PlayerUIManager.Instance.playerUIPopupManager.MenuOptions.SetActive(isMenuOpen);
+                }
+            };
+            playerControls.Player.InfoTabButton.performed += i => PlayerUIManager.Instance.playerUIStatsManager.ToggleStatsTab();
 
             playerControls.Camera.Look.performed += i => lookInput = i.ReadValue<Vector2>();
             playerControls.Camera.Look.canceled += i => lookInput = i.ReadValue<Vector2>();
@@ -110,10 +138,20 @@ public class PlayerInputController : MonoBehaviour {
     }
 
     private void HandleAllInputs() {
-        HandlePlayerMovementInput();
-        HandleDodgeSprintInput();
-        HandleJumpInput();
-        HandleLmbInput();
+        if (!IsInputBlocked) {
+            HandlePlayerMovementInput();
+            HandleDodgeSprintInput();
+            HandleJumpInput();
+            HandleLmbInput();
+            HandleInteractionInput();
+        } else if (isInDialog) {
+            // Reset movement values when in dialog
+            moveValue = idleValue;
+            sprintInput = false;
+            armedMoveValue = Vector2.zero;
+            playerMovementController.IsMoving = false;
+            playerMovementController.playerAnimatorController.UpdateAnimatorMovementValues(0, 0);
+        }
     }
 
     // MOVEMENT
@@ -216,7 +254,7 @@ public class PlayerInputController : MonoBehaviour {
         if (lmb_Input) {
             lmb_Input = false;
 
-            // if we on ui dont do anyhthing, just return
+            if (IsInputBlocked) return;
 
             if (playerMovementController.isArmed) {
                 playerMovementController.SetPlayerActionHand(true);
@@ -226,8 +264,19 @@ public class PlayerInputController : MonoBehaviour {
         }
     }
 
+    private void HandleInteractionInput() {
+        if (interactionInput) {
+            interactionInput = false;
+            playerMovementController.playerInteractionManager.Interact();
+        }
+    }
+
     // OTHER
     private void OnSceneChange(Scene previousScene, Scene currentScene) {
         instance.enabled = SceneData.Instance.isPlayerMovable;
+    }
+
+    public void SetDialogState(bool inDialog) {
+        isInDialog = inDialog;
     }
 }

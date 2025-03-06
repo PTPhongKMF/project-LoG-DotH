@@ -10,7 +10,9 @@ public class WorldNPCManager : MonoBehaviour {
         private set => instance = value;
     }
 
-    [SerializeField] private GameObject[] npcCharacters;
+    public bool isPerformingLoadingOperation = false;
+
+    [SerializeField] private List<NpcCharacterSpawner> npcCharacterSpawners;
     [SerializeField] private List<GameObject> spawnedInCharacters;
 
     private void Awake() {
@@ -24,29 +26,11 @@ public class WorldNPCManager : MonoBehaviour {
     }
 
     private void Start() {
-        StartCoroutine(WaitForSceneToLoad());
     }
 
-    private IEnumerator WaitForSceneToLoad() {
-        while (!SceneManager.GetActiveScene().isLoaded) {
-            yield return null;
-        }
-        SpawnAllCharacters();
-    }
-
-    private void SpawnAllCharacters() {
-        GetAllNPCInScene();
-
-        int arrayLength = npcCharacters.Length;
-        for (int i = 0; i < arrayLength; i++) {
-            GameObject instantiatedCharacter = Instantiate(npcCharacters[i]);
-            instantiatedCharacter.GetComponent<NpcCharacterManager>().Spawn();
-            spawnedInCharacters.Add(instantiatedCharacter);
-        }
-    }
-
-    private void GetAllNPCInScene() {
-        npcCharacters = SceneData.Instance.allNPCInScene;
+    public void SpawnCharacter(NpcCharacterSpawner npcCharacterSpawner) {
+        npcCharacterSpawners.Add(npcCharacterSpawner);
+        npcCharacterSpawner.AttemptToSpawn(); 
     }
 
     private void DespawnAllCharacters() {

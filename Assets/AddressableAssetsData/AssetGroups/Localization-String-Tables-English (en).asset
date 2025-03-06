@@ -24,6 +24,18 @@ MonoBehaviour:
     - Locale-en
     - Preload
     FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 62d8ec68aad94aa44aed7f64576bdec4
+    m_Address: InteractionText_en
+    m_ReadOnly: 1
+    m_SerializedLabels:
+    - Locale-en
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 637f71912a966044f92a9ca49a53ae70
+    m_Address: LocationText_en
+    m_ReadOnly: 1
+    m_SerializedLabels:
+    - Locale-en
+    FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: a56e32f35003d8e4ab7d42cd382d1f84
     m_Address: WeaponItemText_en
     m_ReadOnly: 1

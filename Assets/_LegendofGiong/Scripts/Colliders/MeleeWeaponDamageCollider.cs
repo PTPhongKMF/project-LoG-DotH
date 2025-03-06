@@ -36,24 +36,33 @@ public class MeleeWeaponDamageCollider : DamageCollider {
         damagedCharacter.Add(damageTarget);
 
         TakeDamageEffect damageEffect = Instantiate(WorldCharacterEffectsManager.Instance.takeDamageEffect);
+        damageEffect.characterCausingDamage = characterCausingDamage;
         damageEffect.damageDealt = damageDealt;
         damageEffect.contactPoint = contactPoint;
 
+        Debug.Log($"[Attack Modifier] Current attack type: {characterCausingDamage.characterCombatManager.currentAttackType}");
+        Debug.Log($"[Attack Modifier] Base damage before modifier: {damageEffect.damageDealt}");
+
         switch (characterCausingDamage.characterCombatManager.currentAttackType) {
             case AttackType.LightAttack01:
+                Debug.Log($"[Attack Modifier] Applying Light Attack 1 modifier: {light_Attack_01_Modifier}x");
                 ApplyAttackDamageModifiers(light_Attack_01_Modifier, damageEffect);
                 break;
             case AttackType.LightAttack02:
+                Debug.Log($"[Attack Modifier] Applying Light Attack 2 modifier: {light_Attack_02_Modifier}x");
                 ApplyAttackDamageModifiers(light_Attack_02_Modifier, damageEffect);
                 break;
             case AttackType.LightAttack03:
+                Debug.Log($"[Attack Modifier] Applying Light Attack 3 modifier: {light_Attack_03_Modifier}x");
                 ApplyAttackDamageModifiers(light_Attack_03_Modifier, damageEffect);
                 break;
             case AttackType.SpecialAttack01:
+                Debug.Log($"[Attack Modifier] Applying Special Attack modifier: {special_Attack_01_Modifier}x");
                 ApplyAttackDamageModifiers(special_Attack_01_Modifier, damageEffect);
                 break;
         }
 
+        Debug.Log($"[Attack Modifier] Final damage after modifier: {damageEffect.damageDealt}");
         damageTarget.characterEffectsManager.ProcessInstantEffect(damageEffect);
     }
 

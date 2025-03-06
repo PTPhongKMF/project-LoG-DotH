@@ -30,6 +30,18 @@ MonoBehaviour:
     - Locale-vi
     - Preload
     FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: b3a57d1cb0b2f0841a717dfb291d8a9f
+    m_Address: InteractionText_vi
+    m_ReadOnly: 1
+    m_SerializedLabels:
+    - Locale-vi
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: f2798d7175886a14bafb88cfa1bdaa8a
+    m_Address: LocationText_vi
+    m_ReadOnly: 1
+    m_SerializedLabels:
+    - Locale-vi
+    FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: ff8955f3ef39ef44eade4111b6eb0317
     m_Address: UIText_vi
     m_ReadOnly: 1

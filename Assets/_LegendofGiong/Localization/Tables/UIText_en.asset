@@ -66,6 +66,134 @@ MonoBehaviour:
     m_Localized: Are you sure you want to delete Slot
     m_Metadata:
       m_Items: []
+  - m_Id: 2304097464401920
+    m_Localized: 'Equipment
+
+'
+    m_Metadata:
+      m_Items: []
+  - m_Id: 2304831182389248
+    m_Localized: Stats
+    m_Metadata:
+      m_Items: []
+  - m_Id: 2309627041857536
+    m_Localized: Close
+    m_Metadata:
+      m_Items: []
+  - m_Id: 2312910380777472
+    m_Localized: Save
+    m_Metadata:
+      m_Items: []
+  - m_Id: 2547751831519232
+    m_Localized: "Source: V\u1EA1n T\xEDch\nYtb: https://www.youtube.com/watch?v=W7n0A0ei0h4"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 2551237734350848
+    m_Localized: Skip
+    m_Metadata:
+      m_Items: []
+  - m_Id: 2695681584807936
+    m_Localized: Back to menu
+    m_Metadata:
+      m_Items: []
+  - m_Id: 2703112788393984
+    m_Localized: Saved!
+    m_Metadata:
+      m_Items: []
+  - m_Id: 2724749160103936
+    m_Localized: Remaining Level Point
+    m_Metadata:
+      m_Items: []
+  - m_Id: 2724893263806464
+    m_Localized: HEALTH Points
+    m_Metadata:
+      m_Items: []
+  - m_Id: 2725071823716352
+    m_Localized: Health values
+    m_Metadata:
+      m_Items: []
+  - m_Id: 2725205710094336
+    m_Localized: ATTACK Points
+    m_Metadata:
+      m_Items: []
+  - m_Id: 2725286492389376
+    m_Localized: Attack values
+    m_Metadata:
+      m_Items: []
+  - m_Id: 2725390414659584
+    m_Localized: STAMINA Points
+    m_Metadata:
+      m_Items: []
+  - m_Id: 2725514721247232
+    m_Localized: Stamina value
+    m_Metadata:
+      m_Items: []
+  - m_Id: 2746977478131712
+    m_Localized: Press SPACE to eat!
+    m_Metadata:
+      m_Items: []
+  - m_Id: 2876805239586816
+    m_Localized: 'Target: {0} clicks!'
+    m_Metadata:
+      m_Items: []
+  - m_Id: 2876989554081792
+    m_Localized: 'Clicks: {0} '
+    m_Metadata:
+      m_Items: []
+  - m_Id: 2877133871693824
+    m_Localized: 'Time: {0}s'
+    m_Metadata:
+      m_Items: []
+  - m_Id: 2881455380545536
+    m_Localized: YOU WON!
+    m_Metadata:
+      m_Items: []
+  - m_Id: 2881620409630720
+    m_Localized: You Lost
+    m_Metadata:
+      m_Items: []
+  - m_Id: 2882401636499456
+    m_Localized: 'You received: {0} points'
+    m_Metadata:
+      m_Items: []
+  - m_Id: 2994221856636928
+    m_Localized: 'Congratulations! You have defeated your opponent!
+
+
+      You received
+      1x Iron Sword, Healing Skill, and Rage Skill.'
+    m_Metadata:
+      m_Items: []
+  - m_Id: 2996086103130112
+    m_Localized: 'After entering combat mode:
+
+
+
+      Press [1], [2], [3] to switch
+      weapons.
+
+
+      Press [5], [6] to use skills.'
+    m_Metadata:
+      m_Items: []
+  - m_Id: 2999110976454656
+    m_Localized: How To FIGHT!
+    m_Metadata:
+      m_Items: []
+  - m_Id: 2999516364324864
+    m_Localized: 'Press [R] to enter combat mode.
+
+      Press RMB to attack.
+
+
+      Press
+      [SHIFT] to dodge (consumes stamina).'
+    m_Metadata:
+      m_Items: []
+  - m_Id: 3057818817314816
+    m_Localized: Ready to go to WAR?
+    m_Metadata:
+      m_Items: []
   references:
     version: 2
     RefIds: []

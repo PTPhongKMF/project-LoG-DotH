@@ -18,6 +18,7 @@ MonoBehaviour:
   itemId: 2
   weaponModel: {fileID: 8078642971407734879, guid: 1a4b38d78564e7849b67d30a240c88e6,
     type: 3}
+  weaponType: 2
   damage: 100
   light_Attack_01_Modifier: 1
   light_Attack_02_Modifier: 1.5

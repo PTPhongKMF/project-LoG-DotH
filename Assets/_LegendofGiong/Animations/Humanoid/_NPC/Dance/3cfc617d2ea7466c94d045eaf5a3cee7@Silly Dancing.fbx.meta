@@ -1,0 +1,884 @@
+fileFormatVersion: 2
+guid: deb149e50e599fd4cba47221c23b16d0
+ModelImporter:
+  serializedVersion: 22200
+  internalIDToNameTable: []
+  externalObjects: {}
+  materials:
+    materialImportMode: 2
+    materialName: 0
+    materialSearch: 1
+    materialLocation: 1
+  animations:
+    legacyGenerateAnimations: 4
+    bakeSimulation: 0
+    resampleCurves: 1
+    optimizeGameObjects: 0
+    removeConstantScaleCurves: 0
+    motionNodeName: 
+    rigImportErrors: 
+    rigImportWarnings: 
+    animationImportErrors: 
+    animationImportWarnings: 
+    animationRetargetingWarnings: 
+    animationDoRetargetingWarnings: 0
+    importAnimatedCustomProperties: 0
+    importConstraints: 0
+    animationCompression: 3
+    animationRotationError: 0.5
+    animationPositionError: 0.5
+    animationScaleError: 0.5
+    animationWrapMode: 0
+    extraExposedTransformPaths: []
+    extraUserProperties: []
+    clipAnimations:
+    - serializedVersion: 16
+      name: Silly Dancing
+      takeName: mixamo.com
+      internalID: -203655887218126122
+      firstFrame: 0
+      lastFrame: 325
+      wrapMode: 0
+      orientationOffsetY: 0
+      level: 0
+      cycleOffset: 0
+      loop: 0
+      hasAdditiveReferencePose: 0
+      loopTime: 1
+      loopBlend: 1
+      loopBlendOrientation: 1
+      loopBlendPositionY: 1
+      loopBlendPositionXZ: 0
+      keepOriginalOrientation: 0
+      keepOriginalPositionY: 1
+      keepOriginalPositionXZ: 0
+      heightFromFeet: 0
+      mirror: 0
+      bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
+      curves: []
+      events: []
+      transformMask: []
+      maskType: 3
+      maskSource: {instanceID: 0}
+      additiveReferencePoseFrame: 0
+    isReadable: 0
+  meshes:
+    lODScreenPercentages: []
+    globalScale: 1
+    meshCompression: 0
+    addColliders: 0
+    useSRGBMaterialColor: 1
+    sortHierarchyByName: 1
+    importPhysicalCameras: 1
+    importVisibility: 1
+    importBlendShapes: 1
+    importCameras: 1
+    importLights: 1
+    nodeNameCollisionStrategy: 1
+    fileIdsGeneration: 2
+    swapUVChannels: 0
+    generateSecondaryUV: 0
+    useFileUnits: 1
+    keepQuads: 0
+    weldVertices: 1
+    bakeAxisConversion: 0
+    preserveHierarchy: 0
+    skinWeightsMode: 0
+    maxBonesPerVertex: 4
+    minBoneWeight: 0.001
+    optimizeBones: 1
+    meshOptimizationFlags: -1
+    indexFormat: 0
+    secondaryUVAngleDistortion: 8
+    secondaryUVAreaDistortion: 15.000001
+    secondaryUVHardAngle: 88
+    secondaryUVMarginMethod: 1
+    secondaryUVMinLightmapResolution: 40
+    secondaryUVMinObjectScale: 1
+    secondaryUVPackMargin: 4
+    useFileScale: 1
+    strictVertexDataChecks: 0
+  tangentSpace:
+    normalSmoothAngle: 60
+    normalImportMode: 0
+    tangentImportMode: 3
+    normalCalculationMode: 4
+    legacyComputeAllNormalsFromSmoothingGroupsWhenMeshHasBlendShapes: 0
+    blendShapeNormalImportMode: 1
+    normalSmoothingSource: 0
+  referencedClips: []
+  importAnimation: 1
+  humanDescription:
+    serializedVersion: 3
+    human:
+    - boneName: NormPeasant2:polySurface1_NormPeasant2:Hips
+      humanName: Hips
+      limit:
+        min: {x: 0, y: 0, z: 0}
+        max: {x: 0, y: 0, z: 0}
+        value: {x: 0, y: 0, z: 0}
+        length: 0
+        modified: 0
+    - boneName: NormPeasant2:polySurface1_NormPeasant2:LeftUpLeg
+      humanName: LeftUpperLeg
+      limit:
+        min: {x: 0, y: 0, z: 0}
+        max: {x: 0, y: 0, z: 0}
+        value: {x: 0, y: 0, z: 0}
+        length: 0
+        modified: 0
+    - boneName: NormPeasant2:polySurface1_NormPeasant2:RightUpLeg
+      humanName: RightUpperLeg
+      limit:
+        min: {x: 0, y: 0, z: 0}
+        max: {x: 0, y: 0, z: 0}
+        value: {x: 0, y: 0, z: 0}
+        length: 0
+        modified: 0
+    - boneName: NormPeasant2:polySurface1_NormPeasant2:LeftLeg
+      humanName: LeftLowerLeg
+      limit:
+        min: {x: 0, y: 0, z: 0}
+        max: {x: 0, y: 0, z: 0}
+        value: {x: 0, y: 0, z: 0}
+        length: 0
+        modified: 0
+    - boneName: NormPeasant2:polySurface1_NormPeasant2:RightLeg
+      humanName: RightLowerLeg
+      limit:
+        min: {x: 0, y: 0, z: 0}
+        max: {x: 0, y: 0, z: 0}
+        value: {x: 0, y: 0, z: 0}
+        length: 0
+        modified: 0
+    - boneName: NormPeasant2:polySurface1_NormPeasant2:LeftFoot
+      humanName: LeftFoot
+      limit:
+        min: {x: 0, y: 0, z: 0}
+        max: {x: 0, y: 0, z: 0}
+        value: {x: 0, y: 0, z: 0}
+        length: 0
+        modified: 0
+    - boneName: NormPeasant2:polySurface1_NormPeasant2:RightFoot
+      humanName: RightFoot
+      limit:
+        min: {x: 0, y: 0, z: 0}
+        max: {x: 0, y: 0, z: 0}
+        value: {x: 0, y: 0, z: 0}
+        length: 0
+        modified: 0
+    - boneName: NormPeasant2:polySurface1_NormPeasant2:Spine
+      humanName: Spine
+      limit:
+        min: {x: 0, y: 0, z: 0}
+        max: {x: 0, y: 0, z: 0}
+        value: {x: 0, y: 0, z: 0}
+        length: 0
+        modified: 0
+    - boneName: NormPeasant2:polySurface1_NormPeasant2:Spine1
+      humanName: Chest
+      limit:
+        min: {x: 0, y: 0, z: 0}
+        max: {x: 0, y: 0, z: 0}
+        value: {x: 0, y: 0, z: 0}
+        length: 0
+        modified: 0
+    - boneName: NormPeasant2:polySurface1_NormPeasant2:Neck
+      humanName: Neck
+      limit:
+        min: {x: 0, y: 0, z: 0}
+        max: {x: 0, y: 0, z: 0}
+        value: {x: 0, y: 0, z: 0}
+        length: 0
+        modified: 0
+    - boneName: NormPeasant2:polySurface1_NormPeasant2:Head
+      humanName: Head
+      limit:
+        min: {x: 0, y: 0, z: 0}
+        max: {x: 0, y: 0, z: 0}
+        value: {x: 0, y: 0, z: 0}
+        length: 0
+        modified: 0
+    - boneName: NormPeasant2:polySurface1_NormPeasant2:LeftShoulder
+      humanName: LeftShoulder
+      limit:
+        min: {x: 0, y: 0, z: 0}
+        max: {x: 0, y: 0, z: 0}
+        value: {x: 0, y: 0, z: 0}
+        length: 0
+        modified: 0
+    - boneName: NormPeasant2:polySurface1_NormPeasant2:RightShoulder
+      humanName: RightShoulder
+      limit:
+        min: {x: 0, y: 0, z: 0}
+        max: {x: 0, y: 0, z: 0}
+        value: {x: 0, y: 0, z: 0}
+        length: 0
+        modified: 0
+    - boneName: NormPeasant2:polySurface1_NormPeasant2:LeftArm
+      humanName: LeftUpperArm
+      limit:
+        min: {x: 0, y: 0, z: 0}
+        max: {x: 0, y: 0, z: 0}
+        value: {x: 0, y: 0, z: 0}
+        length: 0
+        modified: 0
+    - boneName: NormPeasant2:polySurface1_NormPeasant2:RightArm
+      humanName: RightUpperArm
+      limit:
+        min: {x: 0, y: 0, z: 0}
+        max: {x: 0, y: 0, z: 0}
+        value: {x: 0, y: 0, z: 0}
+        length: 0
+        modified: 0
+    - boneName: NormPeasant2:polySurface1_NormPeasant2:LeftForeArm
+      humanName: LeftLowerArm
+      limit:
+        min: {x: 0, y: 0, z: 0}
+        max: {x: 0, y: 0, z: 0}
+        value: {x: 0, y: 0, z: 0}
+        length: 0
+        modified: 0
+    - boneName: NormPeasant2:polySurface1_NormPeasant2:RightForeArm
+      humanName: RightLowerArm
+      limit:
+        min: {x: 0, y: 0, z: 0}
+        max: {x: 0, y: 0, z: 0}
+        value: {x: 0, y: 0, z: 0}
+        length: 0
+        modified: 0
+    - boneName: NormPeasant2:polySurface1_NormPeasant2:LeftHand
+      humanName: LeftHand
+      limit:
+        min: {x: 0, y: 0, z: 0}
+        max: {x: 0, y: 0, z: 0}
+        value: {x: 0, y: 0, z: 0}
+        length: 0
+        modified: 0
+    - boneName: NormPeasant2:polySurface1_NormPeasant2:RightHand
+      humanName: RightHand
+      limit:
+        min: {x: 0, y: 0, z: 0}
+        max: {x: 0, y: 0, z: 0}
+        value: {x: 0, y: 0, z: 0}
+        length: 0
+        modified: 0
+    - boneName: NormPeasant2:polySurface1_NormPeasant2:LeftToeBase
+      humanName: LeftToes
+      limit:
+        min: {x: 0, y: 0, z: 0}
+        max: {x: 0, y: 0, z: 0}
+        value: {x: 0, y: 0, z: 0}
+        length: 0
+        modified: 0
+    - boneName: NormPeasant2:polySurface1_NormPeasant2:RightToeBase
+      humanName: RightToes
+      limit:
+        min: {x: 0, y: 0, z: 0}
+        max: {x: 0, y: 0, z: 0}
+        value: {x: 0, y: 0, z: 0}
+        length: 0
+        modified: 0
+    - boneName: NormPeasant2:polySurface1_NormPeasant2:LeftHandThumb1
+      humanName: Left Thumb Proximal
+      limit:
+        min: {x: 0, y: 0, z: 0}
+        max: {x: 0, y: 0, z: 0}
+        value: {x: 0, y: 0, z: 0}
+        length: 0
+        modified: 0
+    - boneName: NormPeasant2:polySurface1_NormPeasant2:LeftHandThumb2
+      humanName: Left Thumb Intermediate
+      limit:
+        min: {x: 0, y: 0, z: 0}
+        max: {x: 0, y: 0, z: 0}
+        value: {x: 0, y: 0, z: 0}
+        length: 0
+        modified: 0
+    - boneName: NormPeasant2:polySurface1_NormPeasant2:LeftHandThumb3
+      humanName: Left Thumb Distal
+      limit:
+        min: {x: 0, y: 0, z: 0}
+        max: {x: 0, y: 0, z: 0}
+        value: {x: 0, y: 0, z: 0}
+        length: 0
+        modified: 0
+    - boneName: NormPeasant2:polySurface1_NormPeasant2:LeftHandIndex1
+      humanName: Left Index Proximal
+      limit:
+        min: {x: 0, y: 0, z: 0}
+        max: {x: 0, y: 0, z: 0}
+        value: {x: 0, y: 0, z: 0}
+        length: 0
+        modified: 0
+    - boneName: NormPeasant2:polySurface1_NormPeasant2:LeftHandIndex2
+      humanName: Left Index Intermediate
+      limit:
+        min: {x: 0, y: 0, z: 0}
+        max: {x: 0, y: 0, z: 0}
+        value: {x: 0, y: 0, z: 0}
+        length: 0
+        modified: 0
+    - boneName: NormPeasant2:polySurface1_NormPeasant2:LeftHandIndex3
+      humanName: Left Index Distal
+      limit:
+        min: {x: 0, y: 0, z: 0}
+        max: {x: 0, y: 0, z: 0}
+        value: {x: 0, y: 0, z: 0}
+        length: 0
+        modified: 0
+    - boneName: NormPeasant2:polySurface1_NormPeasant2:LeftHandMiddle1
+      humanName: Left Middle Proximal
+      limit:
+        min: {x: 0, y: 0, z: 0}
+        max: {x: 0, y: 0, z: 0}
+        value: {x: 0, y: 0, z: 0}
+        length: 0
+        modified: 0
+    - boneName: NormPeasant2:polySurface1_NormPeasant2:LeftHandMiddle2
+      humanName: Left Middle Intermediate
+      limit:
+        min: {x: 0, y: 0, z: 0}
+        max: {x: 0, y: 0, z: 0}
+        value: {x: 0, y: 0, z: 0}
+        length: 0
+        modified: 0
+    - boneName: NormPeasant2:polySurface1_NormPeasant2:LeftHandMiddle3
+      humanName: Left Middle Distal
+      limit:
+        min: {x: 0, y: 0, z: 0}
+        max: {x: 0, y: 0, z: 0}
+        value: {x: 0, y: 0, z: 0}
+        length: 0
+        modified: 0
+    - boneName: NormPeasant2:polySurface1_NormPeasant2:LeftHandRing1
+      humanName: Left Ring Proximal
+      limit:
+        min: {x: 0, y: 0, z: 0}
+        max: {x: 0, y: 0, z: 0}
+        value: {x: 0, y: 0, z: 0}
+        length: 0
+        modified: 0
+    - boneName: NormPeasant2:polySurface1_NormPeasant2:LeftHandRing2
+      humanName: Left Ring Intermediate
+      limit:
+        min: {x: 0, y: 0, z: 0}
+        max: {x: 0, y: 0, z: 0}
+        value: {x: 0, y: 0, z: 0}
+        length: 0
+        modified: 0
+    - boneName: NormPeasant2:polySurface1_NormPeasant2:LeftHandRing3
+      humanName: Left Ring Distal
+      limit:
+        min: {x: 0, y: 0, z: 0}
+        max: {x: 0, y: 0, z: 0}
+        value: {x: 0, y: 0, z: 0}
+        length: 0
+        modified: 0
+    - boneName: NormPeasant2:polySurface1_NormPeasant2:LeftHandPinky1
+      humanName: Left Little Proximal
+      limit:
+        min: {x: 0, y: 0, z: 0}
+        max: {x: 0, y: 0, z: 0}
+        value: {x: 0, y: 0, z: 0}
+        length: 0
+        modified: 0
+    - boneName: NormPeasant2:polySurface1_NormPeasant2:LeftHandPinky2
+      humanName: Left Little Intermediate
+      limit:
+        min: {x: 0, y: 0, z: 0}
+        max: {x: 0, y: 0, z: 0}
+        value: {x: 0, y: 0, z: 0}
+        length: 0
+        modified: 0
+    - boneName: NormPeasant2:polySurface1_NormPeasant2:LeftHandPinky3
+      humanName: Left Little Distal
+      limit:
+        min: {x: 0, y: 0, z: 0}
+        max: {x: 0, y: 0, z: 0}
+        value: {x: 0, y: 0, z: 0}
+        length: 0
+        modified: 0
+    - boneName: NormPeasant2:polySurface1_NormPeasant2:RightHandThumb1
+      humanName: Right Thumb Proximal
+      limit:
+        min: {x: 0, y: 0, z: 0}
+        max: {x: 0, y: 0, z: 0}
+        value: {x: 0, y: 0, z: 0}
+        length: 0
+        modified: 0
+    - boneName: NormPeasant2:polySurface1_NormPeasant2:RightHandThumb2
+      humanName: Right Thumb Intermediate
+      limit:
+        min: {x: 0, y: 0, z: 0}
+        max: {x: 0, y: 0, z: 0}
+        value: {x: 0, y: 0, z: 0}
+        length: 0
+        modified: 0
+    - boneName: NormPeasant2:polySurface1_NormPeasant2:RightHandThumb3
+      humanName: Right Thumb Distal
+      limit:
+        min: {x: 0, y: 0, z: 0}
+        max: {x: 0, y: 0, z: 0}
+        value: {x: 0, y: 0, z: 0}
+        length: 0
+        modified: 0
+    - boneName: NormPeasant2:polySurface1_NormPeasant2:RightHandIndex1
+      humanName: Right Index Proximal
+      limit:
+        min: {x: 0, y: 0, z: 0}
+        max: {x: 0, y: 0, z: 0}
+        value: {x: 0, y: 0, z: 0}
+        length: 0
+        modified: 0
+    - boneName: NormPeasant2:polySurface1_NormPeasant2:RightHandIndex2
+      humanName: Right Index Intermediate
+      limit:
+        min: {x: 0, y: 0, z: 0}
+        max: {x: 0, y: 0, z: 0}
+        value: {x: 0, y: 0, z: 0}
+        length: 0
+        modified: 0
+    - boneName: NormPeasant2:polySurface1_NormPeasant2:RightHandIndex3
+      humanName: Right Index Distal
+      limit:
+        min: {x: 0, y: 0, z: 0}
+        max: {x: 0, y: 0, z: 0}
+        value: {x: 0, y: 0, z: 0}
+        length: 0
+        modified: 0
+    - boneName: NormPeasant2:polySurface1_NormPeasant2:RightHandMiddle1
+      humanName: Right Middle Proximal
+      limit:
+        min: {x: 0, y: 0, z: 0}
+        max: {x: 0, y: 0, z: 0}
+        value: {x: 0, y: 0, z: 0}
+        length: 0
+        modified: 0
+    - boneName: NormPeasant2:polySurface1_NormPeasant2:RightHandMiddle2
+      humanName: Right Middle Intermediate
+      limit:
+        min: {x: 0, y: 0, z: 0}
+        max: {x: 0, y: 0, z: 0}
+        value: {x: 0, y: 0, z: 0}
+        length: 0
+        modified: 0
+    - boneName: NormPeasant2:polySurface1_NormPeasant2:RightHandMiddle3
+      humanName: Right Middle Distal
+      limit:
+        min: {x: 0, y: 0, z: 0}
+        max: {x: 0, y: 0, z: 0}
+        value: {x: 0, y: 0, z: 0}
+        length: 0
+        modified: 0
+    - boneName: NormPeasant2:polySurface1_NormPeasant2:RightHandRing1
+      humanName: Right Ring Proximal
+      limit:
+        min: {x: 0, y: 0, z: 0}
+        max: {x: 0, y: 0, z: 0}
+        value: {x: 0, y: 0, z: 0}
+        length: 0
+        modified: 0
+    - boneName: NormPeasant2:polySurface1_NormPeasant2:RightHandRing2
+      humanName: Right Ring Intermediate
+      limit:
+        min: {x: 0, y: 0, z: 0}
+        max: {x: 0, y: 0, z: 0}
+        value: {x: 0, y: 0, z: 0}
+        length: 0
+        modified: 0
+    - boneName: NormPeasant2:polySurface1_NormPeasant2:RightHandRing3
+      humanName: Right Ring Distal
+      limit:
+        min: {x: 0, y: 0, z: 0}
+        max: {x: 0, y: 0, z: 0}
+        value: {x: 0, y: 0, z: 0}
+        length: 0
+        modified: 0
+    - boneName: NormPeasant2:polySurface1_NormPeasant2:RightHandPinky1
+      humanName: Right Little Proximal
+      limit:
+        min: {x: 0, y: 0, z: 0}
+        max: {x: 0, y: 0, z: 0}
+        value: {x: 0, y: 0, z: 0}
+        length: 0
+        modified: 0
+    - boneName: NormPeasant2:polySurface1_NormPeasant2:RightHandPinky2
+      humanName: Right Little Intermediate
+      limit:
+        min: {x: 0, y: 0, z: 0}
+        max: {x: 0, y: 0, z: 0}
+        value: {x: 0, y: 0, z: 0}
+        length: 0
+        modified: 0
+    - boneName: NormPeasant2:polySurface1_NormPeasant2:RightHandPinky3
+      humanName: Right Little Distal
+      limit:
+        min: {x: 0, y: 0, z: 0}
+        max: {x: 0, y: 0, z: 0}
+        value: {x: 0, y: 0, z: 0}
+        length: 0
+        modified: 0
+    - boneName: NormPeasant2:polySurface1_NormPeasant2:Spine2
+      humanName: UpperChest
+      limit:
+        min: {x: 0, y: 0, z: 0}
+        max: {x: 0, y: 0, z: 0}
+        value: {x: 0, y: 0, z: 0}
+        length: 0
+        modified: 0
+    skeleton:
+    - name: 3cfc617d2ea7466c94d045eaf5a3cee7@Silly Dancing(Clone)
+      parentName: 
+      position: {x: 0, y: 0, z: 0}
+      rotation: {x: 0, y: 0, z: 0, w: 1}
+      scale: {x: 1, y: 1, z: 1}
+    - name: NormPeasant2:polySurface1_NormPeasant2:Hips
+      parentName: 3cfc617d2ea7466c94d045eaf5a3cee7@Silly Dancing(Clone)
+      position: {x: -0.00008427724, y: 1.0060713, z: -0.0019141138}
+      rotation: {x: -0.057959378, y: -0.017810697, z: 0.00036956987, w: 0.99815995}
+      scale: {x: 1, y: 1, z: 1}
+    - name: NormPeasant2:polySurface1_NormPeasant2:Spine
+      parentName: NormPeasant2:polySurface1_NormPeasant2:Hips
+      position: {x: -0, y: 0.097389, z: -0.0033109998}
+      rotation: {x: 0.027643608, y: 0.005602523, z: 0.0011057609, w: 0.99960154}
+      scale: {x: 1, y: 1, z: 1}
+    - name: NormPeasant2:polySurface1_NormPeasant2:Spine1
+      parentName: NormPeasant2:polySurface1_NormPeasant2:Spine
+      position: {x: -0, y: 0.113687, z: 0}
+      rotation: {x: 0.08944316, y: 0.0071439673, z: -0.008375014, w: 0.9959311}
+      scale: {x: 1, y: 1, z: 1}
+    - name: NormPeasant2:polySurface1_NormPeasant2:Spine2
+      parentName: NormPeasant2:polySurface1_NormPeasant2:Spine1
+      position: {x: -0, y: 0.129928, z: 0}
+      rotation: {x: 0.089481056, y: 0.007488572, z: -0.0071117375, w: 0.995935}
+      scale: {x: 1, y: 1, z: 1}
+    - name: NormPeasant2:polySurface1_NormPeasant2:Neck
+      parentName: NormPeasant2:polySurface1_NormPeasant2:Spine2
+      position: {x: -0, y: 0.146168, z: 0}
+      rotation: {x: -0.013362607, y: 0.016070105, z: 0.001211675, w: 0.9997809}
+      scale: {x: 1, y: 1, z: 1}
+    - name: NormPeasant2:polySurface1_NormPeasant2:Head
+      parentName: NormPeasant2:polySurface1_NormPeasant2:Neck
+      position: {x: -0, y: 0.06726699, z: 0.014938999}
+      rotation: {x: 0.055381294, y: 0.016510267, z: -0.002548301, w: 0.9983255}
+      scale: {x: 1, y: 1, z: 1}
+    - name: NormPeasant2:polySurface1_NormPeasant2:HeadTop_End
+      parentName: NormPeasant2:polySurface1_NormPeasant2:Head
+      position: {x: -0, y: 0.205818, z: 0.045709}
+      rotation: {x: 0, y: -0, z: -0, w: 1}
+      scale: {x: 1, y: 1, z: 1}
+    - name: NormPeasant2:polySurface1_NormPeasant2:LeftShoulder
+      parentName: NormPeasant2:polySurface1_NormPeasant2:Spine2
+      position: {x: -0.075427994, y: 0.123248994, z: -0.001602}
+      rotation: {x: 0.5625864, y: -0.42607698, z: 0.5808643, w: 0.40564954}
+      scale: {x: 1, y: 1, z: 1}
+    - name: NormPeasant2:polySurface1_NormPeasant2:LeftArm
+      parentName: NormPeasant2:polySurface1_NormPeasant2:LeftShoulder
+      position: {x: -0, y: 0.153293, z: 0}
+      rotation: {x: -0.11979287, y: -0.03403192, z: -0.008040102, w: 0.9921829}
+      scale: {x: 1, y: 1, z: 1}
+    - name: NormPeasant2:polySurface1_NormPeasant2:LeftForeArm
+      parentName: NormPeasant2:polySurface1_NormPeasant2:LeftArm
+      position: {x: -0, y: 0.26390198, z: 0}
+      rotation: {x: -0.024708912, y: 0.040982842, z: -0.005874487, w: 0.998837}
+      scale: {x: 1, y: 1, z: 1}
+    - name: NormPeasant2:polySurface1_NormPeasant2:LeftHand
+      parentName: NormPeasant2:polySurface1_NormPeasant2:LeftForeArm
+      position: {x: -0, y: 0.24027999, z: 0}
+      rotation: {x: -0.039427485, y: 0.2410664, z: 0.14056383, w: 0.9594656}
+      scale: {x: 1, y: 1, z: 1}
+    - name: NormPeasant2:polySurface1_NormPeasant2:LeftHandThumb1
+      parentName: NormPeasant2:polySurface1_NormPeasant2:LeftHand
+      position: {x: 0.020864999, y: 0.016375, z: 0.028547999}
+      rotation: {x: 0.108451754, y: -0.041064754, z: -0.37319604, w: 0.9204764}
+      scale: {x: 1, y: 1, z: 1}
+    - name: NormPeasant2:polySurface1_NormPeasant2:LeftHandThumb2
+      parentName: NormPeasant2:polySurface1_NormPeasant2:LeftHandThumb1
+      position: {x: 0.002687, y: 0.031057999, z: 0}
+      rotation: {x: -0.0015009416, y: 0.007021024, z: 0.03449363, w: 0.99937916}
+      scale: {x: 1, y: 1, z: 1}
+    - name: NormPeasant2:polySurface1_NormPeasant2:LeftHandThumb3
+      parentName: NormPeasant2:polySurface1_NormPeasant2:LeftHandThumb2
+      position: {x: 0.0025139998, y: 0.030644, z: 0}
+      rotation: {x: -0.022915162, y: 0.0009098818, z: -0.107351795, w: 0.99395657}
+      scale: {x: 1, y: 1, z: 1}
+    - name: NormPeasant2:polySurface1_NormPeasant2:LeftHandThumb4
+      parentName: NormPeasant2:polySurface1_NormPeasant2:LeftHandThumb3
+      position: {x: -0.005201, y: 0.025497999, z: 0}
+      rotation: {x: 0, y: -0, z: -0, w: 1}
+      scale: {x: 1, y: 1, z: 1}
+    - name: NormPeasant2:polySurface1_NormPeasant2:LeftHandIndex1
+      parentName: NormPeasant2:polySurface1_NormPeasant2:LeftHand
+      position: {x: 0.041302, y: 0.071045, z: 0.010405}
+      rotation: {x: 0.06873419, y: -0.0014985648, z: -0.06915329, w: 0.99523425}
+      scale: {x: 1, y: 1, z: 1}
+    - name: NormPeasant2:polySurface1_NormPeasant2:LeftHandIndex2
+      parentName: NormPeasant2:polySurface1_NormPeasant2:LeftHandIndex1
+      position: {x: 0.00038699998, y: 0.032909, z: 0}
+      rotation: {x: 0.039198924, y: -0.0000034696413, z: -0.0018105847, w: 0.99922985}
+      scale: {x: 1, y: 1, z: 1}
+    - name: NormPeasant2:polySurface1_NormPeasant2:LeftHandIndex3
+      parentName: NormPeasant2:polySurface1_NormPeasant2:LeftHandIndex2
+      position: {x: -0.00006, y: 0.031392, z: 0}
+      rotation: {x: 0.040719576, y: 0.000062835315, z: 0.00041182787, w: 0.99917054}
+      scale: {x: 1, y: 1, z: 1}
+    - name: NormPeasant2:polySurface1_NormPeasant2:LeftHandIndex4
+      parentName: NormPeasant2:polySurface1_NormPeasant2:LeftHandIndex3
+      position: {x: -0.000327, y: 0.028376998, z: 0}
+      rotation: {x: 0, y: -0, z: -0, w: 1}
+      scale: {x: 1, y: 1, z: 1}
+    - name: NormPeasant2:polySurface1_NormPeasant2:LeftHandMiddle1
+      parentName: NormPeasant2:polySurface1_NormPeasant2:LeftHand
+      position: {x: 0.014449, y: 0.083987996, z: -0.002111}
+      rotation: {x: 0.06810311, y: -0.0092746625, z: -0.068249956, w: 0.9952979}
+      scale: {x: 1, y: 1, z: 1}
+    - name: NormPeasant2:polySurface1_NormPeasant2:LeftHandMiddle2
+      parentName: NormPeasant2:polySurface1_NormPeasant2:LeftHandMiddle1
+      position: {x: 0.00054, y: 0.036895, z: 0}
+      rotation: {x: 0.039262153, y: 0.0005741641, z: -0.005627928, w: 0.99921304}
+      scale: {x: 1, y: 1, z: 1}
+    - name: NormPeasant2:polySurface1_NormPeasant2:LeftHandMiddle3
+      parentName: NormPeasant2:polySurface1_NormPeasant2:LeftHandMiddle2
+      position: {x: -0.00019099998, y: 0.034679, z: 0}
+      rotation: {x: 0.04078906, y: 0.00019818188, z: 0.0018363025, w: 0.9991661}
+      scale: {x: 1, y: 1, z: 1}
+    - name: NormPeasant2:polySurface1_NormPeasant2:LeftHandMiddle4
+      parentName: NormPeasant2:polySurface1_NormPeasant2:LeftHandMiddle3
+      position: {x: -0.00034899998, y: 0.031423, z: 0}
+      rotation: {x: 0, y: -0, z: -0, w: 1}
+      scale: {x: 1, y: 1, z: 1}
+    - name: NormPeasant2:polySurface1_NormPeasant2:LeftHandRing1
+      parentName: NormPeasant2:polySurface1_NormPeasant2:LeftHand
+      position: {x: -0.014284, y: 0.084426, z: -0.001402}
+      rotation: {x: 0.066817395, y: -0.026425894, z: -0.07700225, w: 0.99443847}
+      scale: {x: 1, y: 1, z: 1}
+    - name: NormPeasant2:polySurface1_NormPeasant2:LeftHandRing2
+      parentName: NormPeasant2:polySurface1_NormPeasant2:LeftHandRing1
+      position: {x: -0.000017999999, y: 0.032948997, z: 0}
+      rotation: {x: 0.039397594, y: -0.0000105127665, z: 0.0033290032, w: 0.9992181}
+      scale: {x: 1, y: 1, z: 1}
+    - name: NormPeasant2:polySurface1_NormPeasant2:LeftHandRing3
+      parentName: NormPeasant2:polySurface1_NormPeasant2:LeftHandRing2
+      position: {x: 0.000003, y: 0.030524999, z: 0}
+      rotation: {x: 0.040932458, y: -0.000005021252, z: 0.0033406555, w: 0.99915636}
+      scale: {x: 1, y: 1, z: 1}
+    - name: NormPeasant2:polySurface1_NormPeasant2:LeftHandRing4
+      parentName: NormPeasant2:polySurface1_NormPeasant2:LeftHandRing3
+      position: {x: 0.000015, y: 0.028217, z: 0}
+      rotation: {x: 0, y: -0, z: -0, w: 1}
+      scale: {x: 1, y: 1, z: 1}
+    - name: NormPeasant2:polySurface1_NormPeasant2:LeftHandPinky1
+      parentName: NormPeasant2:polySurface1_NormPeasant2:LeftHand
+      position: {x: -0.041467, y: 0.073433995, z: 0.008456}
+      rotation: {x: 0.061620172, y: -0.0016637144, z: -0.05197697, w: 0.99674404}
+      scale: {x: 1, y: 1, z: 1}
+    - name: NormPeasant2:polySurface1_NormPeasant2:LeftHandPinky2
+      parentName: NormPeasant2:polySurface1_NormPeasant2:LeftHandPinky1
+      position: {x: -0.000043, y: 0.025971, z: 0}
+      rotation: {x: 0.037645165, y: -0.0029044584, z: -0.0048101423, w: 0.99927545}
+      scale: {x: 1, y: 1, z: 1}
+    - name: NormPeasant2:polySurface1_NormPeasant2:LeftHandPinky3
+      parentName: NormPeasant2:polySurface1_NormPeasant2:LeftHandPinky2
+      position: {x: 0.00021099999, y: 0.021006, z: 0}
+      rotation: {x: 0.04069114, y: -0.00000034788576, z: -0.004397549, w: 0.99916214}
+      scale: {x: 1, y: 1, z: 1}
+    - name: NormPeasant2:polySurface1_NormPeasant2:LeftHandPinky4
+      parentName: NormPeasant2:polySurface1_NormPeasant2:LeftHandPinky3
+      position: {x: -0.00016799998, y: 0.017458, z: 0}
+      rotation: {x: 0, y: -0, z: -0, w: 1}
+      scale: {x: 1, y: 1, z: 1}
+    - name: NormPeasant2:polySurface1_NormPeasant2:RightShoulder
+      parentName: NormPeasant2:polySurface1_NormPeasant2:Spine2
+      position: {x: 0.075427994, y: 0.123193994, z: 0.000041999996}
+      rotation: {x: -0.5368057, y: -0.44001412, z: 0.59525555, w: -0.4048434}
+      scale: {x: 1, y: 1, z: 1}
+    - name: NormPeasant2:polySurface1_NormPeasant2:RightArm
+      parentName: NormPeasant2:polySurface1_NormPeasant2:RightShoulder
+      position: {x: -0, y: 0.153293, z: 0}
+      rotation: {x: -0.12458539, y: -0.045681864, z: 0.057132825, w: 0.9895087}
+      scale: {x: 1, y: 1, z: 1}
+    - name: NormPeasant2:polySurface1_NormPeasant2:RightForeArm
+      parentName: NormPeasant2:polySurface1_NormPeasant2:RightArm
+      position: {x: -0, y: 0.264044, z: 0}
+      rotation: {x: -0.028112192, y: -0.033690795, z: 0.004855906, w: 0.99902505}
+      scale: {x: 1, y: 1, z: 1}
+    - name: NormPeasant2:polySurface1_NormPeasant2:RightHand
+      parentName: NormPeasant2:polySurface1_NormPeasant2:RightForeArm
+      position: {x: -0, y: 0.240303, z: 0}
+      rotation: {x: -0.061249837, y: -0.24934839, z: -0.2354125, w: 0.93736595}
+      scale: {x: 1, y: 1, z: 1}
+    - name: NormPeasant2:polySurface1_NormPeasant2:RightHandThumb1
+      parentName: NormPeasant2:polySurface1_NormPeasant2:RightHand
+      position: {x: -0.019598, y: 0.016647, z: 0.026808}
+      rotation: {x: 0.22575316, y: 0.0053404416, z: 0.37104782, w: 0.90073895}
+      scale: {x: 1, y: 1, z: 1}
+    - name: NormPeasant2:polySurface1_NormPeasant2:RightHandThumb2
+      parentName: NormPeasant2:polySurface1_NormPeasant2:RightHandThumb1
+      position: {x: -0.00201, y: 0.029648999, z: 0}
+      rotation: {x: 0.001226648, y: 0.01795507, z: -0.06233266, w: 0.9978932}
+      scale: {x: 1, y: 1, z: 1}
+    - name: NormPeasant2:polySurface1_NormPeasant2:RightHandThumb3
+      parentName: NormPeasant2:polySurface1_NormPeasant2:RightHandThumb2
+      position: {x: -0.004081, y: 0.032158997, z: 0}
+      rotation: {x: -0.01274093, y: 0.013037222, z: 0.13531873, w: 0.99063444}
+      scale: {x: 1, y: 1, z: 1}
+    - name: NormPeasant2:polySurface1_NormPeasant2:RightHandThumb4
+      parentName: NormPeasant2:polySurface1_NormPeasant2:RightHandThumb3
+      position: {x: 0.0060909996, y: 0.027019, z: 0}
+      rotation: {x: 0, y: -0, z: -0, w: 1}
+      scale: {x: 1, y: 1, z: 1}
+    - name: NormPeasant2:polySurface1_NormPeasant2:RightHandIndex1
+      parentName: NormPeasant2:polySurface1_NormPeasant2:RightHand
+      position: {x: -0.042404998, y: 0.074166, z: 0.008908}
+      rotation: {x: 0.07082497, y: 0.0021277661, z: 0.06721929, w: 0.99521905}
+      scale: {x: 1, y: 1, z: 1}
+    - name: NormPeasant2:polySurface1_NormPeasant2:RightHandIndex2
+      parentName: NormPeasant2:polySurface1_NormPeasant2:RightHandIndex1
+      position: {x: -0.000262, y: 0.032564, z: 0}
+      rotation: {x: 0.03726956, y: -0.000008817761, z: 0.00026977027, w: 0.99930525}
+      scale: {x: 1, y: 1, z: 1}
+    - name: NormPeasant2:polySurface1_NormPeasant2:RightHandIndex3
+      parentName: NormPeasant2:polySurface1_NormPeasant2:RightHandIndex2
+      position: {x: 0.000057999998, y: 0.029941, z: 0}
+      rotation: {x: 0.040287673, y: -0.00003851499, z: -0.002347658, w: 0.99918544}
+      scale: {x: 1, y: 1, z: 1}
+    - name: NormPeasant2:polySurface1_NormPeasant2:RightHandIndex4
+      parentName: NormPeasant2:polySurface1_NormPeasant2:RightHandIndex3
+      position: {x: 0.000203, y: 0.027275, z: 0}
+      rotation: {x: 0, y: -0, z: -0, w: 1}
+      scale: {x: 1, y: 1, z: 1}
+    - name: NormPeasant2:polySurface1_NormPeasant2:RightHandMiddle1
+      parentName: NormPeasant2:polySurface1_NormPeasant2:RightHand
+      position: {x: -0.013494999, y: 0.082260996, z: -0.0016089999}
+      rotation: {x: 0.07021644, y: 0.010184464, z: 0.06848972, w: 0.9951257}
+      scale: {x: 1, y: 1, z: 1}
+    - name: NormPeasant2:polySurface1_NormPeasant2:RightHandMiddle2
+      parentName: NormPeasant2:polySurface1_NormPeasant2:RightHandMiddle1
+      position: {x: -0.000253, y: 0.038052, z: 0}
+      rotation: {x: 0.037342537, y: -0.0002600513, z: 0.0007507269, w: 0.99930227}
+      scale: {x: 1, y: 1, z: 1}
+    - name: NormPeasant2:polySurface1_NormPeasant2:RightHandMiddle3
+      parentName: NormPeasant2:polySurface1_NormPeasant2:RightHandMiddle2
+      position: {x: 0.00010999999, y: 0.035528, z: 0}
+      rotation: {x: 0.04036364, y: -0.00019968463, z: -0.0037834977, w: 0.99917793}
+      scale: {x: 1, y: 1, z: 1}
+    - name: NormPeasant2:polySurface1_NormPeasant2:RightHandMiddle4
+      parentName: NormPeasant2:polySurface1_NormPeasant2:RightHandMiddle3
+      position: {x: 0.000143, y: 0.03204, z: 0}
+      rotation: {x: 0, y: -0, z: -0, w: 1}
+      scale: {x: 1, y: 1, z: 1}
+    - name: NormPeasant2:polySurface1_NormPeasant2:RightHandRing1
+      parentName: NormPeasant2:polySurface1_NormPeasant2:RightHand
+      position: {x: 0.015256999, y: 0.082191, z: -0.001143}
+      rotation: {x: 0.06904982, y: 0.026897246, z: 0.07446418, w: 0.9944666}
+      scale: {x: 1, y: 1, z: 1}
+    - name: NormPeasant2:polySurface1_NormPeasant2:RightHandRing2
+      parentName: NormPeasant2:polySurface1_NormPeasant2:RightHandRing1
+      position: {x: 0.0001, y: 0.033747997, z: 0}
+      rotation: {x: 0.037458908, y: 0.000044923243, z: -0.004803558, w: 0.9992866}
+      scale: {x: 1, y: 1, z: 1}
+    - name: NormPeasant2:polySurface1_NormPeasant2:RightHandRing3
+      parentName: NormPeasant2:polySurface1_NormPeasant2:RightHandRing2
+      position: {x: -0.000032, y: 0.031717997, z: 0}
+      rotation: {x: 0.040490605, y: -0.0000051452917, z: -0.0036769258, w: 0.9991732}
+      scale: {x: 1, y: 1, z: 1}
+    - name: NormPeasant2:polySurface1_NormPeasant2:RightHandRing4
+      parentName: NormPeasant2:polySurface1_NormPeasant2:RightHandRing3
+      position: {x: -0.000068, y: 0.029972, z: 0}
+      rotation: {x: 0, y: -0, z: -0, w: 1}
+      scale: {x: 1, y: 1, z: 1}
+    - name: NormPeasant2:polySurface1_NormPeasant2:RightHandPinky1
+      parentName: NormPeasant2:polySurface1_NormPeasant2:RightHand
+      position: {x: 0.040643, y: 0.069741, z: 0.00754}
+      rotation: {x: 0.07133488, y: -0.005904137, z: 0.07553693, w: 0.99457055}
+      scale: {x: 1, y: 1, z: 1}
+    - name: NormPeasant2:polySurface1_NormPeasant2:RightHandPinky2
+      parentName: NormPeasant2:polySurface1_NormPeasant2:RightHandPinky1
+      position: {x: 0.000262, y: 0.026902, z: 0}
+      rotation: {x: 0.03719342, y: -0.000006083398, z: -0.014198295, w: 0.99920726}
+      scale: {x: 1, y: 1, z: 1}
+    - name: NormPeasant2:polySurface1_NormPeasant2:RightHandPinky3
+      parentName: NormPeasant2:polySurface1_NormPeasant2:RightHandPinky2
+      position: {x: -0.000184, y: 0.022604, z: 0}
+      rotation: {x: 0.0402072, y: 0.00023742848, z: -0.0035741504, w: 0.999185}
+      scale: {x: 1, y: 1, z: 1}
+    - name: NormPeasant2:polySurface1_NormPeasant2:RightHandPinky4
+      parentName: NormPeasant2:polySurface1_NormPeasant2:RightHandPinky3
+      position: {x: -0.000077, y: 0.019752, z: 0}
+      rotation: {x: 0, y: -0, z: -0, w: 1}
+      scale: {x: 1, y: 1, z: 1}
+    - name: NormPeasant2:polySurface1_NormPeasant2:LeftUpLeg
+      parentName: NormPeasant2:polySurface1_NormPeasant2:Hips
+      position: {x: -0.099990994, y: -0.054169, z: -0.004939}
+      rotation: {x: -0.075516455, y: 0.044108737, z: 0.99216425, w: 0.08922932}
+      scale: {x: 1, y: 1, z: 1}
+    - name: NormPeasant2:polySurface1_NormPeasant2:LeftLeg
+      parentName: NormPeasant2:polySurface1_NormPeasant2:LeftUpLeg
+      position: {x: -0, y: 0.44641602, z: 0}
+      rotation: {x: -0.31806365, y: -0.0070053637, z: 0.006951616, w: 0.94801795}
+      scale: {x: 1, y: 1, z: 1}
+    - name: NormPeasant2:polySurface1_NormPeasant2:LeftFoot
+      parentName: NormPeasant2:polySurface1_NormPeasant2:LeftLeg
+      position: {x: -0, y: 0.44373298, z: 0}
+      rotation: {x: 0.67023546, y: 0.034034714, z: -0.027797835, w: 0.74084646}
+      scale: {x: 1, y: 1, z: 1}
+    - name: NormPeasant2:polySurface1_NormPeasant2:LeftToeBase
+      parentName: NormPeasant2:polySurface1_NormPeasant2:LeftFoot
+      position: {x: -0, y: 0.18119499, z: 0}
+      rotation: {x: 0.26862267, y: 0.077371664, z: -0.021482155, w: 0.95989275}
+      scale: {x: 1, y: 1, z: 1}
+    - name: NormPeasant2:polySurface1_NormPeasant2:LeftToe_End
+      parentName: NormPeasant2:polySurface1_NormPeasant2:LeftToeBase
+      position: {x: -0, y: 0.070866995, z: 0}
+      rotation: {x: 0, y: -0, z: -0, w: 1}
+      scale: {x: 1, y: 1, z: 1}
+    - name: NormPeasant2:polySurface1_NormPeasant2:RightUpLeg
+      parentName: NormPeasant2:polySurface1_NormPeasant2:Hips
+      position: {x: 0.099990994, y: -0.054169, z: -0.0038339999}
+      rotation: {x: -0.0020218536, y: 0.05122112, z: 0.9981192, w: -0.033622425}
+      scale: {x: 1, y: 1, z: 1}
+    - name: NormPeasant2:polySurface1_NormPeasant2:RightLeg
+      parentName: NormPeasant2:polySurface1_NormPeasant2:RightUpLeg
+      position: {x: -0, y: 0.44641897, z: 0}
+      rotation: {x: -0.3240166, y: 0.08962282, z: -0.010801461, w: 0.9417348}
+      scale: {x: 1, y: 1, z: 1}
+    - name: NormPeasant2:polySurface1_NormPeasant2:RightFoot
+      parentName: NormPeasant2:polySurface1_NormPeasant2:RightLeg
+      position: {x: -0, y: 0.444122, z: 0}
+      rotation: {x: 0.6753478, y: 0.08690579, z: 0.026727542, w: 0.7318733}
+      scale: {x: 1, y: 1, z: 1}
+    - name: NormPeasant2:polySurface1_NormPeasant2:RightToeBase
+      parentName: NormPeasant2:polySurface1_NormPeasant2:RightFoot
+      position: {x: -0, y: 0.184673, z: 0}
+      rotation: {x: 0.31661302, y: -0.0794107, z: 0.024720304, w: 0.94490165}
+      scale: {x: 1, y: 1, z: 1}
+    - name: NormPeasant2:polySurface1_NormPeasant2:RightToe_End
+      parentName: NormPeasant2:polySurface1_NormPeasant2:RightToeBase
+      position: {x: -0, y: 0.071759, z: 0}
+      rotation: {x: 0, y: -0, z: -0, w: 1}
+      scale: {x: 1, y: 1, z: 1}
+    armTwist: 0.5
+    foreArmTwist: 0.5
+    upperLegTwist: 0.5
+    legTwist: 0.5
+    armStretch: 0.05
+    legStretch: 0.05
+    feetSpacing: 0
+    globalScale: 1
+    rootMotionBoneName: 
+    hasTranslationDoF: 0
+    hasExtraRoot: 1
+    skeletonHasParents: 1
+  lastHumanDescriptionAvatarSource: {instanceID: 0}
+  autoGenerateAvatarMappingIfUnspecified: 1
+  animationType: 3
+  humanoidOversampling: 1
+  avatarSetup: 1
+  addHumanoidExtraRootOnlyWhenUsingAvatar: 1
+  importBlendShapeDeformPercent: 1
+  remapMaterialsIfMaterialImportModeIsNone: 0
+  additionalBone: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

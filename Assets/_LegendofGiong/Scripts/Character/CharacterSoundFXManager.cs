@@ -32,14 +32,34 @@ public class CharacterSoundFXManager : MonoBehaviour {
     public void PlayWeaponSwingSFX() {
         if (WorldSoundFXManager.Instance.weaponSwingSfx != null && WorldSoundFXManager.Instance.weaponSwingSfx.Length > 0) {
             AudioClip swingSound = WorldSoundFXManager.Instance.ChooseRandomSoundFXFromArray(WorldSoundFXManager.Instance.weaponSwingSfx);
-            PlaySoundFX(swingSound, 0.7f); // Slightly lower volume for swing sounds
+            PlaySoundFX(swingSound, 0.5f); // Slightly lower volume for swing sounds
         }
     }
 
     public void PlayPunchSwingSFX() {
         if (WorldSoundFXManager.Instance.punchSwingSfx != null && WorldSoundFXManager.Instance.punchSwingSfx.Length > 0) {
             AudioClip punchSound = WorldSoundFXManager.Instance.ChooseRandomSoundFXFromArray(WorldSoundFXManager.Instance.punchSwingSfx);
-            PlaySoundFX(punchSound, 0.7f); // Slightly lower volume for punch sounds
+            PlaySoundFX(punchSound, 0.5f); // Slightly lower volume for punch sounds
         }
+    }
+
+    public void PlayAttackGruntSFX() {
+        AudioClip gruntSound = WorldSoundFXManager.Instance.ChooseRandomSoundFXFromArray(WorldSoundFXManager.Instance.attackGruntSfx);
+        PlaySoundFX(gruntSound, 0.8f); // Slightly lower volume for punch sounds
+    }
+
+    public void PlayDamageGruntSFX() {
+        AudioClip gruntSound = WorldSoundFXManager.Instance.ChooseRandomSoundFXFromArray(WorldSoundFXManager.Instance.damageGruntSfx);
+        PlaySoundFX(gruntSound, 0.7f); // Slightly lower volume for punch sounds
+    }
+
+    public void PlayDeathSFX() {
+        AudioClip deathSound = WorldSoundFXManager.Instance.ChooseRandomSoundFXFromArray(WorldSoundFXManager.Instance.deathSfx);
+        PlaySoundFX(deathSound);
+    }
+
+    public void PlayDrawBladeSFX() {
+        AudioClip drawSound = WorldSoundFXManager.Instance.ChooseRandomSoundFXFromArray(WorldSoundFXManager.Instance.drawBladeSfx);
+        PlaySoundFX(drawSound, 0.5f);
     }
 }
