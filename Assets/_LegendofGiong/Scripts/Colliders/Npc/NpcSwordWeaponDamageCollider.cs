@@ -31,6 +31,7 @@ public class NpcSwordWeaponDamageCollider : DamageCollider {
         damagedCharacter.Add(damageTarget);
 
         TakeDamageEffect damageEffect = Instantiate(WorldCharacterEffectsManager.Instance.takeDamageEffect);
+        damageEffect.characterCausingDamage = characterCausingDamage;
         damageEffect.damageDealt = damageDealt;
         damageEffect.contactPoint = contactPoint;
 

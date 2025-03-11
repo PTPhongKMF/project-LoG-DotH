@@ -171,6 +171,10 @@ MonoBehaviour:
     m_Key: ready_to_war
     m_Metadata:
       m_Items: []
+  - m_Id: 5089854629396480
+    m_Key: messenger_text
+    m_Metadata:
+      m_Items: []
   m_Metadata:
     m_Items: []
   m_KeyGenerator:

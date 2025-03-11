@@ -368,12 +368,16 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   characterMovementManager: {fileID: 0}
   charName: 
-  healthPoint: 0
-  stamPoint: 0
+  levelPoint: 0
+  healthPoint: 1
+  stamPoint: 1
+  attackPoint: 1
   totalHealth: 500
   totalStam: 100
+  totalAttack: 50
   stamRegenTick: 2
   stamRegenDelay: 2
+  playerEquipmentManager: {fileID: 0}
 --- !u!114 &1005772863596041042
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -415,7 +419,7 @@ MonoBehaviour:
   playerInteractionManager: {fileID: 0}
   isUsingLeftHand: 0
   isUsingRightHand: 0
-  switchRight: 0
+  testing: 0
 --- !u!114 &3203359487481291239
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -486,7 +490,7 @@ MonoBehaviour:
   leftHandWeaponIndex: 0
   weaponsInRightHandSlots:
   - {fileID: 11400000, guid: d23811f0b1777174db7e6ba6c0a20037, type: 2}
-  - {fileID: 11400000, guid: b1b2720acf7c0884c92008707bc316c8, type: 2}
+  - {fileID: 11400000, guid: d23811f0b1777174db7e6ba6c0a20037, type: 2}
   - {fileID: 11400000, guid: d23811f0b1777174db7e6ba6c0a20037, type: 2}
   rightHandWeaponIndex: 0
 --- !u!114 &8940323592348914393
@@ -507,6 +511,8 @@ MonoBehaviour:
   rightWeaponManager: {fileID: 0}
   leftHandWeaponModel: {fileID: 0}
   rightHandWeaponModel: {fileID: 0}
+  hasHealingAbility: 0
+  hasRageAbility: 0
 --- !u!114 &3728634068589240184
 MonoBehaviour:
   m_ObjectHideFlags: 0

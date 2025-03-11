@@ -6,6 +6,9 @@ EditorBuildSettings:
   serializedVersion: 2
   m_Scenes:
   - enabled: 1
+    path: Assets/_LegendofGiong/Scenes/GameEntryScene.unity
+    guid: a95de008099f7c847a07c343bdb0f775
+  - enabled: 1
     path: Assets/_LegendofGiong/Scenes/MenuScreenScene.unity
     guid: 9338c22cde8333d468a17b972ed1c1bb
   - enabled: 1

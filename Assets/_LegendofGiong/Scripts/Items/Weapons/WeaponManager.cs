@@ -17,7 +17,7 @@ public class WeaponManager : MonoBehaviour {
         Debug.Log($"  Light Attack 2: {weapon.light_Attack_02_Modifier}x");
         Debug.Log($"  Light Attack 3: {weapon.light_Attack_03_Modifier}x");
         Debug.Log($"  Special Attack: {weapon.special_Attack_01_Modifier}x");
-        
+
         meleeDamageCollider.characterCausingDamage = characterWielding;
         meleeDamageCollider.damageDealt = weapon.damage;
 

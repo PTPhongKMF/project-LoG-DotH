@@ -164,7 +164,8 @@ MonoBehaviour:
   - m_Id: 2996086103130112
     m_Localized: "Sau khi v\xE0o tr\u1EA1ng th\xE1i chi\u1EBFn \u0111\u1EA5u.\n\n\nB\u1EA5m
       ph\xEDm [1], [2], [3] \u0111\u1EC3 \u0111\u1ED5i v. kh\xED.\n\nB\u1EA5m ph\xEDm
-      [5], [6] \u0111\u1EC3 s\u1EED d\u1EE5ng k\u0129 n\u0103ng."
+      [5] \u0111\u1EC3 H\u1ED3i M\xE1u.\nB\u1EA5m ph\xEDm [6] \u0111\u1EC3 Ph\u1EABn
+      N\u1ED9, t\u0103ng t\u1EA5n c\xF4ng."
     m_Metadata:
       m_Items: []
   - m_Id: 2999110976454656
@@ -179,6 +180,10 @@ MonoBehaviour:
       m_Items: []
   - m_Id: 3057818817314816
     m_Localized: "THAM CHI\u1EBEN?"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 5089854629396480
+    m_Localized: "Ng\u01B0\u1EDDi \u0111\u01B0a tin"
     m_Metadata:
       m_Items: []
   references:

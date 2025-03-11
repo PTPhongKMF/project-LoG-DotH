@@ -132,9 +132,11 @@ public class PlayerUIPopupManager : MonoBehaviour {
         if (!firstWeaponPopup.activeSelf) {
             firstWeaponPopup.SetActive(true);
             firstFightPopupCloseButton.interactable = false;
+            PlayerInputController.Instance.SetDialogState(true);
             StartCoroutine(EnableCloseFWButtonAfterDelay(3f));
         } else {
-            firstWeaponPopup.SetActive(!firstWeaponPopup.activeSelf);
+            firstWeaponPopup.SetActive(false);
+            PlayerInputController.Instance.SetDialogState(false);
         }
     }
 
@@ -142,9 +144,11 @@ public class PlayerUIPopupManager : MonoBehaviour {
         if (!firstFightPopup.activeSelf) {
             firstFightPopup.SetActive(true);
             firstFightPopupCloseButton.interactable = false;
+            PlayerInputController.Instance.SetDialogState(true);
             StartCoroutine(EnableCloseFFButtonAfterDelay(3f));
         } else {
             firstFightPopup.SetActive(false);
+            PlayerInputController.Instance.SetDialogState(false);
         }
     }
 
@@ -159,11 +163,18 @@ public class PlayerUIPopupManager : MonoBehaviour {
     }
 
     public void ToggleToWarPopup() {
-        toWarPopup.SetActive(!toWarPopup.activeSelf);
+        if (!toWarPopup.activeSelf) {
+            toWarPopup.SetActive(true);
+            PlayerInputController.Instance.SetDialogState(true);
+        } else {
+            toWarPopup.SetActive(false);
+            PlayerInputController.Instance.SetDialogState(false);
+        }
     }
 
     public void AcceptToWar() {
         toWarPopup.SetActive(false);
+        PlayerInputController.Instance.SetDialogState(false);
         Destroy(PlayerUIManager.Instance.playerUIPopupManager.firstWeaponPopup);
         StartCoroutine(WorldSaveManager.Instance.LoadWorldScene("Warzone"));
     }
