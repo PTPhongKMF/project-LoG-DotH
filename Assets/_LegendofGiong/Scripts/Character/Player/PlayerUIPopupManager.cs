@@ -101,6 +101,9 @@ public class PlayerUIPopupManager : MonoBehaviour {
     }
 
     public void SaveGameFromOptionMenu() {
+        if (!SceneData.Instance.isSafeToSave)
+            return;
+
         WorldSaveManager.Instance.SaveGame();
         confirmSavedPopup.SetActive(true);
         StartCoroutine(FadeInPopupOvertime(confirmSavedPopupCanvasGroup, 0.5f));
@@ -175,7 +178,7 @@ public class PlayerUIPopupManager : MonoBehaviour {
     public void AcceptToWar() {
         toWarPopup.SetActive(false);
         PlayerInputController.Instance.SetDialogState(false);
-        Destroy(PlayerUIManager.Instance.playerUIPopupManager.firstWeaponPopup);
+        //Destroy(PlayerUIManager.Instance.playerUIPopupManager.firstWeaponPopup);
         StartCoroutine(WorldSaveManager.Instance.LoadWorldScene("Warzone"));
     }
 

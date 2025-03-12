@@ -36,10 +36,17 @@ public class UISaveSlot : MonoBehaviour {
 
         localizedSlotText = LocalizationSettings.StringDatabase.GetLocalizedString("UIText", "saveslot_slot_text");
         saveSlotNumber.text = saveSlot.ToString().Replace("SaveSlot", localizedSlotText + " ");
+
         if (saveLoadFileManager.IsSaveFileExists()) {
-            level.text = "test succesful";
-            timePlayed.text = "test succesful";
-            location.text = "test succesful";
+            CharacterSaveData charData = saveLoadFileManager.LoadSaveFile();
+            if (charData != null) {
+                string localizedLocationName = LocalizationSettings.StringDatabase.GetLocalizedString("LocationText", charData.locationName);
+
+                level.text = "Lvl " + charData.levelPoint.ToString();
+                location.text = localizedLocationName;
+                // You can also update timePlayed if needed
+                // timePlayed.text = "Time Played: " + charData.secondsPlayed.ToString();
+            }
         } else {
             loadSaveSlotButton.interactable = false;
             deleteSaveSlotButton.interactable = false;

@@ -1,0 +1,34 @@
+{
+    "charName": "",
+    "secondsPlayed": 1.0,
+    "worldSceneName": "StarterVillageArea",
+    "locationName": "starter_village",
+    "xWorldPosition": 17.13306999206543,
+    "yWorldPosition": 0.09149312973022461,
+    "zWorldPosition": 40.8856086730957,
+    "levelPoint": 100,
+    "attackPoint": 0,
+    "healthPoint": 0,
+    "stamPoint": 0,
+    "currentLeftHandWeaponId": 0,
+    "currentRightHandWeaponId": 0,
+    "weaponsInLeftHandSlots": [
+        0,
+        0,
+        0
+    ],
+    "weaponsInRightHandSlots": [
+        0,
+        0,
+        0
+    ],
+    "leftHandWeaponIndex": 0,
+    "rightHandWeaponIndex": 0,
+    "isArmed": false,
+    "revertIsArmed": false,
+    "hasHealingAbility": false,
+    "hasRageAbility": false,
+    "allUtilitySlotsCanvasGroup": 0.0,
+    "hasStartFirstFightAndWeapon": false,
+    "hasFirstFightAndWeapon": false
+}

@@ -199,7 +199,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 0}
+  m_Sprite: {fileID: 21300000, guid: 4088425c34a1d2b4c82181a37cc06209, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -440,7 +440,7 @@ MonoBehaviour:
   saveSlot: 0
   loadSaveSlotButton: {fileID: 4788185863179813010}
   deleteSaveSlotButton: {fileID: 5398825928243669442}
-  icon: {fileID: 0}
+  icon: {fileID: 9013746406364966784}
   saveSlotNumber: {fileID: 1619086117902363126}
   level: {fileID: 2684064969111087172}
   timePlayed: {fileID: 7926237167726816255}
@@ -864,7 +864,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &5592721975900404606
 RectTransform:
   m_ObjectHideFlags: 0

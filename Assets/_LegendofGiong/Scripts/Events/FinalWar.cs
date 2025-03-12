@@ -12,16 +12,17 @@ public class FinalWar : MonoBehaviour {
 
     private void Update() {
         for (int i = 0; i < length; i++) {
-            if (characters[i].characterGroup == CharacterGroup.Invader && !characters[i].isDead || characters[i].characterStatsManager.CurrentHealth > 0)
+            if (characters[i].characterGroup != CharacterGroup.Invader ||
+                characters[i].characterGroup == CharacterGroup.Invader && !characters[i].isDead || characters[i].characterStatsManager.CurrentHealth > 0)
                 return;
         }
 
-        StartCoroutine(Delay(10));
-
-        StartCoroutine(WorldSaveManager.Instance.LoadWorldScene("OutroCutscene"));
+        StartCoroutine(Delay(5));
     }
 
     private IEnumerator Delay(float delay) {
         yield return new WaitForSeconds(delay);
+
+        StartCoroutine(WorldSaveManager.Instance.LoadWorldScene("OutroCutscene"));
     }
 }
